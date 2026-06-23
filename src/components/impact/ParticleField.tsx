@@ -1,0 +1,198 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import * as THREE from "three";
+
+/**
+ * Subtle, warm floating-particle field rendered behind the impact quote.
+ * Brand-palette colors, slow organic drift, respects prefers-reduced-motion,
+ * pauses when scrolled out of view, and cleans up all GPU resources on unmount.
+ */
+export default function ParticleField() {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const container: HTMLDivElement | null = containerRef.current;
+    if (!container) return;
+    // Local non-null alias so nested closures keep the narrowed type.
+    const el: HTMLDivElement = container;
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const COUNT = 90;
+    // Brand palette (evergreen, harvest-orange, asparagus, sandstone-beige).
+    const PALETTE = [0x334e1f, 0xed961d, 0x7ca84c, 0xf1e9d2];
+
+    const scene = new THREE.Scene();
+
+    let width = el.clientWidth || 1;
+    let height = el.clientHeight || 1;
+
+    const camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 100);
+    camera.position.z = 14;
+
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(width, height);
+    renderer.setClearColor(0x000000, 0);
+    el.appendChild(renderer.domElement);
+
+    // Geometry: one BufferGeometry holding all particle positions + per-vertex color.
+    const positions = new Float32Array(COUNT * 3);
+    const colors = new Float32Array(COUNT * 3);
+    // Per-particle drift speed/phase kept in plain arrays (not uploaded to GPU).
+    const speed = new Float32Array(COUNT);
+    const phase = new Float32Array(COUNT);
+    const color = new THREE.Color();
+
+    const SPREAD_X = 26;
+    const SPREAD_Y = 12;
+    const SPREAD_Z = 10;
+
+    for (let i = 0; i < COUNT; i++) {
+      positions[i * 3] = (Math.random() - 0.5) * SPREAD_X;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * SPREAD_Y;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * SPREAD_Z;
+
+      color.set(PALETTE[i % PALETTE.length]);
+      colors[i * 3] = color.r;
+      colors[i * 3 + 1] = color.g;
+      colors[i * 3 + 2] = color.b;
+
+      // Vary by index (Math.random is unavailable in workflow scripts but fine here).
+      speed[i] = 0.15 + Math.random() * 0.35;
+      phase[i] = Math.random() * Math.PI * 2;
+    }
+
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
+
+    // Soft round sprite so particles read as gentle dots, not squares.
+    const sprite = makeCircleTexture();
+    const material = new THREE.PointsMaterial({
+      size: 0.5,
+      map: sprite,
+      vertexColors: true,
+      transparent: true,
+      opacity: 0.7,
+      depthWrite: false,
+      blending: THREE.NormalBlending,
+      sizeAttenuation: true,
+    });
+
+    const points = new THREE.Points(geometry, material);
+    scene.add(points);
+
+    const posAttr = geometry.getAttribute("position") as THREE.BufferAttribute;
+
+    let raf = 0;
+    let running = true;
+    const clock = new THREE.Clock();
+
+    function animate() {
+      if (!running) return;
+      raf = requestAnimationFrame(animate);
+      const t = clock.getElapsedTime();
+
+      // Each particle drifts on a slow vertical bob + tiny horizontal sway.
+      for (let i = 0; i < COUNT; i++) {
+        const baseY = positions[i * 3 + 1];
+        const baseX = positions[i * 3];
+        posAttr.setY(i, baseY + Math.sin(t * speed[i] + phase[i]) * 0.6);
+        posAttr.setX(i, baseX + Math.cos(t * speed[i] * 0.6 + phase[i]) * 0.3);
+      }
+      posAttr.needsUpdate = true;
+
+      // Whole field rotates almost imperceptibly for depth.
+      points.rotation.z = Math.sin(t * 0.05) * 0.05;
+
+      renderer.render(scene, camera);
+    }
+
+    function renderStatic() {
+      renderer.render(scene, camera);
+    }
+
+    // Only animate while visible; render one static frame otherwise.
+    const io = new IntersectionObserver(
+      (entries) => {
+        const visible = entries[0].isIntersecting;
+        if (visible && !reduceMotion && !running) {
+          running = true;
+          clock.start();
+          animate();
+        } else if (!visible && running) {
+          running = false;
+          cancelAnimationFrame(raf);
+        }
+      },
+      { threshold: 0.05 },
+    );
+    io.observe(el);
+
+    function handleResize() {
+      width = el.clientWidth || 1;
+      height = el.clientHeight || 1;
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+      renderer.setSize(width, height);
+      if (!running) renderStatic();
+    }
+    window.addEventListener("resize", handleResize);
+
+    if (reduceMotion) {
+      running = false;
+      renderStatic();
+    } else {
+      animate();
+    }
+
+    return () => {
+      running = false;
+      cancelAnimationFrame(raf);
+      io.disconnect();
+      window.removeEventListener("resize", handleResize);
+      geometry.dispose();
+      material.dispose();
+      sprite.dispose();
+      renderer.dispose();
+      if (renderer.domElement.parentNode === el) {
+        el.removeChild(renderer.domElement);
+      }
+    };
+  }, []);
+
+  return (
+    <div
+      ref={containerRef}
+      aria-hidden
+      className="pointer-events-none absolute inset-0 z-0"
+    />
+  );
+}
+
+/** Builds a soft radial-gradient circle texture for round particles. */
+function makeCircleTexture(): THREE.Texture {
+  const size = 64;
+  const canvas = document.createElement("canvas");
+  canvas.width = size;
+  canvas.height = size;
+  const ctx = canvas.getContext("2d")!;
+  const gradient = ctx.createRadialGradient(
+    size / 2,
+    size / 2,
+    0,
+    size / 2,
+    size / 2,
+    size / 2,
+  );
+  gradient.addColorStop(0, "rgba(255,255,255,1)");
+  gradient.addColorStop(0.4, "rgba(255,255,255,0.8)");
+  gradient.addColorStop(1, "rgba(255,255,255,0)");
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, size, size);
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.needsUpdate = true;
+  return texture;
+}

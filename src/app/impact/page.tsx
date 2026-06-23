@@ -2,10 +2,17 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Counter from "@/components/home/Counter";
+import ParticleField from "@/components/impact/ParticleField";
 
 export const metadata: Metadata = {
   title: "Impact | Goodness for All",
 };
+
+/** Build a Google Maps search URL for a location by name + city. */
+function mapsUrl(org: string, name: string): string {
+  const query = `${org} ${name} Rotterdam`;
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+}
 
 const LOCATIONS = [
   { org: "Incluzio", name: "De Kip" },
@@ -52,9 +59,13 @@ export default function ImpactPage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-base">
             {LOCATIONS.map((loc) => (
-              <div
+              <a
                 key={`${loc.org}-${loc.name}`}
-                className="p-base bg-pure-mist border border-evergreen flex flex-col justify-between transition-transform duration-200 ease-out hover:-translate-y-1"
+                href={mapsUrl(loc.org, loc.name)}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Bekijk ${loc.name} op Google Maps`}
+                className="group p-base bg-pure-mist border border-evergreen flex flex-col justify-between transition-all duration-200 ease-out hover:-translate-y-1 hover:border-2 hover:border-harvest-orange hover:shadow-[4px_4px_0_0_#334E1F] focus:outline-none focus-visible:border-2 focus-visible:border-harvest-orange"
               >
                 <div>
                   <p className="font-label-sm text-label-sm text-harvest-orange uppercase mb-2">
@@ -64,25 +75,30 @@ export default function ImpactPage() {
                     {loc.name}
                   </h3>
                 </div>
-                <span className="material-symbols-outlined text-evergreen mt-4">location_on</span>
-              </div>
+                <span className="material-symbols-outlined text-evergreen mt-4 transition-colors group-hover:text-harvest-orange">
+                  location_on
+                </span>
+              </a>
             ))}
           </div>
         </section>
 
         {/* Quote Section */}
         <section className="py-section-gap-sm">
-          <div className="bg-sandstone-beige p-section-gap-sm border-evergreen border-2 flex flex-col items-center">
-            <span className="material-symbols-outlined text-[48px] text-harvest-orange mb-4">
-              format_quote
-            </span>
-            <blockquote className="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-evergreen text-center max-w-3xl mb-8">
-              &quot;Onze samenwerking met Goodness for All brengt mensen echt weer bij elkaar aan
-              tafel, zonder drempels.&quot;
-            </blockquote>
-            <cite className="not-italic font-label-sm text-label-sm text-evergreen uppercase tracking-widest">
-              — Rozanne Boelijn (SOL)
-            </cite>
+          <div className="relative overflow-hidden bg-sandstone-beige p-section-gap-sm border-evergreen border-2 flex flex-col items-center">
+            <ParticleField />
+            <div className="relative z-10 flex flex-col items-center">
+              <span className="material-symbols-outlined text-[48px] text-harvest-orange mb-4">
+                format_quote
+              </span>
+              <blockquote className="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-evergreen text-center max-w-3xl mb-8">
+                &quot;Onze samenwerking met Goodness for All brengt mensen echt weer bij elkaar aan
+                tafel, zonder drempels.&quot;
+              </blockquote>
+              <cite className="not-italic font-label-sm text-label-sm text-evergreen uppercase tracking-widest">
+                — Rozanne Boelijn (SOL)
+              </cite>
+            </div>
           </div>
         </section>
 
@@ -120,7 +136,7 @@ export default function ImpactPage() {
 
         {/* Research Block */}
         <section className="py-section-gap-sm md:py-section-gap-lg grid md:grid-cols-2 gap-12 items-start">
-          <div className="bg-evergreen p-section-gap-sm text-pure-mist border-2 border-evergreen">
+          <div className="bg-evergreen p-section-gap-sm text-pure-mist border-2 border-evergreen transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-[8px_8px_0_0_#ED961D]">
             <h2 className="font-headline-md text-headline-md text-harvest-orange mb-6">
               Onderzoeksrapport
             </h2>
@@ -136,7 +152,7 @@ export default function ImpactPage() {
               Rapport downloaden
             </button>
           </div>
-          <div className="p-section-gap-sm bg-sandstone-beige/30 border-2 border-evergreen self-stretch flex flex-col justify-center">
+          <div className="p-section-gap-sm bg-sandstone-beige/30 border-2 border-evergreen self-stretch flex flex-col justify-center transition-all duration-200 ease-out hover:-translate-y-1 hover:bg-sandstone-beige hover:shadow-[8px_8px_0_0_#334E1F]">
             <h3 className="font-label-sm text-label-sm text-evergreen uppercase mb-4 tracking-widest">
               SROI Analyse
             </h3>
