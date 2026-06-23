@@ -32,11 +32,7 @@ export default function ParticleField() {
     const camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 100);
     camera.position.z = 10;
 
-    const renderer = new THREE.WebGLRenderer({
-      alpha: true,
-      antialias: true,
-      preserveDrawingBuffer: true,
-    });
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(width, height);
     renderer.setClearColor(0x000000, 0);
@@ -44,6 +40,9 @@ export default function ParticleField() {
 
     // Geometry: one BufferGeometry holding all particle positions + per-vertex color.
     const positions = new Float32Array(COUNT * 3);
+    // Immutable "home" positions — the buffer (positions) is rewritten each frame
+    // as home + oscillation, so home must NOT share storage with it.
+    const home = new Float32Array(COUNT * 3);
     const colors = new Float32Array(COUNT * 3);
     // Per-particle drift speed/phase kept in plain arrays (not uploaded to GPU).
     const speed = new Float32Array(COUNT);
@@ -55,9 +54,12 @@ export default function ParticleField() {
     const SPREAD_Z = 10;
 
     for (let i = 0; i < COUNT; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * SPREAD_X;
-      positions[i * 3 + 1] = (Math.random() - 0.5) * SPREAD_Y;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * SPREAD_Z;
+      home[i * 3] = (Math.random() - 0.5) * SPREAD_X;
+      home[i * 3 + 1] = (Math.random() - 0.5) * SPREAD_Y;
+      home[i * 3 + 2] = (Math.random() - 0.5) * SPREAD_Z;
+      positions[i * 3] = home[i * 3];
+      positions[i * 3 + 1] = home[i * 3 + 1];
+      positions[i * 3 + 2] = home[i * 3 + 2];
 
       color.set(PALETTE[i % PALETTE.length]);
       colors[i * 3] = color.r;
@@ -95,22 +97,25 @@ export default function ParticleField() {
 
     let raf = 0;
     let looping = false; // guards against double rAF loops
-    const clock = new THREE.Clock();
+    // Use performance.now() rather than THREE.Clock (deprecated in r184 and
+    // unreliable here — getElapsedTime() stopped advancing, freezing motion).
+    const t0 = performance.now();
 
     function frame() {
-      const t = clock.getElapsedTime();
+      const t = (performance.now() - t0) / 1000;
 
-      // Each particle drifts on a clearly visible vertical bob + horizontal sway.
+      // Bounded oscillation around each particle's home position so motion is
+      // clearly visible yet particles always stay within the viewport.
       for (let i = 0; i < COUNT; i++) {
-        const baseY = positions[i * 3 + 1];
-        const baseX = positions[i * 3];
-        posAttr.setY(i, baseY + Math.sin(t * speed[i] + phase[i]) * 1.1);
-        posAttr.setX(i, baseX + Math.cos(t * speed[i] * 0.7 + phase[i]) * 0.7);
+        const baseX = home[i * 3];
+        const baseY = home[i * 3 + 1];
+        posAttr.setX(i, baseX + Math.cos(t * speed[i] * 0.8 + phase[i]) * 1.0);
+        posAttr.setY(i, baseY + Math.sin(t * speed[i] + phase[i]) * 1.6);
       }
       posAttr.needsUpdate = true;
 
-      // Whole field rotates gently for depth.
-      points.rotation.z = Math.sin(t * 0.08) * 0.08;
+      // Whole field rotates continuously for unmistakable, always-on motion.
+      points.rotation.z = t * 0.04;
 
       renderer.render(scene, camera);
       raf = requestAnimationFrame(frame);
