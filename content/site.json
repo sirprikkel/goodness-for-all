@@ -1,0 +1,438 @@
+{
+  "settings": {
+    "siteName": "Goodness for All",
+    "logo": "/images/logo.png",
+    "logoAlt": "Goodness for All",
+    "email": "info@goodnessforall.nl",
+    "city": "Rotterdam",
+    "country": "Nederland",
+    "copyright": "© 2026 Goodness for All",
+    "contactButton": "Contact",
+    "menuLabel": "Menu",
+    "openMenuLabel": "Open menu",
+    "closeMenuLabel": "Close menu",
+    "nav": [
+      { "href": "/ons-verhaal", "label": "Ons verhaal", "icon": "history_edu" },
+      { "href": "/impact", "label": "Impact", "icon": "query_stats" },
+      { "href": "/partners", "label": "Partners", "icon": "handshake" },
+      { "href": "/ik-wil-helpen", "label": "Werken bij", "icon": "work" },
+      { "href": "/contact", "label": "Contact", "icon": "mail" }
+    ],
+    "footerLinks": [
+      { "href": "/voor-buurthuizen", "label": "Voor buurthuizen" },
+      { "href": "/anbi", "label": "ANBI-informatie" },
+      { "href": "#", "label": "Privacy" }
+    ]
+  },
+  "home": {
+    "metaTitle": "Goodness for All | Iedereen een gezonde maaltijd",
+    "metaDescription": "Samen maken we een einde aan honger in Rotterdam.",
+    "hero": {
+      "image": "/images/home/hero.jpg",
+      "title": "Iedereen een gezonde maaltijd.",
+      "text": "Samen maken we een einde aan honger in Rotterdam.",
+      "buttonLabel": "Lees ons verhaal",
+      "buttonHref": "/ons-verhaal"
+    },
+    "cards": [
+      {
+        "title": "Ons verhaal",
+        "text": "De één betaalt wat meer, zodat de ander minder betaalt. Zo werkt het.",
+        "href": "/ons-verhaal",
+        "icon": "arrow_forward"
+      },
+      {
+        "title": "Impact",
+        "text": "2.000 maaltijden per maand. Bekijk waar we ze naartoe brengen.",
+        "href": "/impact",
+        "icon": "query_stats"
+      }
+    ],
+    "joinCard": {
+      "title": "Doe mee",
+      "icon": "handshake",
+      "links": [
+        { "href": "/partners", "label": "Als bedrijf: Word Impact Partner" },
+        { "href": "/voor-buurthuizen", "label": "Als buurthuis: Help de maaltijden verspreiden" },
+        {
+          "href": "/ik-wil-helpen",
+          "label": "Als persoon: Kijk naar onze vacatures, vertel anderen over ons, of doneer!"
+        }
+      ]
+    },
+    "counter": {
+      "value": 2000,
+      "label": "maaltijden per maand",
+      "text": "Via 12 buurthuizen in Rotterdam en Den Haag."
+    },
+    "quote": {
+      "text": "Door de maaltijden heb ik het gevoel dat ik het gesprek toch positief kan afronden en echt iets kan bieden aan mensen, waar ze op dat moment ook echt mee geholpen zijn.",
+      "name": "Lysdaimarie Conep",
+      "role": "Coördinator Huis van de Wijk De Kip"
+    },
+    "partnerStripTitle": "Onze trotse partners"
+  },
+  "partners": {
+    "metaTitle": "Partners | Goodness for All",
+    "hero": {
+      "leftTitle": "Rotterdam is ook jullie stad.",
+      "leftText": "Samen bouwen we aan een stad zonder honger. Uw organisatie kan het verschil maken voor duizenden buurtgenoten.",
+      "rightTitle": "Word Goodness Impact Partner.",
+      "badges": ["CSRD PROOF", "ESG COMPLIANT"],
+      "rightText": "Voldoe aan uw duurzaamheidsdoelstellingen en rapportageverplichtingen (CSRD/ESG) terwijl u direct bijdraagt aan lokale voedselzekerheid in Rotterdam."
+    },
+    "pricingTitle": "Kies uw impact niveau",
+    "pricingText": "Transparante bijdragen, meetbaar resultaat.",
+    "plans": [
+      {
+        "name": "Impact Supporter",
+        "price": "€500",
+        "period": "/ jaar",
+        "featured": false,
+        "dark": false,
+        "features": [
+          "100 gezonde maaltijden voor Rotterdamse gezinnen.",
+          "Jaarlijks digitaal impact certificaat.",
+          "Logo vermelding op onze website."
+        ],
+        "buttonLabel": "Start als Supporter"
+      },
+      {
+        "name": "Impact Builder",
+        "price": "€1.250",
+        "period": "/ jaar",
+        "featured": true,
+        "featuredLabel": "POPULAIR",
+        "dark": false,
+        "features": [
+          "300 gezonde maaltijden.",
+          "Volledig CSRD-klaar impact rapportage.",
+          "Goodness vrieskast voor op kantoor (optioneel)."
+        ],
+        "buttonLabel": "Word Impact Builder"
+      },
+      {
+        "name": "Impact Leader",
+        "price": "€2.500",
+        "period": "/ jaar",
+        "featured": false,
+        "dark": true,
+        "features": [
+          "750 gezonde maaltijden.",
+          "Gepersonaliseerd CSRD/ESG rapport per kwartaal.",
+          "Impact video voor uw bedrijfscommunicatie."
+        ],
+        "buttonLabel": "Leid de Impact"
+      }
+    ],
+    "freezer": {
+      "image": "/images/partners/freezer.jpg",
+      "alt": "Een moderne, strakke Goodness for All vrieskast in een licht, eigentijds Rotterdams kantoor, gevuld met kleurrijke gezonde maaltijden.",
+      "title": "Directe impact in uw kantoor.",
+      "text": "Met de GfA vrieskast op locatie biedt u niet alleen gezonde opties aan uw medewerkers, maar toont u elke dag uw betrokkenheid bij de stad.",
+      "quote": "De vrieskast is een dagelijkse reminder aan onze missie om Rotterdam sterker te maken.",
+      "quoteAuthor": "— HR Directeur, Rotterdamse Partner"
+    },
+    "logoGridTitle": "Zij gingen je voor",
+    "logoGrid": [
+      { "file": "havenbedrijf", "alt": "Havenbedrijf Rotterdam" },
+      { "file": "erasmus-mc", "alt": "Erasmus MC" },
+      { "file": "coolblue", "alt": "Coolblue" },
+      { "file": "unilever", "alt": "Unilever" },
+      { "file": "port-base", "alt": "Port Base" }
+    ],
+    "formTitle": "Impact maken?",
+    "formText": "Vul het formulier in en we nemen binnen 24 uur contact op."
+  },
+  "partnerLogos": [
+    { "file": "gemeente-rotterdam", "alt": "Gemeente Rotterdam" },
+    { "file": "provincie-zuid-holland", "alt": "Provincie Zuid-Holland" },
+    { "file": "rabobank", "alt": "Rabobank" },
+    { "file": "fmo", "alt": "FMO" },
+    { "file": "abb", "alt": "ABB" },
+    { "file": "savills", "alt": "Savills" },
+    { "file": "azbel", "alt": "Azbel" },
+    { "file": "ns-stations", "alt": "NS Stations" },
+    { "file": "lazy", "alt": "Lazy" },
+    { "file": "sol", "alt": "SOL" },
+    { "file": "incluzio", "alt": "Incluzio" }
+  ],
+  "impact": {
+    "metaTitle": "Impact | Goodness for All",
+    "counterValue": 6240,
+    "counterLabel": "maaltijden uitgedeeld",
+    "counterText": "op weg naar 100.000.",
+    "locationsTitle": "Impact Locaties",
+    "locations": [
+      { "org": "Incluzio", "name": "De Kip", "city": "Rotterdam" },
+      { "org": "Incluzio", "name": "De Gaffel", "city": "Rotterdam" },
+      { "org": "Incluzio", "name": "Middelpunt", "city": "Rotterdam" },
+      { "org": "Stichting", "name": "Overwin de Armoede", "city": "Rotterdam" },
+      { "org": "Speelcentrum", "name": "Weena", "city": "Rotterdam" },
+      { "org": "Stichting", "name": "Isaak en de Schittering", "city": "Rotterdam" },
+      { "org": "SOL", "name": "Riederkwartier", "city": "Rotterdam" },
+      { "org": "SOL", "name": "Feyenoord", "city": "Rotterdam" },
+      { "org": "Buurtinitiatief", "name": "Huiskamer Crooswijk", "city": "Rotterdam" },
+      { "org": "Hotspot", "name": "Hutspot", "city": "Rotterdam" },
+      { "org": "Villa", "name": "Vonk", "city": "Rotterdam" },
+      { "org": "St. Bewonersgroep", "name": "Kralingen-West", "city": "Rotterdam" }
+    ],
+    "quote": {
+      "text": "Onze samenwerking met Goodness for All brengt mensen echt weer bij elkaar aan tafel, zonder drempels.",
+      "author": "— Rozanne Boelijn (SOL)"
+    },
+    "gallery": [
+      {
+        "image": "/images/impact/gallery-1.jpg",
+        "alt": "A documentary style candid photograph of diverse community members sharing a vibrant, colorful meal in a bright Rotterdam community center."
+      },
+      { "placeholder": true, "text": "Voeg hier je eigen foto's toe." },
+      {
+        "image": "/images/impact/gallery-2.jpg",
+        "alt": "A high-contrast close-up of hands preparing healthy meals in a professional community kitchen setting."
+      },
+      {
+        "image": "/images/impact/gallery-3.jpg",
+        "alt": "An wide-angle atmospheric shot of an urban neighborhood center in Rotterdam at dusk."
+      }
+    ],
+    "research": {
+      "title": "Onderzoeksrapport",
+      "text": "Ons laatste onafhankelijke onderzoek toont aan dat de impact van een gezamenlijke maaltijd verder gaat dan alleen voeding. Het verlaagt de drempel naar verdere hulpverlening en versterkt de sociale cohesie in de wijk.",
+      "buttonLabel": "Rapport downloaden",
+      "sroiEyebrow": "SROI Analyse",
+      "sroiTitle": "9-33x Rendement",
+      "sroiText": "Voor elke euro geïnvesteerd in onze programma's, genereert de maatschappij een waarde tussen de 9 en 33 euro door vermindering van eenzaamheid en verbeterde gezondheid.",
+      "sroiNote": "* Gebaseerd op externe Social Return on Investment berekeningen 2023-2024."
+    }
+  },
+  "contact": {
+    "metaTitle": "Contact | Goodness for All",
+    "metaDescription": "Heb je een vraag of wil je partner worden? Neem contact op.",
+    "title": "Neem contact op.",
+    "text": "Samen bouwen we aan een buurt zonder drempels. Heb je een vraag of wil je partner worden? We horen het graag.",
+    "detailsTitle": "Onze Basis",
+    "linkedinLabel": "LinkedIn",
+    "linkedinHref": "#",
+    "mapImage": "/images/contact/map.jpg",
+    "mapLabel": "Gevestigd in Rotterdam",
+    "newsletterTitle": "Blijf op de hoogte.",
+    "newsletterText": "Ontvang maandelijks onze impact-updates.",
+    "newsletterPlaceholder": "E-mail",
+    "newsletterButton": "OK"
+  },
+  "help": {
+    "metaTitle": "Werken bij | Goodness for All",
+    "eyebrow": "CARRIÈRE",
+    "title": "Ik wil helpen",
+    "text": "We bouwen aan iets wat werkt. Geen ingewikkelde structuren, maar direct resultaat voor de gemeenschap. Sluit je aan bij een team dat gelooft in radicale toegankelijkheid en eerlijke impact.",
+    "image": "/images/ik-wil-helpen/hero.jpg",
+    "imageAlt": "A focused group of diverse professionals working together in a bright, minimalist office space.",
+    "vacanciesTitle": "Huidige Vacatures",
+    "vacanciesText": "Vind jouw plek in ons groeiende ecosysteem.",
+    "openApplicationLabel": "OPEN SOLLICITATIE",
+    "emptyIcon": "search_off",
+    "emptyTitle": "We zoeken mensen die kunnen helpen met promotie, logistiek en een co-founder.",
+    "emptyText": "Van een unieke bijbaan voor een paar uur in de week waar je écht verschil maakt, en ca. €20 per uur verdient, tot mede founder worden. Kom met een goed verhaal en we zijn in gesprek!",
+    "emailButton": "STUUR EEN E-MAIL",
+    "culture": [
+      {
+        "icon": "diversity_3",
+        "title": "Community First",
+        "text": "Alles wat we doen begint bij de buurt. Onze medewerkers staan met hun voeten in de klei."
+      },
+      {
+        "icon": "speed",
+        "title": "Directe Impact",
+        "text": "Geen lange vergaderingen. We zien een kans, we toetsen het, en we voeren het uit, en leren van wat er goed en fout ging."
+      },
+      {
+        "icon": "balance",
+        "title": "Eerlijk & Open",
+        "text": "Transparantie is onze basis. We delen onze successen én onze uitdagingen."
+      }
+    ],
+    "quote": {
+      "text": "Bij Goodness for All zie je dat je echt een verschil maakt voor de mensen om de hoek. Eigenlijk maken we het makkelijk voor mensen om elkaar verder te helpen.",
+      "name": "REINOUT DE KRAKER",
+      "role": "Founder"
+    }
+  },
+  "neighborhoods": {
+    "metaTitle": "Voor buurthuizen | Goodness for All",
+    "metaDescription": "Bestel gezonde, betaalbare maaltijden voor jouw buurthuis.",
+    "title": "Maaltijden bestellen voor jouw buurthuis.",
+    "text": "Samen maken we een verschil in de buurt. Wij leveren gezonde, betaalbare maaltijden die mensen verbinden. Vul het onderstaande formulier in en we regelen de rest.",
+    "visualImage": "/images/voor-buurthuizen/meal.jpg",
+    "visualAlt": "Buurtbewoners delen samen een maaltijd",
+    "visualTitle": "GEZOND & VERS",
+    "visualText": "Dagelijks bereid door onze chefs.",
+    "visualIcon": "volunteer_activism",
+    "visualIconText": "Voor elkaar, door elkaar"
+  },
+  "anbi": {
+    "metaTitle": "ANBI-informatie | Goodness for All",
+    "title": "Transparantie.",
+    "text": "Als non-profit organisatie geloven wij in volledige openheid over onze bedrijfsvoering en bestedingen. Hieronder vindt u onze ANBI-gegevens en officiële documentatie.",
+    "cards": [
+      {
+        "icon": "corporate_fare",
+        "title": "Officiële naam",
+        "tone": "sandstone",
+        "downloadLabel": "",
+        "lines": ["Stichting Goodness for All Foundation Nederland"]
+      },
+      {
+        "icon": "fingerprint",
+        "title": "RSIN-nummer",
+        "tone": "mist",
+        "downloadLabel": "",
+        "lines": ["RSIN: 8593.12.744", "KVK: 73004521"]
+      },
+      {
+        "icon": "contact_support",
+        "title": "Contactgegevens",
+        "tone": "sandstone",
+        "downloadLabel": "Contact",
+        "lines": ["Van der Duyn van Maasdamweg 480", "Rotterdam", "info@goodnessforall.nl"]
+      },
+      {
+        "icon": "description",
+        "title": "Actueel beleidsplan",
+        "tone": "sandstone",
+        "downloadLabel": "Download PDF",
+        "lines": ["Onze strategische visie en operationele doelen voor 2024-2026."]
+      },
+      {
+        "icon": "history_edu",
+        "title": "Jaarverslag",
+        "tone": "mist",
+        "downloadLabel": "Download PDF",
+        "lines": ["Verslaglegging van onze activiteiten en bereikte impact van afgelopen jaar."]
+      }
+    ],
+    "ctaTitle": "Heb je vragen?",
+    "ctaText": "Ons team staat klaar om je te helpen bij aanvullende vragen over onze ANBI-status of financiële structuur.",
+    "mailButton": "Mail ons",
+    "contactButton": "Contactformulier"
+  },
+  "forms": {
+    "contact": {
+      "fields": [
+        { "id": "naam", "name": "naam", "label": "naam", "placeholder": "Jouw volledige naam", "type": "text" },
+        { "id": "email", "name": "email", "label": "e-mailadres", "placeholder": "naam@voorbeeld.nl", "type": "email" },
+        { "id": "bericht", "name": "bericht", "label": "bericht", "placeholder": "Wat kunnen we voor je betekenen?", "type": "textarea" }
+      ],
+      "submitLabel": "verzenden",
+      "sentLabel": "Verzonden!"
+    },
+    "partner": {
+      "fields": [
+        { "label": "Naam", "placeholder": "Uw volledige naam", "type": "text" },
+        { "label": "Bedrijf", "placeholder": "Bedrijfsnaam", "type": "text" },
+        { "label": "Rol", "placeholder": "Bijv. ESG Manager of Directie", "type": "text" },
+        { "label": "Email", "placeholder": "zakelijk@email.nl", "type": "email" },
+        { "label": "Bericht", "placeholder": "Hoe wilt u bijdragen aan de stad?", "type": "textarea" }
+      ],
+      "submitLabel": "Neem contact op",
+      "sendingLabel": "Versturen...",
+      "sentLabel": "Bericht verzonden!"
+    },
+    "order": {
+      "backLabel": "Terug",
+      "progressPrefix": "Vraag",
+      "progressSuffix": "van 8",
+      "nextLabel": "Volgende",
+      "yesLabel": "Ja",
+      "noLabel": "Nee",
+      "startLabel": "Start",
+      "minimumAlert": "Minimaal 5 doosjes vereist.",
+      "contactAlert": "Vul alstublieft alle contactgegevens in.",
+      "submittingLabel": "BEZIG...",
+      "submitLabel": "Versturen",
+      "newOrderLabel": "Nieuwe bestelling",
+      "registrationHref": "#",
+      "registrationLabel": "Registreer je hier",
+      "flavors": ["Gnocchi", "Korean Noodles", "Pasta Pesto", "Lentil Curry", "Stamppot", "Burrito Bowl"],
+      "organizations": ["Incluzio", "SOL", "DOCK", "WijZijn", "Andere maatschappelijke partner"],
+      "screens": {
+        "welcomeTitle": "Goed eten voor iedereen bereikbaar maken.",
+        "welcomeTextBeforeLink": "Dit bestelportaal is exclusief voor maatschappelijke organisaties. Nog geen account?",
+        "welcomeTextAfterLink": ".",
+        "organizationQuestion": "Voor welke organisatie bestel je?",
+        "organizationPlaceholder": "Kies een locatie...",
+        "amountQuestion": "Hoeveel doosjes wil je bestellen?",
+        "amountHint": "Minimaal 5 doosjes per bestelling.",
+        "amountPlaceholder": "0",
+        "amountCalculation": "Dat zijn {count} maaltijden.",
+        "deliveryQuestion": "Kun je bevestigen dat er iemand aanwezig is op de leverlocatie op de gewenste dag?",
+        "pickupQuestion": "Vanwege de grootte vragen we je dit op te halen bij ons depot. Akkoord?",
+        "deliveryRejection": "Helaas kunnen we de maaltijden alleen leveren als er iemand aanwezig is. Neem contact op voor alternatieven.",
+        "pickupRejection": "Vanwege de omvang van de bestelling is ophalen noodzakelijk. Neem contact op om de mogelijkheden te bespreken.",
+        "choiceQuestion": "Zelf kiezen of een verrassingsmix?",
+        "selfChoiceLabel": "Zelf kiezen",
+        "mixChoiceLabel": "Verrassingsmix",
+        "flavorsQuestion": "Kies je smaken",
+        "notesQuestion": "Opmerkingen of dieetwensen?",
+        "notesPlaceholder": "Bijv. 10x glutenvrij...",
+        "contactQuestion": "Contactgegevens",
+        "firstNamePlaceholder": "Voornaam",
+        "lastNamePlaceholder": "Achternaam",
+        "phonePlaceholder": "Telefoonnummer",
+        "successTitle": "Bedankt voor je bestelling!",
+        "successText": "We nemen zo snel mogelijk contact op voor de definitieve bevestiging.",
+        "rejectionTitle": "Helaas..."
+      }
+    }
+  },
+  "story": {
+    "metaTitle": "Ons verhaal | Goodness for All",
+    "challenge": {
+      "image": "/images/ons-verhaal/hero.jpg",
+      "imageAlt": "Een rauw maar humanistisch hoog-contrast straatfotografie beeld van een Rotterdamse woonwijk in de ochtendnevel.",
+      "title": "Rotterdam heeft een probleem. En dat lost zichzelf niet op.",
+      "paragraphs": [
+        "In onze stad groeit de kloof. Terwijl de ene wijk bloeit, hebben duizenden Rotterdammers dagelijks moeite om een gezonde maaltijd op tafel te krijgen. Voedselonzekerheid is niet alleen een gebrek aan calorieën; het is een gebrek aan waardigheid en kansen.",
+        "Wij geloven dat toegang tot goed eten een basisrecht is. Armoede in Rotterdam is vaak onzichtbaar, maar de gevolgen zijn dat niet. Wij wachten niet op beleid, wij bouwen aan een directe oplossing die de stad verbindt."
+      ]
+    },
+    "distribution": {
+      "image": "/images/ons-verhaal/distribution.jpg",
+      "imageAlt": "Een warm en uitnodigend interieurbeeld van een levendig buurthuis in Rotterdam.",
+      "title": "Via buurthuizen die mensen al kennen.",
+      "text": "We gaan niet op zoek naar onze doelgroep; we zijn waar zij zijn. Onze maaltijden worden gedistribueerd via vertrouwde buurthuizen en lokale hubs.",
+      "points": [
+        { "icon": "location_on", "label": "Dichtbij huis" },
+        { "icon": "favorite", "label": "Zonder drempels" },
+        { "icon": "groups", "label": "Onderdeel van de wijk" }
+      ]
+    },
+    "meal": {
+      "eyebrow": "B-Corp Gecertificeerd",
+      "title": "De maaltijd.",
+      "text": "Gezond, vers en seizoensgebonden. Onze maaltijden worden bereid met passie en zorg voor de planeet. Wij geloven in 'business as a force for good'. Elke maaltijd draagt bij aan een rechtvaardiger Rotterdam.",
+      "stats": [
+        { "value": "100%", "label": "Versgarantie" },
+        { "value": "CO2", "label": "Neutraal" }
+      ],
+      "slides": [
+        { "image": "/images/ons-verhaal/carousel-1.jpg", "alt": "9 verschillende smaken", "caption": "9 verschillende smaken" },
+        { "image": "/images/ons-verhaal/carousel-2.jpg", "alt": "Boordevol groente, geen troep", "caption": "Boordevol groente, geen troep" },
+        {
+          "image": "/images/ons-verhaal/carousel-3.jpg",
+          "alt": "Past in (bijna) elk dieet en levensovertuiging",
+          "caption": "Past in (bijna) elk dieet en levensovertuiging"
+        }
+      ]
+    },
+    "teamTitle": "Het Team",
+    "team": [
+      { "name": "Reinout de Kraker", "role": "Oprichter & Strategie", "image": "/images/ons-verhaal/team-1.jpg", "alt": "Professionele headshot van Reinout de Kraker." },
+      { "name": "Thomas Hilbrands", "role": "Operations & Logistiek", "image": "/images/ons-verhaal/team-2.jpg", "alt": "Professionele headshot van Thomas Hilbrands." },
+      { "name": "Laurens van Dalen", "role": "Commercieel Directeur", "image": "/images/ons-verhaal/team-3.jpg", "alt": "Professionele headshot van Laurens van Dalen." },
+      { "name": "Jori Schara", "role": "Impact Manager", "image": "/images/ons-verhaal/team-4.jpg", "alt": "Professionele headshot van Jori Schara." },
+      { "name": "Stef Gallé", "role": "Community Lead", "image": "/images/ons-verhaal/team-5.jpg", "alt": "Professionele headshot van Stef Gallé." },
+      { "name": "Martijn Bekking", "role": "Financieel Adviseur", "image": "/images/ons-verhaal/team-6.jpg", "alt": "Professionele headshot van Martijn Bekking." }
+    ]
+  }
+}

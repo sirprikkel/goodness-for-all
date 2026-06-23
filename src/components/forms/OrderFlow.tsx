@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import type { SiteContent } from "@/lib/content";
 
 /**
  * Multi-step meal order form for buurthuizen — a faithful React port of the
@@ -13,14 +14,7 @@ import { useState } from "react";
 
 const STEP_HEIGHT = 600;
 
-const FLAVORS = [
-  "Gnocchi",
-  "Korean Noodles",
-  "Pasta Pesto",
-  "Lentil Curry",
-  "Stamppot",
-  "Burrito Bowl",
-];
+type OrderFlowContent = SiteContent["forms"]["order"];
 
 type FormData = {
   organisatie: string;
@@ -50,7 +44,7 @@ const INITIAL: FormData = {
   telefoon: "",
 };
 
-export default function OrderFlow() {
+export default function OrderFlow({ content }: { content: OrderFlowContent }) {
   const [step, setStep] = useState(0);
   // History stack of visited steps (used only via the functional updater in prevStep).
   const [, setHistory] = useState<number[]>([0]);
@@ -85,7 +79,7 @@ export default function OrderFlow() {
   function calculateMaaltijden(val: string) {
     const n = parseInt(val, 10) || 0;
     if (n >= 5) {
-      setCalcText(`Dat zijn ${n * 9} maaltijden.`);
+      setCalcText(content.screens.amountCalculation.replace("{count}", String(n * 9)));
       setData((d) => ({ ...d, aantalDoosjes: n, totaalMaaltijden: n * 9 }));
     } else {
       setCalcText("");
@@ -95,7 +89,7 @@ export default function OrderFlow() {
 
   function checkAmountAndProceed() {
     if (data.aantalDoosjes < 5) {
-      window.alert("Minimaal 5 doosjes vereist.");
+      window.alert(content.minimumAlert);
       return;
     }
     goTo(data.aantalDoosjes <= 30 ? 3 : 4);
@@ -108,8 +102,8 @@ export default function OrderFlow() {
     } else {
       setRejectionText(
         type === "levering"
-          ? "Helaas kunnen we de maaltijden alleen leveren als er iemand aanwezig is. Neem contact op voor alternatieven."
-          : "Vanwege de omvang van de bestelling is ophalen noodzakelijk. Neem contact op om de mogelijkheden te bespreken.",
+          ? content.screens.deliveryRejection
+          : content.screens.pickupRejection,
       );
       goTo(10);
     }
@@ -139,7 +133,7 @@ export default function OrderFlow() {
 
   function submitOrder() {
     if (!data.voornaam || !data.achternaam || !data.telefoon) {
-      window.alert("Vul alstublieft alle contactgegevens in.");
+      window.alert(content.contactAlert);
       return;
     }
     setSubmitting(true);
@@ -172,10 +166,10 @@ export default function OrderFlow() {
           className="flex items-center gap-2 text-evergreen font-bold hover:opacity-70 transition-opacity"
         >
           <span className="material-symbols-outlined">arrow_back</span>
-          <span>Terug</span>
+          <span>{content.backLabel}</span>
         </button>
         <div className="text-evergreen/60 font-bold tracking-widest text-sm uppercase">
-          Vraag <span>{step}</span> van 8
+          {content.progressPrefix} <span>{step}</span> {content.progressSuffix}
         </div>
       </div>
 
@@ -197,28 +191,28 @@ export default function OrderFlow() {
               <span className="material-symbols-outlined text-harvest-orange text-5xl">eco</span>
             </div>
             <h2 className="font-headline-md text-headline-md text-evergreen leading-tight mb-4">
-              Goed eten voor iedereen bereikbaar maken.
+              {content.screens.welcomeTitle}
             </h2>
             <p className="text-body-md text-evergreen/80 mb-6">
-              Dit bestelportaal is exclusief voor maatschappelijke organisaties. Nog geen account?{" "}
-              <a className="text-harvest-orange underline font-bold" href="#">
-                Registreer je hier
+              {content.screens.welcomeTextBeforeLink}{" "}
+              <a className="text-harvest-orange underline font-bold" href={content.registrationHref}>
+                {content.registrationLabel}
               </a>
-              .
+              {content.screens.welcomeTextAfterLink}
             </p>
             <button
               type="button"
               onClick={nextStep}
               className="bg-harvest-orange text-white font-cta font-extrabold py-4 px-8 inline-flex items-center gap-4 hover:bg-evergreen transition-colors w-fit"
             >
-              Start <span className="material-symbols-outlined">arrow_forward</span>
+              {content.startLabel} <span className="material-symbols-outlined">arrow_forward</span>
             </button>
           </Screen>
 
           {/* Q1: ORGANISATIE */}
           <Screen>
             <label className="font-headline-md text-headline-md text-evergreen mb-6 block">
-              Voor welke organisatie bestel je?
+              {content.screens.organizationQuestion}
             </label>
             <div className="relative">
               <select
@@ -227,13 +221,13 @@ export default function OrderFlow() {
                 onChange={(e) => handleSelect(e.target.value)}
               >
                 <option disabled value="">
-                  Kies een locatie...
+                  {content.screens.organizationPlaceholder}
                 </option>
-                <option value="Incluzio">Incluzio</option>
-                <option value="SOL">SOL</option>
-                <option value="DOCK">DOCK</option>
-                <option value="WijZijn">WijZijn</option>
-                <option value="Andere">Andere maatschappelijke partner</option>
+                {content.organizations.map((organization) => (
+                  <option key={organization} value={organization}>
+                    {organization}
+                  </option>
+                ))}
               </select>
               <span className="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
                 expand_more
@@ -244,14 +238,14 @@ export default function OrderFlow() {
           {/* Q2: AANTAL DOOSJES */}
           <Screen>
             <label className="font-headline-md text-headline-md text-evergreen mb-2 block">
-              Hoeveel doosjes wil je bestellen?
+              {content.screens.amountQuestion}
             </label>
-            <p className="text-evergreen/60 mb-6 text-sm">Minimaal 5 doosjes per bestelling.</p>
+            <p className="text-evergreen/60 mb-6 text-sm">{content.screens.amountHint}</p>
             <input
               className="w-full border-2 border-evergreen p-4 text-3xl font-bold focus:outline-none mb-4"
               min={5}
               onChange={(e) => calculateMaaltijden(e.target.value)}
-              placeholder="0"
+              placeholder={content.screens.amountPlaceholder}
               type="number"
             />
             <p className="text-xl font-bold text-harvest-orange h-8">{calcText}</p>
@@ -260,36 +254,40 @@ export default function OrderFlow() {
               onClick={checkAmountAndProceed}
               className="mt-4 bg-evergreen text-white font-cta font-bold py-4 px-8 w-fit hover:bg-harvest-orange transition-colors"
             >
-              Volgende
+              {content.nextLabel}
             </button>
           </Screen>
 
           {/* Q3: LEVERINGSBEVESTIGING */}
           <Screen>
             <h2 className="font-headline-md text-headline-md text-evergreen mb-6">
-              Kun je bevestigen dat er iemand aanwezig is op de leverlocatie op de gewenste dag?
+              {content.screens.deliveryQuestion}
             </h2>
             <YesNo
               onYes={() => handleConfirmation("levering", true)}
               onNo={() => handleConfirmation("levering", false)}
+              yesLabel={content.yesLabel}
+              noLabel={content.noLabel}
             />
           </Screen>
 
           {/* Q4: OPHAALBEVESTIGING */}
           <Screen>
             <h2 className="font-headline-md text-headline-md text-evergreen mb-6">
-              Vanwege de grootte vragen we je dit op te halen bij ons depot. Akkoord?
+              {content.screens.pickupQuestion}
             </h2>
             <YesNo
               onYes={() => handleConfirmation("ophaal", true)}
               onNo={() => handleConfirmation("ophaal", false)}
+              yesLabel={content.yesLabel}
+              noLabel={content.noLabel}
             />
           </Screen>
 
           {/* Q5: SMAKENKEUZE */}
           <Screen>
             <h2 className="font-headline-md text-headline-md text-evergreen mb-6">
-              Zelf kiezen of een verrassingsmix?
+              {content.screens.choiceQuestion}
             </h2>
             <div className="grid grid-cols-2 gap-4">
               <button
@@ -297,23 +295,25 @@ export default function OrderFlow() {
                 onClick={() => handleChoice("zelf")}
                 className="bg-evergreen text-white font-bold py-6 text-xl hover:opacity-90"
               >
-                Zelf kiezen
+                {content.screens.selfChoiceLabel}
               </button>
               <button
                 type="button"
                 onClick={() => handleChoice("mix")}
                 className="border-2 border-evergreen text-evergreen font-bold py-6 text-xl hover:bg-sandstone-beige"
               >
-                Verrassingsmix
+                {content.screens.mixChoiceLabel}
               </button>
             </div>
           </Screen>
 
           {/* Q6: SMAKENSELECTIE */}
           <Screen>
-            <h2 className="font-headline-md text-headline-md text-evergreen mb-4">Kies je smaken</h2>
+            <h2 className="font-headline-md text-headline-md text-evergreen mb-4">
+              {content.screens.flavorsQuestion}
+            </h2>
             <div className="grid grid-cols-2 gap-3 overflow-y-auto max-h-[250px] pr-2 custom-scrollbar">
-              {FLAVORS.map((flavor) => {
+              {content.flavors.map((flavor) => {
                 const selected = data.smaken.includes(flavor);
                 return (
                   <div
@@ -333,18 +333,18 @@ export default function OrderFlow() {
               onClick={() => goTo(7)}
               className="mt-6 bg-evergreen text-white font-cta font-bold py-4 px-8 w-fit hover:bg-harvest-orange transition-colors"
             >
-              Volgende
+              {content.nextLabel}
             </button>
           </Screen>
 
           {/* Q7: OPMERKINGEN */}
           <Screen>
             <label className="font-headline-md text-headline-md text-evergreen mb-6 block">
-              Opmerkingen of dieetwensen?
+              {content.screens.notesQuestion}
             </label>
             <textarea
               className="w-full border-2 border-evergreen p-4 text-lg focus:outline-none bg-white"
-              placeholder="Bijv. 10x glutenvrij..."
+              placeholder={content.screens.notesPlaceholder}
               rows={3}
               value={data.opmerkingen}
               onChange={(e) => setData((d) => ({ ...d, opmerkingen: e.target.value }))}
@@ -354,24 +354,26 @@ export default function OrderFlow() {
               onClick={() => goTo(8)}
               className="mt-6 bg-evergreen text-white font-cta font-bold py-4 px-8 w-fit hover:bg-harvest-orange transition-colors"
             >
-              Volgende
+              {content.nextLabel}
             </button>
           </Screen>
 
           {/* Q8: CONTACTGEGEVENS */}
           <Screen>
-            <h2 className="font-headline-md text-headline-md text-evergreen mb-6">Contactgegevens</h2>
+            <h2 className="font-headline-md text-headline-md text-evergreen mb-6">
+              {content.screens.contactQuestion}
+            </h2>
             <div className="space-y-3">
               <input
                 className="w-full border-2 border-evergreen p-3 text-lg focus:outline-none"
-                placeholder="Voornaam"
+                placeholder={content.screens.firstNamePlaceholder}
                 type="text"
                 value={data.voornaam}
                 onChange={(e) => setData((d) => ({ ...d, voornaam: e.target.value }))}
               />
               <input
                 className="w-full border-2 border-evergreen p-3 text-lg focus:outline-none"
-                placeholder="Achternaam"
+                placeholder={content.screens.lastNamePlaceholder}
                 type="text"
                 value={data.achternaam}
                 onChange={(e) => setData((d) => ({ ...d, achternaam: e.target.value }))}
@@ -379,7 +381,7 @@ export default function OrderFlow() {
               <input
                 className="w-full border-2 border-evergreen p-3 text-lg focus:outline-none"
                 pattern="[0-9]{10}"
-                placeholder="Telefoonnummer"
+                placeholder={content.screens.phonePlaceholder}
                 type="tel"
                 value={data.telefoon}
                 onChange={(e) => setData((d) => ({ ...d, telefoon: e.target.value }))}
@@ -391,7 +393,7 @@ export default function OrderFlow() {
               disabled={submitting}
               className="mt-6 bg-harvest-orange text-white font-cta font-extrabold py-4 px-8 w-full text-lg hover:bg-evergreen transition-colors flex items-center justify-center gap-4 disabled:opacity-70"
             >
-              {submitting ? "BEZIG..." : "Versturen"}
+              {submitting ? content.submittingLabel : content.submitLabel}
               {!submitting && <span className="material-symbols-outlined">send</span>}
             </button>
           </Screen>
@@ -402,31 +404,33 @@ export default function OrderFlow() {
               check_circle
             </span>
             <h2 className="font-headline-md text-headline-md text-evergreen mb-4">
-              Bedankt voor je bestelling!
+              {content.screens.successTitle}
             </h2>
             <p className="text-body-md text-evergreen/80 mb-6">
-              We nemen zo snel mogelijk contact op voor de definitieve bevestiging.
+              {content.screens.successText}
             </p>
             <button
               type="button"
               onClick={reset}
               className="bg-harvest-orange text-white font-bold py-4 px-8 w-fit"
             >
-              Nieuwe bestelling
+              {content.newOrderLabel}
             </button>
           </Screen>
 
           {/* REJECTION */}
           <Screen>
             <span className="material-symbols-outlined text-evergreen text-6xl mb-4">info</span>
-            <h2 className="font-headline-md text-headline-md text-evergreen mb-4">Helaas...</h2>
+            <h2 className="font-headline-md text-headline-md text-evergreen mb-4">
+              {content.screens.rejectionTitle}
+            </h2>
             <p className="text-body-md text-evergreen/80 mb-6">{rejectionText}</p>
             <button
               type="button"
               onClick={prevStep}
               className="bg-evergreen text-white font-bold py-4 px-8 w-fit"
             >
-              Terug
+              {content.backLabel}
             </button>
           </Screen>
         </div>
@@ -446,7 +450,17 @@ function Screen({ children }: { children: React.ReactNode }) {
   );
 }
 
-function YesNo({ onYes, onNo }: { onYes: () => void; onNo: () => void }) {
+function YesNo({
+  onYes,
+  onNo,
+  yesLabel,
+  noLabel,
+}: {
+  onYes: () => void;
+  onNo: () => void;
+  yesLabel: string;
+  noLabel: string;
+}) {
   return (
     <div className="grid grid-cols-2 gap-4">
       <button
@@ -454,14 +468,14 @@ function YesNo({ onYes, onNo }: { onYes: () => void; onNo: () => void }) {
         onClick={onYes}
         className="bg-evergreen text-white font-bold py-6 text-xl hover:opacity-90"
       >
-        Ja
+        {yesLabel}
       </button>
       <button
         type="button"
         onClick={onNo}
         className="border-2 border-evergreen text-evergreen font-bold py-6 text-xl hover:bg-sandstone-beige"
       >
-        Nee
+        {noLabel}
       </button>
     </div>
   );

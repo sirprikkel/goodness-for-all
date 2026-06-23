@@ -1,0 +1,426 @@
+backend:
+  name: github
+  repo: Pimmetjeoss/goodness-for-all
+  branch: master
+
+local_backend: true
+
+media_folder: public/images/uploads
+public_folder: /images/uploads
+
+site_url: https://goodness-mu.vercel.app
+display_url: https://goodness-mu.vercel.app
+logo_url: /images/logo.png
+
+collections:
+  - name: site
+    label: Website content
+    files:
+      - name: site
+        label: Alle websitecontent
+        file: content/site.json
+        format: json
+        fields:
+          - label: Instellingen
+            name: settings
+            widget: object
+            fields:
+              - { label: Sitenaam, name: siteName, widget: string }
+              - { label: Logo, name: logo, widget: image }
+              - { label: Logo alt-tekst, name: logoAlt, widget: string }
+              - { label: E-mail, name: email, widget: string }
+              - { label: Stad, name: city, widget: string }
+              - { label: Land, name: country, widget: string }
+              - { label: Copyright, name: copyright, widget: string }
+              - { label: Contactknop, name: contactButton, widget: string }
+              - { label: Menulabel, name: menuLabel, widget: string }
+              - { label: Open menulabel, name: openMenuLabel, widget: string }
+              - { label: Sluit menulabel, name: closeMenuLabel, widget: string }
+              - label: Navigatie
+                name: nav
+                widget: list
+                fields:
+                  - { label: URL, name: href, widget: string }
+                  - { label: Label, name: label, widget: string }
+                  - { label: Material icon, name: icon, widget: string }
+              - label: Footerlinks
+                name: footerLinks
+                widget: list
+                fields:
+                  - { label: URL, name: href, widget: string }
+                  - { label: Label, name: label, widget: string }
+
+          - label: Homepage
+            name: home
+            widget: object
+            fields:
+              - { label: SEO titel, name: metaTitle, widget: string }
+              - { label: SEO omschrijving, name: metaDescription, widget: text }
+              - label: Hero
+                name: hero
+                widget: object
+                fields:
+                  - { label: Afbeelding, name: image, widget: image }
+                  - { label: Titel, name: title, widget: string }
+                  - { label: Tekst, name: text, widget: text }
+                  - { label: Knoplabel, name: buttonLabel, widget: string }
+                  - { label: Knop URL, name: buttonHref, widget: string }
+              - label: Bento kaarten
+                name: cards
+                widget: list
+                fields:
+                  - { label: Titel, name: title, widget: string }
+                  - { label: Tekst, name: text, widget: text }
+                  - { label: URL, name: href, widget: string }
+                  - { label: Material icon, name: icon, widget: string }
+              - label: Doe mee kaart
+                name: joinCard
+                widget: object
+                fields:
+                  - { label: Titel, name: title, widget: string }
+                  - { label: Material icon, name: icon, widget: string }
+                  - label: Links
+                    name: links
+                    widget: list
+                    fields:
+                      - { label: URL, name: href, widget: string }
+                      - { label: Label, name: label, widget: string }
+              - label: Teller
+                name: counter
+                widget: object
+                fields:
+                  - { label: Waarde, name: value, widget: number }
+                  - { label: Label, name: label, widget: string }
+                  - { label: Tekst, name: text, widget: text }
+              - label: Quote
+                name: quote
+                widget: object
+                fields:
+                  - { label: Quote, name: text, widget: text }
+                  - { label: Naam, name: name, widget: string }
+                  - { label: Rol, name: role, widget: string }
+              - { label: Partnerstrip titel, name: partnerStripTitle, widget: string }
+
+          - label: Partners pagina
+            name: partners
+            widget: object
+            fields:
+              - { label: SEO titel, name: metaTitle, widget: string }
+              - label: Hero
+                name: hero
+                widget: object
+                fields:
+                  - { label: Linker titel, name: leftTitle, widget: string }
+                  - { label: Linker tekst, name: leftText, widget: text }
+                  - { label: Rechter titel, name: rightTitle, widget: string }
+                  - { label: Badges, name: badges, widget: list, field: { label: Badge, name: badge, widget: string } }
+                  - { label: Rechter tekst, name: rightText, widget: text }
+              - { label: Pakketten titel, name: pricingTitle, widget: string }
+              - { label: Pakketten tekst, name: pricingText, widget: text }
+              - label: Impact pakketten
+                name: plans
+                widget: list
+                fields:
+                  - { label: Naam, name: name, widget: string }
+                  - { label: Prijs, name: price, widget: string }
+                  - { label: Periode, name: period, widget: string }
+                  - { label: Uitgelicht, name: featured, widget: boolean, required: false }
+                  - { label: Uitgelicht label, name: featuredLabel, widget: string, required: false }
+                  - { label: Donkere kaart, name: dark, widget: boolean, required: false }
+                  - { label: Features, name: features, widget: list, field: { label: Feature, name: feature, widget: string } }
+                  - { label: Knoplabel, name: buttonLabel, widget: string }
+              - label: Vrieskast
+                name: freezer
+                widget: object
+                fields:
+                  - { label: Afbeelding, name: image, widget: image }
+                  - { label: Alt-tekst, name: alt, widget: string }
+                  - { label: Titel, name: title, widget: string }
+                  - { label: Tekst, name: text, widget: text }
+                  - { label: Quote, name: quote, widget: text }
+                  - { label: Quote auteur, name: quoteAuthor, widget: string }
+              - { label: Logogrid titel, name: logoGridTitle, widget: string }
+              - label: Logogrid
+                name: logoGrid
+                widget: list
+                fields:
+                  - { label: Bestandsnaam zonder .png, name: file, widget: string }
+                  - { label: Alt-tekst, name: alt, widget: string }
+              - { label: Formulier titel, name: formTitle, widget: string }
+              - { label: Formulier tekst, name: formText, widget: text }
+
+          - label: Partnerlogo carousel
+            name: partnerLogos
+            widget: list
+            fields:
+              - { label: Bestandsnaam zonder .png, name: file, widget: string }
+              - { label: Alt-tekst, name: alt, widget: string }
+
+          - label: Impact pagina
+            name: impact
+            widget: object
+            fields:
+              - { label: SEO titel, name: metaTitle, widget: string }
+              - { label: Teller waarde, name: counterValue, widget: number }
+              - { label: Teller label, name: counterLabel, widget: string }
+              - { label: Teller tekst, name: counterText, widget: string }
+              - { label: Locaties titel, name: locationsTitle, widget: string }
+              - label: Locaties
+                name: locations
+                widget: list
+                fields:
+                  - { label: Organisatie, name: org, widget: string }
+                  - { label: Naam, name: name, widget: string }
+                  - { label: Stad, name: city, widget: string }
+              - label: Quote
+                name: quote
+                widget: object
+                fields:
+                  - { label: Quote, name: text, widget: text }
+                  - { label: Auteur, name: author, widget: string }
+              - label: Galerij
+                name: gallery
+                widget: list
+                fields:
+                  - { label: Placeholder, name: placeholder, widget: boolean, required: false }
+                  - { label: Placeholdertekst, name: text, widget: string, required: false }
+                  - { label: Afbeelding, name: image, widget: image, required: false }
+                  - { label: Alt-tekst, name: alt, widget: string, required: false }
+              - label: Onderzoek
+                name: research
+                widget: object
+                fields:
+                  - { label: Titel, name: title, widget: string }
+                  - { label: Tekst, name: text, widget: text }
+                  - { label: Knoplabel, name: buttonLabel, widget: string }
+                  - { label: SROI eyebrow, name: sroiEyebrow, widget: string }
+                  - { label: SROI titel, name: sroiTitle, widget: string }
+                  - { label: SROI tekst, name: sroiText, widget: text }
+                  - { label: SROI noot, name: sroiNote, widget: text }
+
+          - label: Contact pagina
+            name: contact
+            widget: object
+            fields:
+              - { label: SEO titel, name: metaTitle, widget: string }
+              - { label: SEO omschrijving, name: metaDescription, widget: text }
+              - { label: Titel, name: title, widget: string }
+              - { label: Tekst, name: text, widget: text }
+              - { label: Details titel, name: detailsTitle, widget: string }
+              - { label: LinkedIn label, name: linkedinLabel, widget: string }
+              - { label: LinkedIn URL, name: linkedinHref, widget: string }
+              - { label: Kaartafbeelding, name: mapImage, widget: image }
+              - { label: Kaartlabel, name: mapLabel, widget: string }
+              - { label: Nieuwsbrief titel, name: newsletterTitle, widget: string }
+              - { label: Nieuwsbrief tekst, name: newsletterText, widget: text }
+              - { label: Nieuwsbrief placeholder, name: newsletterPlaceholder, widget: string }
+              - { label: Nieuwsbrief knop, name: newsletterButton, widget: string }
+
+          - label: Werken bij pagina
+            name: help
+            widget: object
+            fields:
+              - { label: SEO titel, name: metaTitle, widget: string }
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Titel, name: title, widget: string }
+              - { label: Tekst, name: text, widget: text }
+              - { label: Afbeelding, name: image, widget: image }
+              - { label: Afbeelding alt, name: imageAlt, widget: string }
+              - { label: Vacatures titel, name: vacanciesTitle, widget: string }
+              - { label: Vacatures tekst, name: vacanciesText, widget: text }
+              - { label: Open sollicitatie knop, name: openApplicationLabel, widget: string }
+              - { label: Leeg icoon, name: emptyIcon, widget: string }
+              - { label: Leeg titel, name: emptyTitle, widget: text }
+              - { label: Leeg tekst, name: emptyText, widget: text }
+              - { label: E-mail knop, name: emailButton, widget: string }
+              - label: Cultuurblokken
+                name: culture
+                widget: list
+                fields:
+                  - { label: Icon, name: icon, widget: string }
+                  - { label: Titel, name: title, widget: string }
+                  - { label: Tekst, name: text, widget: text }
+              - label: Quote
+                name: quote
+                widget: object
+                fields:
+                  - { label: Quote, name: text, widget: text }
+                  - { label: Naam, name: name, widget: string }
+                  - { label: Rol, name: role, widget: string }
+
+          - label: Buurthuizen pagina
+            name: neighborhoods
+            widget: object
+            fields:
+              - { label: SEO titel, name: metaTitle, widget: string }
+              - { label: SEO omschrijving, name: metaDescription, widget: text }
+              - { label: Titel, name: title, widget: string }
+              - { label: Tekst, name: text, widget: text }
+              - { label: Visual afbeelding, name: visualImage, widget: image }
+              - { label: Visual alt, name: visualAlt, widget: string }
+              - { label: Visual titel, name: visualTitle, widget: string }
+              - { label: Visual tekst, name: visualText, widget: string }
+              - { label: Visual icon, name: visualIcon, widget: string }
+              - { label: Visual icon tekst, name: visualIconText, widget: string }
+
+          - label: ANBI pagina
+            name: anbi
+            widget: object
+            fields:
+              - { label: SEO titel, name: metaTitle, widget: string }
+              - { label: Titel, name: title, widget: string }
+              - { label: Tekst, name: text, widget: text }
+              - label: Kaarten
+                name: cards
+                widget: list
+                fields:
+                  - { label: Icon, name: icon, widget: string }
+                  - { label: Titel, name: title, widget: string }
+                  - { label: Tone, name: tone, widget: select, options: [sandstone, mist] }
+                  - { label: Download label, name: downloadLabel, widget: string, required: false }
+                  - { label: Regels, name: lines, widget: list, field: { label: Regel, name: line, widget: string } }
+              - { label: CTA titel, name: ctaTitle, widget: string }
+              - { label: CTA tekst, name: ctaText, widget: text }
+              - { label: Mailknop, name: mailButton, widget: string }
+              - { label: Contactknop, name: contactButton, widget: string }
+
+          - label: Formulieren
+            name: forms
+            widget: object
+            fields:
+              - label: Contactformulier
+                name: contact
+                widget: object
+                fields:
+                  - label: Velden
+                    name: fields
+                    widget: list
+                    fields:
+                      - { label: ID, name: id, widget: string }
+                      - { label: Naam, name: name, widget: string }
+                      - { label: Label, name: label, widget: string }
+                      - { label: Placeholder, name: placeholder, widget: string }
+                      - { label: Type, name: type, widget: select, options: [text, email, textarea] }
+                  - { label: Verzendknop, name: submitLabel, widget: string }
+                  - { label: Verzonden label, name: sentLabel, widget: string }
+              - label: Partnerformulier
+                name: partner
+                widget: object
+                fields:
+                  - label: Velden
+                    name: fields
+                    widget: list
+                    fields:
+                      - { label: Label, name: label, widget: string }
+                      - { label: Placeholder, name: placeholder, widget: string }
+                      - { label: Type, name: type, widget: select, options: [text, email, textarea] }
+                  - { label: Verzendknop, name: submitLabel, widget: string }
+                  - { label: Bezig label, name: sendingLabel, widget: string }
+                  - { label: Verzonden label, name: sentLabel, widget: string }
+              - label: Bestelflow buurthuizen
+                name: order
+                widget: object
+                fields:
+                  - { label: Terug label, name: backLabel, widget: string }
+                  - { label: Voortgang prefix, name: progressPrefix, widget: string }
+                  - { label: Voortgang suffix, name: progressSuffix, widget: string }
+                  - { label: Volgende label, name: nextLabel, widget: string }
+                  - { label: Ja label, name: yesLabel, widget: string }
+                  - { label: Nee label, name: noLabel, widget: string }
+                  - { label: Start label, name: startLabel, widget: string }
+                  - { label: Minimum foutmelding, name: minimumAlert, widget: text }
+                  - { label: Contact foutmelding, name: contactAlert, widget: text }
+                  - { label: Bezig label, name: submittingLabel, widget: string }
+                  - { label: Verzend label, name: submitLabel, widget: string }
+                  - { label: Nieuwe bestelling label, name: newOrderLabel, widget: string }
+                  - { label: Registratie URL, name: registrationHref, widget: string }
+                  - { label: Registratie label, name: registrationLabel, widget: string }
+                  - { label: Smaken, name: flavors, widget: list, field: { label: Smaak, name: flavor, widget: string } }
+                  - { label: Organisaties, name: organizations, widget: list, field: { label: Organisatie, name: organization, widget: string } }
+                  - label: Schermen
+                    name: screens
+                    widget: object
+                    fields:
+                      - { label: Welkom titel, name: welcomeTitle, widget: string }
+                      - { label: Welkom tekst voor link, name: welcomeTextBeforeLink, widget: text }
+                      - { label: Welkom tekst na link, name: welcomeTextAfterLink, widget: string }
+                      - { label: Organisatievraag, name: organizationQuestion, widget: string }
+                      - { label: Organisatie placeholder, name: organizationPlaceholder, widget: string }
+                      - { label: Aantal vraag, name: amountQuestion, widget: string }
+                      - { label: Aantal hint, name: amountHint, widget: string }
+                      - { label: Aantal placeholder, name: amountPlaceholder, widget: string }
+                      - { label: Aantal berekening, name: amountCalculation, widget: string }
+                      - { label: Leveringsvraag, name: deliveryQuestion, widget: text }
+                      - { label: Ophaalvraag, name: pickupQuestion, widget: text }
+                      - { label: Levering afwijzing, name: deliveryRejection, widget: text }
+                      - { label: Ophalen afwijzing, name: pickupRejection, widget: text }
+                      - { label: Keuzevraag, name: choiceQuestion, widget: string }
+                      - { label: Zelf kiezen label, name: selfChoiceLabel, widget: string }
+                      - { label: Mix label, name: mixChoiceLabel, widget: string }
+                      - { label: Smakenvraag, name: flavorsQuestion, widget: string }
+                      - { label: Opmerkingenvraag, name: notesQuestion, widget: string }
+                      - { label: Opmerkingen placeholder, name: notesPlaceholder, widget: string }
+                      - { label: Contactvraag, name: contactQuestion, widget: string }
+                      - { label: Voornaam placeholder, name: firstNamePlaceholder, widget: string }
+                      - { label: Achternaam placeholder, name: lastNamePlaceholder, widget: string }
+                      - { label: Telefoon placeholder, name: phonePlaceholder, widget: string }
+                      - { label: Succes titel, name: successTitle, widget: string }
+                      - { label: Succes tekst, name: successText, widget: text }
+                      - { label: Afwijzing titel, name: rejectionTitle, widget: string }
+
+          - label: Ons verhaal pagina
+            name: story
+            widget: object
+            fields:
+              - { label: SEO titel, name: metaTitle, widget: string }
+              - label: Probleemsectie
+                name: challenge
+                widget: object
+                fields:
+                  - { label: Afbeelding, name: image, widget: image }
+                  - { label: Afbeelding alt, name: imageAlt, widget: string }
+                  - { label: Titel, name: title, widget: string }
+                  - { label: Paragrafen, name: paragraphs, widget: list, field: { label: Paragraaf, name: paragraph, widget: text } }
+              - label: Distributiesectie
+                name: distribution
+                widget: object
+                fields:
+                  - { label: Afbeelding, name: image, widget: image }
+                  - { label: Afbeelding alt, name: imageAlt, widget: string }
+                  - { label: Titel, name: title, widget: string }
+                  - { label: Tekst, name: text, widget: text }
+                  - label: Punten
+                    name: points
+                    widget: list
+                    fields:
+                      - { label: Icon, name: icon, widget: string }
+                      - { label: Label, name: label, widget: string }
+              - label: Maaltijdsectie
+                name: meal
+                widget: object
+                fields:
+                  - { label: Eyebrow, name: eyebrow, widget: string }
+                  - { label: Titel, name: title, widget: string }
+                  - { label: Tekst, name: text, widget: text }
+                  - label: Statistieken
+                    name: stats
+                    widget: list
+                    fields:
+                      - { label: Waarde, name: value, widget: string }
+                      - { label: Label, name: label, widget: string }
+                  - label: Slides
+                    name: slides
+                    widget: list
+                    fields:
+                      - { label: Afbeelding, name: image, widget: image }
+                      - { label: Alt, name: alt, widget: string }
+                      - { label: Caption, name: caption, widget: string }
+              - { label: Team titel, name: teamTitle, widget: string }
+              - label: Team
+                name: team
+                widget: list
+                fields:
+                  - { label: Naam, name: name, widget: string }
+                  - { label: Rol, name: role, widget: string }
+                  - { label: Foto, name: image, widget: image }
+                  - { label: Alt, name: alt, widget: string }
