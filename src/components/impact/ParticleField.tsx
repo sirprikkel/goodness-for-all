@@ -25,9 +25,9 @@ export default function ParticleField({
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    // Honour reduced-motion by rendering a STATIC field (still visible) rather
-    // than hiding it entirely — users with reduce-motion still see the texture.
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    // This decorative field always animates (the reduced-motion preference is
+    // intentionally not applied here, per design choice).
+    const reduce = false;
 
     const mount = mountRef.current;
     if (!mount) return;
