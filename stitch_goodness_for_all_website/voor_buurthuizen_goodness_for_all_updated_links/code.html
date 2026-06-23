@@ -1,0 +1,527 @@
+<!DOCTYPE html><html class="light" lang="nl"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Voor Buurthuizen - Goodness for All</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Red+Hat+Display:wght@400;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#74796d",
+                    "surface-dim": "#e1dac3",
+                    "on-secondary-fixed": "#2b1700",
+                    "on-tertiary-fixed": "#0f2000",
+                    "on-primary-fixed-variant": "#334e1f",
+                    "surface-container": "#f6eed6",
+                    "harvest-orange": "#ED961D",
+                    "surface-container-high": "#f0e8d1",
+                    "asparagus": "#7CA84C",
+                    "on-surface-variant": "#44483e",
+                    "on-tertiary-fixed-variant": "#2d5000",
+                    "on-primary-container": "#9fbf84",
+                    "surface-bright": "#fff9ed",
+                    "primary-fixed": "#cbedae",
+                    "outline-variant": "#c4c8ba",
+                    "on-secondary-fixed-variant": "#673d00",
+                    "surface": "#fff9ed",
+                    "primary": "#1d370a",
+                    "tertiary-fixed-dim": "#a6d573",
+                    "on-error-container": "#93000a",
+                    "evergreen": "#334E1F",
+                    "tertiary": "#1e3700",
+                    "on-tertiary-container": "#95c364",
+                    "on-primary": "#ffffff",
+                    "pure-mist": "#F7F4EF",
+                    "inverse-primary": "#b0d194",
+                    "primary-fixed-dim": "#b0d194",
+                    "background": "#fff9ed",
+                    "tertiary-container": "#2d5000",
+                    "on-surface": "#1f1c0e",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#ffa52e",
+                    "secondary": "#885200",
+                    "error-container": "#ffdad6",
+                    "sandstone-beige": "#F1E9D2",
+                    "surface-tint": "#4a6634",
+                    "secondary-fixed": "#ffddbb",
+                    "surface-variant": "#eae2cb",
+                    "surface-container-low": "#fbf3dc",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#f9f0d9",
+                    "surface-container-highest": "#eae2cb",
+                    "on-background": "#1f1c0e",
+                    "on-secondary": "#ffffff",
+                    "inverse-surface": "#343021",
+                    "on-primary-fixed": "#0b2000",
+                    "error": "#ba1a1a",
+                    "on-secondary-container": "#6b3f00",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed": "#c1f18c",
+                    "primary-container": "#334e1f",
+                    "secondary-fixed-dim": "#ffb868"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "section-gap-lg": "80px",
+                    "container-margin": "20px",
+                    "section-gap-sm": "40px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "body-md": ["Red Hat Display"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-lg": ["Red Hat Display"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Red Hat Display"],
+                    "cta": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "800"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "cta": ["16px", {"lineHeight": "1", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fff9ed;
+            color: #1f1c0e;
+        }
+        input:focus, textarea:focus, select:focus {
+            outline: 2px solid #ED961D !important;
+            border-color: transparent !important;
+        }
+
+        /* Form Flow Styles */
+        .step-container-wrapper {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+            border: 2px solid #334E1F;
+            background: #ffffff;
+        }
+        .step-container {
+            transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+            height: 100%;
+        }
+        .step-screen {
+            height: 100%;
+            width: 100%;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .flavor-tile.selected {
+            background-color: #334E1F;
+            color: #ffffff;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #334E1F;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-body-md text-body-md">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-background border-b-2 border-evergreen dark:border-outline docked full-width top-0 sticky z-[50]">
+<div class="flex justify-between items-center w-full px-container-margin py-base max-w-[1200px] mx-auto">
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-evergreen dark:text-primary-fixed cursor-pointer active:scale-95 transition-transform">menu</span>
+<span class="text-headline-md font-headline-md font-extrabold text-evergreen dark:text-primary-fixed uppercase tracking-tight">Goodness for All</span>
+</div>
+<nav class="hidden md:flex gap-gutter items-center">
+<a class="text-evergreen dark:text-on-surface-variant font-label-sm text-label-sm hover:bg-sandstone-beige dark:hover:bg-surface-container-high transition-colors duration-200 px-base py-2 underline" href="#">Ons verhaal</a>
+<a class="text-evergreen dark:text-on-surface-variant font-label-sm text-label-sm hover:bg-sandstone-beige dark:hover:bg-surface-container-high transition-colors duration-200 px-base py-2 underline" href="#">Impact</a>
+<a class="text-evergreen dark:text-on-surface-variant font-label-sm text-label-sm hover:bg-sandstone-beige dark:hover:bg-surface-container-high transition-colors duration-200 px-base py-2 underline" href="#">Partners</a>
+<a class="text-evergreen dark:text-on-surface-variant font-label-sm text-label-sm hover:bg-sandstone-beige dark:hover:bg-surface-container-high transition-colors duration-200 px-base py-2 underline" href="#">Werken bij</a>
+<button class="font-label-sm text-label-sm text-evergreen dark:text-primary-fixed px-base py-2 border-2 border-evergreen hover:bg-evergreen hover:text-white transition-colors duration-200">Contact</button>
+</nav>
+</div>
+</header>
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="max-w-[1200px] mx-auto px-container-margin py-section-gap-sm md:py-section-gap-lg">
+<div class="flex flex-col md:flex-row gap-section-gap-sm items-start">
+<div class="w-full md:w-1/2">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-evergreen mb-base">
+                        Maaltijden bestellen voor jouw buurthuis.
+                    </h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-xl">
+                        Samen maken we een verschil in de buurt. Wij leveren gezonde, betaalbare maaltijden die mensen verbinden. Vul het onderstaande formulier in en we regelen de rest.
+                    </p>
+<!-- Form Controls / Progress (Visible only during active form) -->
+<div class="mt-8 hidden flex items-center justify-between" id="formNavControls">
+<button class="flex items-center gap-2 text-evergreen font-bold hover:opacity-70 transition-opacity" id="backBtn">
+<span class="material-symbols-outlined">arrow_back</span>
+<span>Terug</span>
+</button>
+<div class="text-evergreen/60 font-bold tracking-widest text-sm uppercase" id="progressIndicator">
+                            Vraag <span id="currentStepNum">1</span> van 8
+                        </div>
+</div>
+</div>
+<!-- Form Card / Multi-step Container -->
+<div class="w-full md:w-1/2">
+<div class="step-container-wrapper shadow-xl">
+<div class="step-container flex flex-col" id="formFlow">
+<!-- SCREEN 0: WELCOME -->
+<section class="step-screen" id="welcome">
+<div class="mb-6">
+<span class="material-symbols-outlined text-harvest-orange text-5xl">eco</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-evergreen leading-tight mb-4">
+                                    Goed eten voor iedereen bereikbaar maken.
+                                </h2>
+<p class="text-body-md text-evergreen/80 mb-6">
+                                    Dit bestelportaal is exclusief voor maatschappelijke organisaties. 
+                                    Nog geen account? <a class="text-harvest-orange underline font-bold" href="#">Registreer je hier</a>.
+                                </p>
+<button class="bg-harvest-orange text-white font-cta font-extrabold py-4 px-8 inline-flex items-center gap-4 hover:bg-evergreen transition-colors w-fit" onclick="nextStep()">
+                                    Start <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</section>
+<!-- Q1: Organisatie -->
+<section class="step-screen" id="q1">
+<label class="font-headline-md text-headline-md text-evergreen mb-6" for="organisatie">
+                                    Voor welke organisatie bestel je?
+                                </label>
+<div class="relative">
+<select class="w-full border-2 border-evergreen p-4 text-lg bg-white focus:ring-0 appearance-none cursor-pointer" id="organisatie" onchange="handleSelect(this)">
+<option disabled="" selected="" value="">Kies een locatie...</option>
+<option value="Incluzio">Incluzio</option>
+<option value="SOL">SOL</option>
+<option value="DOCK">DOCK</option>
+<option value="WijZijn">WijZijn</option>
+<option value="Andere">Andere maatschappelijke partner</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">expand_more</span>
+</div>
+</section>
+<!-- Q2: Aantal doosjes -->
+<section class="step-screen" id="q2">
+<label class="font-headline-md text-headline-md text-evergreen mb-2" for="aantal_doosjes">
+                                    Hoeveel doosjes wil je bestellen?
+                                </label>
+<p class="text-evergreen/60 mb-6 text-sm">Minimaal 5 doosjes per bestelling.</p>
+<input class="w-full border-2 border-evergreen p-4 text-3xl font-bold focus:ring-0 mb-4" id="aantal_doosjes" min="5" oninput="calculateMaaltijden(this.value)" placeholder="0" type="number">
+<p class="text-xl font-bold text-harvest-orange h-8" id="calculationText"></p>
+<button class="mt-4 bg-evergreen text-white font-cta font-bold py-4 px-8 w-fit hover:bg-harvest-orange transition-colors" onclick="checkAmountAndProceed()">Volgende</button>
+</section>
+<!-- Q3: Leveringsbevestiging -->
+<section class="step-screen" id="q3">
+<h2 class="font-headline-md text-headline-md text-evergreen mb-6">
+                                    Kun je bevestigen dat er iemand aanwezig is op de leverlocatie op de gewenste dag?
+                                </h2>
+<div class="grid grid-cols-2 gap-4">
+<button class="bg-evergreen text-white font-bold py-6 text-xl hover:opacity-90" onclick="handleConfirmation('levering', true)">Ja</button>
+<button class="border-2 border-evergreen text-evergreen font-bold py-6 text-xl hover:bg-sandstone-beige" onclick="handleConfirmation('levering', false)">Nee</button>
+</div>
+</section>
+<!-- Q4: Ophaalbevestiging -->
+<section class="step-screen" id="q4">
+<h2 class="font-headline-md text-headline-md text-evergreen mb-6">
+                                    Vanwege de grootte vragen we je dit op te halen bij ons depot. Akkoord?
+                                </h2>
+<div class="grid grid-cols-2 gap-4">
+<button class="bg-evergreen text-white font-bold py-6 text-xl hover:opacity-90" onclick="handleConfirmation('ophaal', true)">Ja</button>
+<button class="border-2 border-evergreen text-evergreen font-bold py-6 text-xl hover:bg-sandstone-beige" onclick="handleConfirmation('ophaal', false)">Nee</button>
+</div>
+</section>
+<!-- Q5: Smakenkeuze -->
+<section class="step-screen" id="q5">
+<h2 class="font-headline-md text-headline-md text-evergreen mb-6">
+                                    Zelf kiezen of een verrassingsmix?
+                                </h2>
+<div class="grid grid-cols-2 gap-4">
+<button class="bg-evergreen text-white font-bold py-6 text-xl hover:opacity-90" onclick="handleChoice('zelf')">Zelf kiezen</button>
+<button class="border-2 border-evergreen text-evergreen font-bold py-6 text-xl hover:bg-sandstone-beige" onclick="handleChoice('mix')">Verrassingsmix</button>
+</div>
+</section>
+<!-- Q6: Smakenselectie -->
+<section class="step-screen" id="q6">
+<h2 class="font-headline-md text-headline-md text-evergreen mb-4">
+                                    Kies je smaken
+                                </h2>
+<div class="grid grid-cols-2 gap-3 overflow-y-auto max-h-[250px] pr-2 custom-scrollbar">
+<div class="flavor-tile border-2 border-evergreen p-2 cursor-pointer font-bold text-center flex items-center justify-center h-16" onclick="toggleFlavor(this, 'Gnocchi')">Gnocchi</div>
+<div class="flavor-tile border-2 border-evergreen p-2 cursor-pointer font-bold text-center flex items-center justify-center h-16" onclick="toggleFlavor(this, 'Korean Noodles')">Korean Noodles</div>
+<div class="flavor-tile border-2 border-evergreen p-2 cursor-pointer font-bold text-center flex items-center justify-center h-16" onclick="toggleFlavor(this, 'Pasta Pesto')">Pasta Pesto</div>
+<div class="flavor-tile border-2 border-evergreen p-2 cursor-pointer font-bold text-center flex items-center justify-center h-16" onclick="toggleFlavor(this, 'Lentil Curry')">Lentil Curry</div>
+<div class="flavor-tile border-2 border-evergreen p-2 cursor-pointer font-bold text-center flex items-center justify-center h-16" onclick="toggleFlavor(this, 'Stamppot')">Stamppot</div>
+<div class="flavor-tile border-2 border-evergreen p-2 cursor-pointer font-bold text-center flex items-center justify-center h-16" onclick="toggleFlavor(this, 'Burrito Bowl')">Burrito Bowl</div>
+</div>
+<button class="mt-6 bg-evergreen text-white font-cta font-bold py-4 px-8 w-fit hover:bg-harvest-orange transition-colors" onclick="nextStep()">Volgende</button>
+</section>
+<!-- Q7: Opmerkingen -->
+<section class="step-screen" id="q7">
+<label class="font-headline-md text-headline-md text-evergreen mb-6" for="opmerkingen_field">
+                                    Opmerkingen of dieetwensen?
+                                </label>
+<textarea class="w-full border-2 border-evergreen p-4 text-lg focus:ring-0 bg-white" id="opmerkingen_field" placeholder="Bijv. 10x glutenvrij..." rows="3"></textarea>
+<button class="mt-6 bg-evergreen text-white font-cta font-bold py-4 px-8 w-fit hover:bg-harvest-orange transition-colors" onclick="nextStep()">Volgende</button>
+</section>
+<!-- Q8: Contactgegevens -->
+<section class="step-screen" id="q8">
+<h2 class="font-headline-md text-headline-md text-evergreen mb-6">Contactgegevens</h2>
+<div class="space-y-3">
+<input class="w-full border-2 border-evergreen p-3 text-lg focus:ring-0" id="voornaam" placeholder="Voornaam" type="text">
+<input class="w-full border-2 border-evergreen p-3 text-lg focus:ring-0" id="achternaam" placeholder="Achternaam" type="text">
+<input class="w-full border-2 border-evergreen p-3 text-lg focus:ring-0" id="telefoon" pattern="[0-9]{10}" placeholder="Telefoonnummer" type="tel">
+</div>
+<button class="mt-6 bg-harvest-orange text-white font-cta font-extrabold py-4 px-8 w-full text-lg hover:bg-evergreen transition-colors flex items-center justify-center gap-4" id="submitBtn" onclick="submitOrder()">
+                                    Versturen <span class="material-symbols-outlined">send</span>
+</button>
+</section>
+<!-- SUCCESS -->
+<section class="step-screen" id="success">
+<span class="material-symbols-outlined text-evergreen text-6xl mb-4">check_circle</span>
+<h2 class="font-headline-md text-headline-md text-evergreen mb-4">Bedankt voor je bestelling!</h2>
+<p class="text-body-md text-evergreen/80 mb-6">We nemen zo snel mogelijk contact op voor de definitieve bevestiging.</p>
+<button class="bg-harvest-orange text-white font-bold py-4 px-8 w-fit" onclick="window.location.reload()">Nieuwe bestelling</button>
+</section>
+<!-- REJECTION -->
+<section class="step-screen" id="rejection">
+<span class="material-symbols-outlined text-evergreen text-6xl mb-4">info</span>
+<h2 class="font-headline-md text-headline-md text-evergreen mb-4">Helaas...</h2>
+<p class="text-body-md text-evergreen/80 mb-6" id="rejectionText"></p>
+<button class="bg-evergreen text-white font-bold py-4 px-8 w-fit" onclick="prevStep()">Terug</button>
+</section>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Visual Block -->
+<section class="w-full bg-evergreen py-section-gap-lg">
+<div class="max-w-[1200px] mx-auto px-container-margin">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="aspect-square bg-sandstone-beige overflow-hidden">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="A candid photograph of community members sharing a meal" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMajVfOz_CMBFfV9O_bigb5y8IPQnBCwrA2RXjhUwi68oEYOltvYcGHXiBvWVc7pueadixx6_kS95lLslc8rz3hL7FcK2pTcB9ZhtzwDI-JcIUTz7C29Vx5Hh3uRihfT7c-SRf4xtQhaLeM3-jJpZBFZjBeuINxvIVRaFkuSaOeJED2oyyuXBsPsOFGK808ykTkej59l0tbeZ1bfxCzim7OAjrqy97jnrRRQHi_BJEOOc0Rqxusr_PyxvkQA1p5mDI6XqQe_eFnnxV">
+</div>
+<div class="aspect-square bg-harvest-orange flex flex-col justify-end p-gutter">
+<h2 class="font-headline-lg text-white leading-none">GEZOND &amp; VERS</h2>
+<p class="text-evergreen font-bold mt-base">Dagelijks bereid door onze chefs.</p>
+</div>
+<div class="aspect-square border-2 border-sandstone-beige flex items-center justify-center p-gutter">
+<div class="text-center">
+<span class="material-symbols-outlined text-harvest-orange text-6xl mb-base">volunteer_activism</span>
+<p class="text-sandstone-beige font-headline-md uppercase">Voor elkaar, door elkaar</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-evergreen dark:bg-surface-container-highest border-t-2 border-evergreen w-full mt-section-gap-lg">
+<div class="w-full py-section-gap-sm px-container-margin flex flex-col md:flex-row justify-between items-center gap-base max-w-[1200px] mx-auto">
+<div class="flex flex-col items-center md:items-start">
+<span class="text-headline-md font-headline-md text-harvest-orange">Goodness for All</span>
+<p class="text-sandstone-beige/80 font-label-sm text-label-sm mt-2">© 2024 Goodness for All</p>
+</div>
+<div class="flex flex-wrap justify-center gap-gutter">
+<a class="text-harvest-orange underline font-label-sm text-label-sm hover:text-harvest-orange transition-colors" href="#">Voor buurthuizen</a>
+<a class="text-sandstone-beige/80 dark:text-on-surface/80 font-label-sm text-label-sm hover:text-harvest-orange transition-colors underline" href="#">ANBI-informatie</a>
+<a class="text-sandstone-beige/80 dark:text-on-surface/80 font-label-sm text-label-sm hover:text-harvest-orange transition-colors underline" href="#">Privacy</a>
+</div>
+<div class="flex gap-base">
+<div class="w-10 h-10 border border-sandstone-beige flex items-center justify-center cursor-pointer hover:bg-harvest-orange transition-colors">
+<span class="material-symbols-outlined text-sandstone-beige text-sm">share</span>
+</div>
+<div class="w-10 h-10 border border-sandstone-beige flex items-center justify-center cursor-pointer hover:bg-harvest-orange transition-colors">
+<span class="material-symbols-outlined text-sandstone-beige text-sm">mail</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        const SHEETS_ENDPOINT = "https://script.google.com/macros/s/AKfycbz_REPLACE_WITH_YOUR_ID/exec";
+        
+        let currentStepIndex = 0;
+        let history = [0];
+        let formData = {
+            organisatie: '',
+            aantal_doosjes: 0,
+            totaal_maaltijden: 0,
+            bevestiging_type: '',
+            bevestiging_status: null,
+            keuze_type: '',
+            smaken: [],
+            opmerkingen: '',
+            voornaam: '',
+            achternaam: '',
+            telefoon: ''
+        };
+
+        function updateProgress() {
+            const currentStepNum = document.getElementById('currentStepNum');
+            const progressIndicator = document.getElementById('progressIndicator');
+            const backBtn = document.getElementById('backBtn');
+            const navControls = document.getElementById('formNavControls');
+
+            if (currentStepIndex === 0 || currentStepIndex >= 9) {
+                navControls.classList.add('hidden');
+            } else {
+                navControls.classList.remove('hidden');
+                currentStepNum.innerText = currentStepIndex; 
+            }
+        }
+
+        function scrollToStep(index) {
+            const container = document.getElementById('formFlow');
+            container.style.transform = `translateY(-${index * 600}px)`;
+            currentStepIndex = index;
+            updateProgress();
+        }
+
+        function nextStep() {
+            const nextIdx = currentStepIndex + 1;
+            history.push(nextIdx);
+            scrollToStep(nextIdx);
+        }
+
+        function prevStep() {
+            if (history.length > 1) {
+                history.pop();
+                const prevIdx = history[history.length - 1];
+                scrollToStep(prevIdx);
+            }
+        }
+
+        document.getElementById('backBtn').addEventListener('click', prevStep);
+
+        function handleSelect(el) {
+            formData.organisatie = el.value;
+            if (formData.organisatie) nextStep();
+        }
+
+        function calculateMaaltijden(val) {
+            const n = parseInt(val) || 0;
+            const total = n * 9;
+            const textEl = document.getElementById('calculationText');
+            if (n >= 5) {
+                textEl.innerText = `Dat zijn ${total} maaltijden.`;
+                formData.aantal_doosjes = n;
+                formData.totaal_maaltijden = total;
+            } else {
+                textEl.innerText = "";
+            }
+        }
+
+        function checkAmountAndProceed() {
+            if (formData.aantal_doosjes < 5) {
+                alert("Minimaal 5 doosjes vereist.");
+                return;
+            }
+            if (formData.aantal_doosjes <= 30) {
+                history.push(3);
+                scrollToStep(3);
+            } else {
+                history.push(4);
+                scrollToStep(4);
+            }
+        }
+
+        function handleConfirmation(type, confirmed) {
+            formData.bevestiging_type = type;
+            formData.bevestiging_status = confirmed;
+            if (confirmed) {
+                history.push(5);
+                scrollToStep(5);
+            } else {
+                const rejText = type === 'levering' 
+                    ? "Helaas kunnen we de maaltijden alleen leveren als er iemand aanwezig is. Neem contact op voor alternatieven."
+                    : "Vanwege de omvang van de bestelling is ophalen noodzakelijk. Neem contact op om de mogelijkheden te bespreken.";
+                document.getElementById('rejectionText').innerText = rejText;
+                history.push(10);
+                scrollToStep(10);
+            }
+        }
+
+        function handleChoice(choice) {
+            formData.keuze_type = choice;
+            if (choice === 'zelf') {
+                nextStep();
+            } else {
+                formData.smaken = ['Mix'];
+                history.push(7);
+                scrollToStep(7);
+            }
+        }
+
+        function toggleFlavor(el, flavor) {
+            el.classList.toggle('selected');
+            if (formData.smaken.includes(flavor)) {
+                formData.smaken = formData.smaken.filter(f => f !== flavor);
+            } else {
+                formData.smaken.push(flavor);
+            }
+        }
+
+        async function submitOrder() {
+            formData.voornaam = document.getElementById('voornaam').value;
+            formData.achternaam = document.getElementById('achternaam').value;
+            formData.telefoon = document.getElementById('telefoon').value;
+            formData.opmerkingen = document.getElementById('opmerkingen_field').value;
+
+            if (!formData.voornaam || !formData.achternaam || !formData.telefoon) {
+                alert("Vul alstublieft alle contactgegevens in.");
+                return;
+            }
+
+            const btn = document.getElementById('submitBtn');
+            btn.innerText = "BEZIG...";
+            btn.disabled = true;
+
+            try {
+                console.log("Submitting:", formData);
+                setTimeout(() => {
+                    history.push(9);
+                    scrollToStep(9);
+                }, 1500);
+            } catch (error) {
+                alert("Er is iets misgegaan.");
+                btn.innerText = "Versturen →";
+                btn.disabled = false;
+            }
+        }
+
+        // Initialize progress
+        updateProgress();
+
+        // Sticky header logic
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body></html>

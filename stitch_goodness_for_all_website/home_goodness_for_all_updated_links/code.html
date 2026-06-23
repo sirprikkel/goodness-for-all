@@ -1,0 +1,318 @@
+<!DOCTYPE html><html lang="nl" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Goodness for All | Iedereen een gezonde maaltijd</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Red+Hat+Display:wght@400;600;700&amp;family=Baloo+2:wght@700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#74796d",
+                    "surface-dim": "#e1dac3",
+                    "on-secondary-fixed": "#2b1700",
+                    "on-tertiary-fixed": "#0f2000",
+                    "on-primary-fixed-variant": "#334e1f",
+                    "surface-container": "#f6eed6",
+                    "harvest-orange": "#ED961D",
+                    "surface-container-high": "#f0e8d1",
+                    "asparagus": "#7CA84C",
+                    "on-surface-variant": "#44483e",
+                    "on-tertiary-fixed-variant": "#2d5000",
+                    "on-primary-container": "#9fbf84",
+                    "surface-bright": "#fff9ed",
+                    "primary-fixed": "#cbedae",
+                    "outline-variant": "#c4c8ba",
+                    "on-secondary-fixed-variant": "#673d00",
+                    "surface": "#fff9ed",
+                    "primary": "#1d370a",
+                    "tertiary-fixed-dim": "#a6d573",
+                    "on-error-container": "#93000a",
+                    "evergreen": "#334E1F",
+                    "tertiary": "#1e3700",
+                    "on-tertiary-container": "#95c364",
+                    "on-primary": "#ffffff",
+                    "pure-mist": "#F7F4EF",
+                    "inverse-primary": "#b0d194",
+                    "primary-fixed-dim": "#b0d194",
+                    "background": "#fff9ed",
+                    "tertiary-container": "#2d5000",
+                    "on-surface": "#1f1c0e",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#ffa52e",
+                    "secondary": "#885200",
+                    "error-container": "#ffdad6",
+                    "sandstone-beige": "#F1E9D2",
+                    "surface-tint": "#4a6634",
+                    "secondary-fixed": "#ffddbb",
+                    "surface-variant": "#eae2cb",
+                    "surface-container-low": "#fbf3dc",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#f9f0d9",
+                    "surface-container-highest": "#eae2cb",
+                    "on-background": "#1f1c0e",
+                    "on-secondary": "#ffffff",
+                    "inverse-surface": "#343021",
+                    "on-primary-fixed": "#0b2000",
+                    "error": "#ba1a1a",
+                    "on-secondary-container": "#6b3f00",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed": "#c1f18c",
+                    "primary-container": "#334e1f",
+                    "secondary-fixed-dim": "#ffb868"
+            },
+            "borderRadius": {
+                    "none": "0px",
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "section-gap-lg": "80px",
+                    "container-margin": "20px",
+                    "section-gap-sm": "40px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "body-md": ["Red Hat Display"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-lg": ["Red Hat Display"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Red Hat Display"],
+                    "cta": ["Plus Jakarta Sans"],
+                    "baloo": ["Baloo 2"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "800"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "cta": ["16px", {"lineHeight": "1", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Red Hat Display', sans-serif; background-color: #fff9ed; }
+        .hero-title { font-family: 'Baloo 2', cursive; line-height: 1; }
+        .no-corners { border-radius: 0 !important; }
+        .partner-scroll::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="text-evergreen overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-background border-b-2 border-evergreen dark:border-outline docked full-width top-0 sticky z-[90]">
+<div class="flex justify-between items-center w-full px-container-margin py-base max-w-[1200px] mx-auto">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-evergreen cursor-pointer active:scale-95 transition-transform" onclick="document.getElementById('mobile-menu').classList.remove('-translate-x-full')">menu</button>
+<div class="text-headline-md font-headline-md font-extrabold text-evergreen dark:text-primary-fixed uppercase tracking-tight">Goodness for All</div>
+</div>
+<nav class="hidden md:flex gap-base">
+<a class="text-harvest-orange font-bold font-label-sm text-label-sm px-4 py-2 hover:bg-sandstone-beige transition-colors duration-200" href="#">Home</a>
+<a class="text-evergreen dark:text-on-surface-variant font-label-sm text-label-sm px-4 py-2 hover:bg-sandstone-beige transition-colors duration-200" href="#">Ons verhaal</a>
+<a class="text-evergreen dark:text-on-surface-variant font-label-sm text-label-sm px-4 py-2 hover:bg-sandstone-beige transition-colors duration-200" href="#">Impact</a>
+<a class="text-evergreen dark:text-on-surface-variant font-label-sm text-label-sm px-4 py-2 hover:bg-sandstone-beige transition-colors duration-200" href="#">Partners</a>
+</nav>
+<button class="bg-evergreen text-sandstone-beige px-6 py-2 font-cta text-cta uppercase tracking-widest cursor-pointer active:scale-95 transition-transform">Contact</button>
+</div>
+</header>
+<!-- NavigationDrawer (Mobile) -->
+<div class="fixed inset-y-0 left-0 z-[100] flex flex-col p-gutter bg-pure-mist dark:bg-surface-container border-r-2 border-evergreen h-full w-80 -translate-x-full transition-all duration-300 ease-in-out" id="mobile-menu">
+<div class="flex justify-between items-center mb-8">
+<span class="text-headline-md font-headline-md text-evergreen">Menu</span>
+<button class="material-symbols-outlined" onclick="document.getElementById('mobile-menu').classList.add('-translate-x-full')">close</button>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-4 p-4 bg-harvest-orange text-evergreen font-bold transition-all duration-300" href="#">
+<span class="material-symbols-outlined">history_edu</span> Ons verhaal
+            </a>
+<a class="flex items-center gap-4 p-4 text-evergreen dark:text-on-surface-variant hover:bg-asparagus hover:text-white transition-all duration-300" href="#">
+<span class="material-symbols-outlined">query_stats</span> Impact
+            </a>
+<a class="flex items-center gap-4 p-4 text-evergreen dark:text-on-surface-variant hover:bg-asparagus hover:text-white transition-all duration-300" href="#">
+<span class="material-symbols-outlined">handshake</span> Partners
+            </a>
+<a class="flex items-center gap-4 p-4 text-evergreen dark:text-on-surface-variant hover:bg-asparagus hover:text-white transition-all duration-300" href="#">
+<span class="material-symbols-outlined">work</span> Werken bij
+            </a>
+<a class="flex items-center gap-4 p-4 text-evergreen dark:text-on-surface-variant hover:bg-asparagus hover:text-white transition-all duration-300" href="#">
+<span class="material-symbols-outlined">mail</span> Contact
+            </a>
+</nav>
+</div>
+<!-- Hero Section -->
+<section class="relative w-full h-[80vh] min-h-[600px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center" data-alt="A lush, high-contrast editorial photograph of a vibrant, healthy meal featuring colorful roasted vegetables, grains, and fresh greens. The lighting is warm and natural, casting soft shadows across a rustic tabletop. The aesthetic is clean and grounded, emphasizing the beauty of fresh, accessible food within the Goodness for All brand identity of evergreen and orange tones." style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBluufbkysZaHW2U-GRaB5Q7FmuTadDmoI-tya_UI4NmRNeRSBMJ6rfgpnlrimW2HsBe4QTRICF7-si44TxuvMbMbmQsV9VDiEC0_MK0lM8OJsGbXhtM2awuwbkcUAcA3ukDxr7qFxlWMpe91PgoS2ULUrAU45pNjp4iIXGtsApE4SAshK831QUfItd0tpeCWJMsntnJKHWqlXd9jGC_Ovt2ml1H9PofGW7YNzUQWzWjB4cZsoAb4qK5_3KfCX32pqIUznD2kVxn_8uTt8&quot;);"></div>
+<div class="absolute inset-0 bg-black/30"></div>
+</div>
+<div class="relative z-10 w-full max-w-[1200px] mx-auto px-container-margin">
+<div class="max-w-2xl bg-white/90 p-10 md:p-16 border-l-8 border-harvest-orange">
+<h1 class="hero-title text-[64px] md:text-[84px] text-evergreen mb-6 leading-none">Iedereen een gezonde maaltijd.</h1>
+<p class="font-body-lg text-body-lg md:text-2xl text-evergreen mb-10 opacity-90">Samen maken we een einde aan honger in Rotterdam.</p>
+<button class="bg-harvest-orange text-evergreen px-10 py-5 font-cta text-cta uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all">Lees ons verhaal</button>
+</div>
+</div>
+</section>
+<!-- Three-Card Bento Section -->
+<section class="py-section-gap-lg max-w-[1200px] mx-auto px-container-margin">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-white border-2 border-evergreen p-8 flex flex-col justify-between aspect-square group hover:bg-sandstone-beige transition-colors duration-300">
+<div>
+<h3 class="font-headline-md text-headline-md mb-4 uppercase tracking-tight">Ons verhaal</h3>
+<p class="font-body-md text-body-md text-evergreen/80">De één betaalt wat meer, zodat de ander minder betaalt. Zo werkt het.</p>
+</div>
+<div class="flex justify-end">
+<span class="material-symbols-outlined text-4xl group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-white border-2 border-evergreen p-8 flex flex-col justify-between aspect-square group hover:bg-sandstone-beige transition-colors duration-300">
+<div>
+<h3 class="font-headline-md text-headline-md mb-4 uppercase tracking-tight">Impact</h3>
+<p class="font-body-md text-body-md text-evergreen/80">2.000 maaltijden per maand. Bekijk waar we ze naartoe brengen.</p>
+</div>
+<div class="flex justify-end">
+<span class="material-symbols-outlined text-4xl group-hover:translate-x-2 transition-transform">query_stats</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-white border-2 border-evergreen p-8 flex flex-col justify-between aspect-square group hover:bg-sandstone-beige transition-colors duration-300">
+<div>
+<h3 class="font-headline-md text-headline-md mb-4 uppercase tracking-tight">Doe mee</h3>
+<p class="font-body-md text-body-md text-evergreen/80"><a class="block hover:underline hover:text-harvest-orange transition-colors" href="{{DATA:SCREEN:SCREEN_7}}">Als bedrijf: Word Impact Partner</a><a class="block hover:underline hover:text-harvest-orange transition-colors" href="{{DATA:SCREEN:SCREEN_11}}">Als buurthuis: Help de maaltijden verspreiden</a><a class="block hover:underline hover:text-harvest-orange transition-colors" href="{{DATA:SCREEN:SCREEN_2}}">Als persoon: Kijk naar onze vacatures, vertel anderen over ons, of doneer!</a></p>
+</div>
+<div class="flex justify-end">
+<span class="material-symbols-outlined text-4xl group-hover:translate-x-2 transition-transform">handshake</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Counter Section -->
+<section class="bg-evergreen py-section-gap-lg text-sandstone-beige">
+<div class="max-w-[1200px] mx-auto px-container-margin text-center">
+<div class="mb-4">
+<span class="text-[80px] md:text-[120px] font-headline-lg font-extrabold leading-none text-harvest-orange block" id="counter">2,000+</span>
+<span class="text-2xl md:text-4xl font-headline-md uppercase tracking-widest block -mt-4">maaltijden per maand</span>
+</div>
+<div class="h-1 w-24 bg-harvest-orange mx-auto mb-8"></div>
+<p class="font-body-lg text-body-lg opacity-80 max-w-xl mx-auto">Via 12 buurthuizen in Rotterdam en Den Haag.</p>
+</div>
+</section>
+<!-- Quote Block -->
+<section class="bg-sandstone-beige py-section-gap-lg overflow-hidden">
+<div class="max-w-[1200px] mx-auto px-container-margin relative">
+<span class="material-symbols-outlined absolute -top-10 -left-4 text-[120px] text-evergreen/10 select-none">format_quote</span>
+<div class="relative z-10 max-w-4xl">
+<blockquote class="text-2xl md:text-[32px] font-body-lg leading-relaxed text-evergreen mb-10 italic">
+                    "Door de maaltijden heb ik het gevoel dat ik het gesprek toch positief kan afronden en echt iets kan bieden aan mensen, waar ze op dat moment ook echt mee geholpen zijn."
+                </blockquote>
+<div class="flex items-center gap-4">
+<div class="w-12 h-[2px] bg-evergreen"></div>
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-widest font-bold">Lysdaimarie Conep</p>
+<p class="font-label-sm text-label-sm uppercase opacity-70">Coördinator Huis van de Wijk De Kip</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Partner Strip -->
+<section class="bg-white py-12 border-y-2 border-evergreen overflow-hidden">
+<div class="max-w-[1200px] mx-auto px-container-margin mb-8">
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest text-center text-evergreen opacity-50">Onze trotse partners</h4>
+</div>
+<div class="flex partner-scroll overflow-x-auto whitespace-nowrap gap-12 px-8 items-center">
+<div class="flex-shrink-0 font-bold text-xl uppercase tracking-tighter text-evergreen/60">Gemeente Rotterdam</div>
+<div class="flex-shrink-0 font-bold text-xl uppercase tracking-tighter text-evergreen/60">Provincie Zuid-Holland</div>
+<div class="flex-shrink-0 font-bold text-xl uppercase tracking-tighter text-evergreen/60">Rabobank</div>
+<div class="flex-shrink-0 font-bold text-xl uppercase tracking-tighter text-evergreen/60">FMO</div>
+<div class="flex-shrink-0 font-bold text-xl uppercase tracking-tighter text-evergreen/60">ABB</div>
+<div class="flex-shrink-0 font-bold text-xl uppercase tracking-tighter text-evergreen/60">Savills</div>
+<div class="flex-shrink-0 font-bold text-xl uppercase tracking-tighter text-evergreen/60">Azbel</div>
+<div class="flex-shrink-0 font-bold text-xl uppercase tracking-tighter text-evergreen/60">NS Stations</div>
+<div class="flex-shrink-0 font-bold text-xl uppercase tracking-tighter text-evergreen/60">Lazy</div>
+<div class="flex-shrink-0 font-bold text-xl uppercase tracking-tighter text-evergreen/60">SOL</div>
+<div class="flex-shrink-0 font-bold text-xl uppercase tracking-tighter text-evergreen/60">Incluzio</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-evergreen dark:bg-surface-container-highest border-t-2 border-evergreen w-full">
+<div class="w-full py-section-gap-sm px-container-margin flex flex-col md:flex-row justify-between items-center gap-base max-w-[1200px] mx-auto text-sandstone-beige dark:text-on-surface">
+<div class="text-headline-md font-headline-md text-harvest-orange">Goodness for All</div>
+<div class="flex gap-8 my-6 md:my-0">
+<a class="font-label-sm text-label-sm text-sandstone-beige/80 hover:text-harvest-orange transition-colors" href="#">Voor buurthuizen</a>
+<a class="font-label-sm text-label-sm text-sandstone-beige/80 hover:text-harvest-orange transition-colors" href="#">ANBI-informatie</a>
+<a class="font-label-sm text-label-sm text-sandstone-beige/80 hover:text-harvest-orange transition-colors" href="#">Privacy</a>
+</div>
+<div class="font-body-md text-body-md opacity-60">© 2024 Goodness for All</div>
+</div>
+</footer>
+<script>
+        // Simple counter animation
+        function animateValue(obj, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                obj.innerHTML = Math.floor(progress * (end - start) + start).toLocaleString() + "+";
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // Intersection Observer for counter
+        const counterElement = document.getElementById("counter");
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                animateValue(counterElement, 0, 2000, 2000);
+                observer.unobserve(counterElement);
+            }
+        });
+        observer.observe(counterElement);
+
+        // Partner scroll horizontal drag or auto-scroll can be added here
+        const partnerScroll = document.querySelector('.partner-scroll');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        partnerScroll.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - partnerScroll.offsetLeft;
+            scrollLeft = partnerScroll.scrollLeft;
+        });
+        partnerScroll.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+        partnerScroll.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+        partnerScroll.addEventListener('mousemove', (e) => {
+            if(!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - partnerScroll.offsetLeft;
+            const walk = (x - startX) * 2;
+            partnerScroll.scrollLeft = scrollLeft - walk;
+        });
+    </script>
+
+
+</body></html>

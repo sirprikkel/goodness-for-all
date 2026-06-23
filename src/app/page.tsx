@@ -1,65 +1,174 @@
-import Image from "next/image";
+import Link from "next/link";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Counter from "@/components/home/Counter";
+import PartnerStrip from "@/components/home/PartnerStrip";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <>
+      <Header active="/" />
+
+      {/* Hero Section */}
+      <section className="relative w-full h-[80vh] min-h-[600px] flex items-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <div
+            className="w-full h-full bg-cover bg-center"
+            style={{ backgroundImage: "url(/images/home/hero.jpg)" }}
+          />
+          <div className="absolute inset-0 bg-black/30" />
+        </div>
+        <div className="relative z-10 w-full max-w-[1200px] mx-auto px-container-margin">
+          <div className="max-w-2xl bg-white/90 p-10 md:p-16 border-l-8 border-harvest-orange">
+            <h1 className="hero-title text-[64px] md:text-[84px] text-evergreen mb-6 leading-none">
+              Iedereen een gezonde maaltijd.
+            </h1>
+            <p className="font-body-lg text-body-lg md:text-2xl text-evergreen mb-10 opacity-90">
+              Samen maken we een einde aan honger in Rotterdam.
+            </p>
+            <Link
+              href="/ons-verhaal"
+              className="inline-block bg-harvest-orange text-evergreen px-10 py-5 font-cta text-cta uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+              Lees ons verhaal
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Three-Card Bento Section */}
+      <section className="py-section-gap-lg max-w-[1200px] mx-auto px-container-margin">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+          <Link
+            href="/ons-verhaal"
+            className="bg-white border-2 border-evergreen p-8 flex flex-col justify-between aspect-square group hover:bg-sandstone-beige transition-colors duration-300"
+          >
+            <div>
+              <h3 className="font-headline-md text-headline-md mb-4 uppercase tracking-tight">
+                Ons verhaal
+              </h3>
+              <p className="font-body-md text-body-md text-evergreen/80">
+                De één betaalt wat meer, zodat de ander minder betaalt. Zo werkt het.
+              </p>
+            </div>
+            <div className="flex justify-end">
+              <span className="material-symbols-outlined text-4xl group-hover:translate-x-2 transition-transform">
+                arrow_forward
+              </span>
+            </div>
+          </Link>
+
+          <Link
+            href="/impact"
+            className="bg-white border-2 border-evergreen p-8 flex flex-col justify-between aspect-square group hover:bg-sandstone-beige transition-colors duration-300"
+          >
+            <div>
+              <h3 className="font-headline-md text-headline-md mb-4 uppercase tracking-tight">
+                Impact
+              </h3>
+              <p className="font-body-md text-body-md text-evergreen/80">
+                2.000 maaltijden per maand. Bekijk waar we ze naartoe brengen.
+              </p>
+            </div>
+            <div className="flex justify-end">
+              <span className="material-symbols-outlined text-4xl group-hover:translate-x-2 transition-transform">
+                query_stats
+              </span>
+            </div>
+          </Link>
+
+          <div className="bg-white border-2 border-evergreen p-8 flex flex-col justify-between aspect-square group hover:bg-sandstone-beige transition-colors duration-300">
+            <div>
+              <h3 className="font-headline-md text-headline-md mb-4 uppercase tracking-tight">
+                Doe mee
+              </h3>
+              <p className="font-body-md text-body-md text-evergreen/80">
+                <Link
+                  className="block hover:underline hover:text-harvest-orange transition-colors"
+                  href="/partners"
+                >
+                  Als bedrijf: Word Impact Partner
+                </Link>
+                <Link
+                  className="block hover:underline hover:text-harvest-orange transition-colors"
+                  href="/voor-buurthuizen"
+                >
+                  Als buurthuis: Help de maaltijden verspreiden
+                </Link>
+                <Link
+                  className="block hover:underline hover:text-harvest-orange transition-colors"
+                  href="/ik-wil-helpen"
+                >
+                  Als persoon: Kijk naar onze vacatures, vertel anderen over ons, of doneer!
+                </Link>
+              </p>
+            </div>
+            <div className="flex justify-end">
+              <span className="material-symbols-outlined text-4xl group-hover:translate-x-2 transition-transform">
+                handshake
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Counter Section */}
+      <section className="bg-evergreen py-section-gap-lg text-sandstone-beige">
+        <div className="max-w-[1200px] mx-auto px-container-margin text-center">
+          <div className="mb-4">
+            <Counter
+              end={2000}
+              className="text-[80px] md:text-[120px] font-headline-lg font-extrabold leading-none text-harvest-orange block"
+            />
+            <span className="text-2xl md:text-4xl font-headline-md uppercase tracking-widest block -mt-4">
+              maaltijden per maand
+            </span>
+          </div>
+          <div className="h-1 w-24 bg-harvest-orange mx-auto mb-8" />
+          <p className="font-body-lg text-body-lg opacity-80 max-w-xl mx-auto">
+            Via 12 buurthuizen in Rotterdam en Den Haag.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Quote Block */}
+      <section className="bg-sandstone-beige py-section-gap-lg overflow-hidden">
+        <div className="max-w-[1200px] mx-auto px-container-margin relative">
+          <span className="material-symbols-outlined absolute -top-10 -left-4 text-[120px] text-evergreen/10 select-none">
+            format_quote
+          </span>
+          <div className="relative z-10 max-w-4xl">
+            <blockquote className="text-2xl md:text-[32px] font-body-lg leading-relaxed text-evergreen mb-10 italic">
+              &quot;Door de maaltijden heb ik het gevoel dat ik het gesprek toch positief kan
+              afronden en echt iets kan bieden aan mensen, waar ze op dat moment ook echt mee
+              geholpen zijn.&quot;
+            </blockquote>
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-[2px] bg-evergreen" />
+              <div>
+                <p className="font-label-sm text-label-sm uppercase tracking-widest font-bold">
+                  Lysdaimarie Conep
+                </p>
+                <p className="font-label-sm text-label-sm uppercase opacity-70">
+                  Coördinator Huis van de Wijk De Kip
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Partner Strip */}
+      <section className="bg-white py-12 border-y-2 border-evergreen overflow-hidden">
+        <div className="max-w-[1200px] mx-auto px-container-margin mb-8">
+          <h4 className="font-label-sm text-label-sm uppercase tracking-widest text-center text-evergreen opacity-50">
+            Onze trotse partners
+          </h4>
+        </div>
+        <PartnerStrip />
+      </section>
+
+      <Footer />
+    </>
   );
 }

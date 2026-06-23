@@ -1,0 +1,291 @@
+<!DOCTYPE html><html lang="nl" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Ik wil helpen — Goodness for All</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Red+Hat+Display:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#74796d",
+                    "surface-dim": "#e1dac3",
+                    "on-secondary-fixed": "#2b1700",
+                    "on-tertiary-fixed": "#0f2000",
+                    "on-primary-fixed-variant": "#334e1f",
+                    "surface-container": "#f6eed6",
+                    "harvest-orange": "#ED961D",
+                    "surface-container-high": "#f0e8d1",
+                    "asparagus": "#7CA84C",
+                    "on-surface-variant": "#44483e",
+                    "on-tertiary-fixed-variant": "#2d5000",
+                    "on-primary-container": "#9fbf84",
+                    "surface-bright": "#fff9ed",
+                    "primary-fixed": "#cbedae",
+                    "outline-variant": "#c4c8ba",
+                    "on-secondary-fixed-variant": "#673d00",
+                    "surface": "#fff9ed",
+                    "primary": "#1d370a",
+                    "tertiary-fixed-dim": "#a6d573",
+                    "on-error-container": "#93000a",
+                    "evergreen": "#334E1F",
+                    "tertiary": "#1e3700",
+                    "on-tertiary-container": "#95c364",
+                    "on-primary": "#ffffff",
+                    "pure-mist": "#F7F4EF",
+                    "inverse-primary": "#b0d194",
+                    "primary-fixed-dim": "#b0d194",
+                    "background": "#fff9ed",
+                    "tertiary-container": "#2d5000",
+                    "on-surface": "#1f1c0e",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#ffa52e",
+                    "secondary": "#885200",
+                    "error-container": "#ffdad6",
+                    "sandstone-beige": "#F1E9D2",
+                    "surface-tint": "#4a6634",
+                    "secondary-fixed": "#ffddbb",
+                    "surface-variant": "#eae2cb",
+                    "surface-container-low": "#fbf3dc",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#f9f0d9",
+                    "surface-container-highest": "#eae2cb",
+                    "on-background": "#1f1c0e",
+                    "on-secondary": "#ffffff",
+                    "inverse-surface": "#343021",
+                    "on-primary-fixed": "#0b2000",
+                    "error": "#ba1a1a",
+                    "on-secondary-container": "#6b3f00",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed": "#c1f18c",
+                    "primary-container": "#334e1f",
+                    "secondary-fixed-dim": "#ffb868"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "section-gap-lg": "80px",
+                    "container-margin": "20px",
+                    "section-gap-sm": "40px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "body-md": ["Red Hat Display"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-lg": ["Red Hat Display"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Red Hat Display"],
+                    "cta": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "800"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "cta": ["16px", {"lineHeight": "1", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fff9ed; /* surface */
+        }
+        /* Minimalist Brutalist override: force all corners square */
+        * { border-radius: 0 !important; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>a { text-decoration: underline !important; }</style></head>
+<body class="font-body-md text-on-background selection:bg-harvest-orange selection:text-evergreen">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-background border-b-2 border-evergreen dark:border-outline sticky top-0 z-[50] w-full">
+<div class="flex justify-between items-center w-full px-container-margin py-base max-w-[1200px] mx-auto">
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-evergreen cursor-pointer active:scale-95 transition-transform" onclick="document.getElementById('side-drawer').classList.remove('-translate-x-full')">menu</span>
+<span class="text-headline-md font-headline-md font-extrabold text-evergreen dark:text-primary-fixed uppercase tracking-tight">Goodness for All</span>
+</div>
+<nav class="hidden md:flex gap-gutter items-center">
+<a class="font-label-sm text-label-sm text-evergreen dark:text-on-surface-variant hover:bg-sandstone-beige transition-colors duration-200 px-base py-2" href="#">Ons verhaal</a>
+<a class="font-label-sm text-label-sm text-evergreen dark:text-on-surface-variant hover:bg-sandstone-beige transition-colors duration-200 px-base py-2" href="#">Impact</a>
+<a class="font-label-sm text-label-sm text-evergreen dark:text-on-surface-variant hover:bg-sandstone-beige transition-colors duration-200 px-base py-2" href="#">Partners</a>
+<a class="font-label-sm text-label-sm text-harvest-orange font-bold px-base py-2" href="#">Werken bij</a>
+<button class="font-label-sm text-label-sm text-evergreen border-2 border-evergreen px-4 py-2 hover:bg-evergreen hover:text-sandstone-beige transition-all">Contact</button>
+</nav>
+</div>
+</header>
+<!-- NavigationDrawer -->
+<aside class="fixed inset-y-0 left-0 z-[100] flex flex-col p-gutter bg-pure-mist dark:bg-surface-container h-full w-80 border-r-2 border-evergreen -translate-x-full transition-transform duration-300 ease-in-out" id="side-drawer">
+<div class="flex justify-between items-center mb-gutter">
+<span class="text-headline-md font-headline-md text-evergreen">Menu</span>
+<span class="material-symbols-outlined cursor-pointer text-evergreen" onclick="document.getElementById('side-drawer').classList.add('-translate-x-full')">close</span>
+</div>
+<nav class="flex flex-col gap-base">
+<a class="flex items-center gap-base p-4 text-evergreen dark:text-on-surface-variant hover:bg-asparagus hover:text-white transition-all duration-300" href="#">
+<span class="material-symbols-outlined">history_edu</span>
+<span class="font-label-sm text-label-sm">Ons verhaal</span>
+</a>
+<a class="flex items-center gap-base p-4 text-evergreen dark:text-on-surface-variant hover:bg-asparagus hover:text-white transition-all duration-300" href="#">
+<span class="material-symbols-outlined">query_stats</span>
+<span class="font-label-sm text-label-sm">Impact</span>
+</a>
+<a class="flex items-center gap-base p-4 text-evergreen dark:text-on-surface-variant hover:bg-asparagus hover:text-white transition-all duration-300" href="#">
+<span class="material-symbols-outlined">handshake</span>
+<span class="font-label-sm text-label-sm">Partners</span>
+</a>
+<a class="flex items-center gap-base p-4 bg-harvest-orange text-evergreen font-bold" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="font-label-sm text-label-sm">Werken bij</span>
+</a>
+<a class="flex items-center gap-base p-4 text-evergreen dark:text-on-surface-variant hover:bg-asparagus hover:text-white transition-all duration-300" href="#">
+<span class="material-symbols-outlined">mail</span>
+<span class="font-label-sm text-label-sm">Contact</span>
+</a>
+</nav>
+</aside>
+<main class="max-w-[1200px] mx-auto px-container-margin min-h-screen">
+<!-- Hero Section -->
+<section class="py-section-gap-sm md:py-section-gap-lg border-b border-evergreen/10 transition-all duration-700 opacity-100 translate-y-0">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-7">
+<span class="inline-block bg-asparagus text-evergreen font-label-sm text-label-sm px-4 py-1 mb-base">CARRIÈRE</span>
+<h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-evergreen mb-gutter">Ik wil helpen</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                        We bouwen aan iets wat werkt. Geen ingewikkelde structuren, maar direct resultaat voor de gemeenschap. Sluit je aan bij een team dat gelooft in radicale toegankelijkheid en eerlijke impact.
+                    </p>
+</div>
+<div class="md:col-span-5 relative aspect-square">
+<div class="absolute inset-0 border-2 border-evergreen translate-x-4 translate-y-4 -z-10"></div>
+<img class="w-full h-full object-cover border-2 border-evergreen" data-alt="A focused group of diverse professionals working together in a bright, minimalist office space. The environment features high ceilings, large windows with soft natural light, and clean lines. The team is engaged in a collaborative discussion around a large wooden table. The aesthetic is warm and grounded, utilizing a palette of greens, oranges, and soft creams, echoing a minimalist-brutalist design style with sharp edges and clear structure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwc0A6JlnBC7a1ljB7a-LunArXbiSc5pGNJ72aozvYEfE7ir8jAL4m1ZyWLBkdoeOiRoBXMngdFYF71MONzE3QRMz0pRUZakOCdhkeonIkJZZbK_oBsD8_zly4Bg_FwKBnu_PdXA5erq2nq2u00XRWkzlZWAifzE12FtTtyMTI6wm9aW5GQKhPFxY42RE8PEiK0fPUcjtlFayZAELhdabQeH-uB2Lpi1F2729TnOuGzGo27ymJvFguuadj70OhmnqKWUoYe3X3XD9CMuk">
+</div>
+</div>
+</section>
+<!-- Vacancies Section (Bento Grid) -->
+<section class="py-section-gap-lg transition-all duration-700 opacity-100 translate-y-0">
+<div class="flex justify-between items-end mb-section-gap-sm">
+<div>
+<h2 class="font-headline-md text-headline-md text-evergreen">Huidige Vacatures</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Vind jouw plek in ons groeiende ecosysteem.</p>
+</div>
+<div class="hidden md:block">
+<button class="bg-harvest-orange text-evergreen font-cta text-cta px-gutter py-4 border-2 border-evergreen hover:bg-evergreen hover:text-sandstone-beige transition-all">
+                        OPEN SOLLICITATIE
+                    </button>
+</div>
+</div>
+<!-- Placeholder Card for No Vacancies -->
+<div class="bg-pure-mist border-2 border-evergreen p-12 text-center flex flex-col items-center justify-center min-h-[300px]">
+<span class="material-symbols-outlined text-evergreen text-5xl mb-base" style="font-variation-settings: 'wght' 200;">search_off</span>
+<p class="font-headline-md text-headline-md text-evergreen mb-gutter max-w-md">
+                    We zoeken mensen die kunnen helpen met promotie, logistiek en een co-founder.</p>
+<p class="font-body-md text-body-md text-on-surface-variant mb-section-gap-sm">
+                    Van een unieke bijbaan voor een paar uur in de week waar je écht verschil maakt, en ca. €20 per uur verdient, tot mede founder worden. Kom met een goed verhaal en we zijn in gesprek!</p>
+<div class="w-full h-px bg-evergreen/20 mb-section-gap-sm max-w-sm"></div>
+<button class="bg-evergreen text-sandstone-beige font-cta text-cta px-gutter py-4 border-2 border-evergreen hover:bg-harvest-orange hover:text-evergreen transition-all">
+                    STUUR EEN E-MAIL
+                </button>
+</div>
+</section>
+<!-- Culture Blocks -->
+<section class="pb-section-gap-lg transition-all duration-700 opacity-100 translate-y-0">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-0 border-2 border-evergreen">
+<div class="p-gutter border-b md:border-b-0 md:border-r border-evergreen bg-sandstone-beige">
+<span class="material-symbols-outlined text-evergreen mb-base">diversity_3</span>
+<h3 class="font-headline-md text-headline-md text-evergreen mb-base">Community First</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Alles wat we doen begint bij de buurt. Onze medewerkers staan met hun voeten in de klei.</p>
+</div>
+<div class="p-gutter border-b md:border-b-0 md:border-r border-evergreen bg-pure-mist">
+<span class="material-symbols-outlined text-evergreen mb-base">speed</span>
+<h3 class="font-headline-md text-headline-md text-evergreen mb-base">Directe Impact</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Geen lange vergaderingen. We zien een kans, we toetsen het, en we voeren het uit, en leren van wat er goed en fout ging.</p>
+</div>
+<div class="p-gutter bg-asparagus/20">
+<span class="material-symbols-outlined text-evergreen mb-base">balance</span>
+<h3 class="font-headline-md text-headline-md text-evergreen mb-base">Eerlijk &amp; Open</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Transparantie is onze basis. We delen onze successen én onze uitdagingen.</p>
+</div>
+</div>
+</section>
+<!-- Quote Section -->
+<section class="py-section-gap-lg transition-all duration-700 opacity-100 translate-y-0">
+<div class="bg-evergreen p-10 md:p-20 text-sandstone-beige relative overflow-hidden">
+<div class="relative z-10">
+<span class="text-6xl font-headline-lg opacity-20 absolute -top-10 -left-6">“</span>
+<p class="font-headline-md text-headline-md md:text-4xl italic mb-gutter leading-tight">
+                        Bij Goodness for All zie je dat je echt een verschil maakt voor de mensen om de hoek. Eigenlijk maken we het makkelijk voor mensen om elkaar verder te helpen.</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-harvest-orange border border-sandstone-beige"></div>
+<div>
+<p class="font-label-sm text-label-sm text-harvest-orange">REINOUT DE KRAKER</p>
+<p class="font-body-md text-body-md opacity-80">Founder</p>
+</div>
+</div>
+</div>
+<!-- Abstract geometry for brutalist feel -->
+<div class="absolute right-0 bottom-0 w-32 h-32 bg-harvest-orange/10 transform rotate-45 translate-x-10 translate-y-10"></div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-evergreen dark:bg-surface-container-highest w-full py-section-gap-sm px-container-margin border-t-2 border-evergreen">
+<div class="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-base">
+<div class="flex flex-col gap-base items-center md:items-start">
+<span class="text-headline-md font-headline-md text-harvest-orange">Goodness for All</span>
+<p class="text-sandstone-beige/80 dark:text-on-surface/80 font-body-md text-body-md">© 2024 Goodness for All</p>
+</div>
+<div class="flex flex-wrap justify-center gap-gutter">
+<a class="text-sandstone-beige/80 dark:text-on-surface/80 font-label-sm text-label-sm hover:text-harvest-orange transition-colors" href="#">Voor buurthuizen</a>
+<a class="text-sandstone-beige/80 dark:text-on-surface/80 font-label-sm text-label-sm hover:text-harvest-orange transition-colors" href="#">ANBI-informatie</a>
+<a class="text-sandstone-beige/80 dark:text-on-surface/80 font-label-sm text-label-sm hover:text-harvest-orange transition-colors" href="#">Privacy</a>
+</div>
+<div class="flex gap-base">
+<div class="w-10 h-10 border border-sandstone-beige/30 flex items-center justify-center text-sandstone-beige hover:bg-harvest-orange hover:text-evergreen transition-all cursor-pointer">
+<span class="material-symbols-outlined text-sm">share</span>
+</div>
+<div class="w-10 h-10 border border-sandstone-beige/30 flex items-center justify-center text-sandstone-beige hover:bg-harvest-orange hover:text-evergreen transition-all cursor-pointer">
+<span class="material-symbols-outlined text-sm">thumb_up</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction: Scroll reveal for blocks
+        const observerOptions = {
+            threshold: 0.1
+        };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-8');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-8');
+            observer.observe(section);
+        });
+    </script>
+
+
+</body></html>

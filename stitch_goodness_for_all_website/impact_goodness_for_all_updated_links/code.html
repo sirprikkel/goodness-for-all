@@ -1,0 +1,321 @@
+<!DOCTYPE html><html class="light" lang="nl" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Red+Hat+Display:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#74796d",
+                    "surface-dim": "#e1dac3",
+                    "on-secondary-fixed": "#2b1700",
+                    "on-tertiary-fixed": "#0f2000",
+                    "on-primary-fixed-variant": "#334e1f",
+                    "surface-container": "#f6eed6",
+                    "harvest-orange": "#ED961D",
+                    "surface-container-high": "#f0e8d1",
+                    "asparagus": "#7CA84C",
+                    "on-surface-variant": "#44483e",
+                    "on-tertiary-fixed-variant": "#2d5000",
+                    "on-primary-container": "#9fbf84",
+                    "surface-bright": "#fff9ed",
+                    "primary-fixed": "#cbedae",
+                    "outline-variant": "#c4c8ba",
+                    "on-secondary-fixed-variant": "#673d00",
+                    "surface": "#fff9ed",
+                    "primary": "#1d370a",
+                    "tertiary-fixed-dim": "#a6d573",
+                    "on-error-container": "#93000a",
+                    "evergreen": "#334E1F",
+                    "tertiary": "#1e3700",
+                    "on-tertiary-container": "#95c364",
+                    "on-primary": "#ffffff",
+                    "pure-mist": "#F7F4EF",
+                    "inverse-primary": "#b0d194",
+                    "primary-fixed-dim": "#b0d194",
+                    "background": "#fff9ed",
+                    "tertiary-container": "#2d5000",
+                    "on-surface": "#1f1c0e",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#ffa52e",
+                    "secondary": "#885200",
+                    "error-container": "#ffdad6",
+                    "sandstone-beige": "#F1E9D2",
+                    "surface-tint": "#4a6634",
+                    "secondary-fixed": "#ffddbb",
+                    "surface-variant": "#eae2cb",
+                    "surface-container-low": "#fbf3dc",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#f9f0d9",
+                    "surface-container-highest": "#eae2cb",
+                    "on-background": "#1f1c0e",
+                    "on-secondary": "#ffffff",
+                    "inverse-surface": "#343021",
+                    "on-primary-fixed": "#0b2000",
+                    "error": "#ba1a1a",
+                    "on-secondary-container": "#6b3f00",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed": "#c1f18c",
+                    "primary-container": "#334e1f",
+                    "secondary-fixed-dim": "#ffb868"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "section-gap-lg": "80px",
+                    "container-margin": "20px",
+                    "section-gap-sm": "40px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "body-md": ["Red Hat Display"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-lg": ["Red Hat Display"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Red Hat Display"],
+                    "cta": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "800"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "cta": ["16px", {"lineHeight": "1", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fff9ed;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+        }
+        .mask-square {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-background selection:bg-harvest-orange selection:text-white">
+<!-- TopAppBar -->
+<nav class="bg-surface dark:bg-background border-b-2 border-evergreen dark:border-outline sticky top-0 z-[50]">
+<div class="flex justify-between items-center w-full px-container-margin py-base max-w-[1200px] mx-auto">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-evergreen cursor-pointer">menu</span>
+<span class="text-headline-md font-headline-md font-extrabold text-evergreen dark:text-primary-fixed uppercase tracking-tight">Goodness for All</span>
+</div>
+<div class="hidden md:flex items-center gap-base">
+<a class="font-label-sm text-label-sm text-evergreen dark:text-on-surface-variant hover:bg-sandstone-beige px-3 py-2 transition-colors duration-200 underline" href="#">Ons verhaal</a>
+<a class="font-label-sm text-label-sm text-harvest-orange font-bold px-3 py-2 transition-colors duration-200 underline" href="#">Impact</a>
+<a class="font-label-sm text-label-sm text-evergreen dark:text-on-surface-variant hover:bg-sandstone-beige px-3 py-2 transition-colors duration-200 underline" href="#">Partners</a>
+<a class="font-label-sm text-label-sm text-evergreen dark:text-on-surface-variant hover:bg-sandstone-beige px-3 py-2 transition-colors duration-200 underline" href="#">Werken bij</a>
+<button class="bg-harvest-orange text-evergreen px-4 py-2 font-cta text-cta uppercase tracking-widest active:scale-95 transition-transform">Contact</button>
+</div>
+</div>
+</nav>
+<main class="max-w-[1200px] mx-auto px-container-margin">
+<!-- Hero Counter Section -->
+<section class="py-section-gap-sm md:py-section-gap-lg flex flex-col items-center text-center">
+<div class="relative inline-block px-base py-4 border-2 border-evergreen mb-6 bg-pure-mist" style="transition: 0.2s ease-out;">
+<span class="font-headline-lg text-headline-lg md:text-[64px] text-evergreen block">6.240</span>
+<span class="font-headline-md text-headline-md text-harvest-orange block uppercase tracking-tighter">maaltijden uitgedeeld</span>
+</div>
+<p class="font-body-lg text-body-lg text-evergreen/80 italic">op weg naar 100.000.</p>
+</section>
+<!-- Location Grid Section -->
+<section class="py-section-gap-sm">
+<h2 class="font-headline-md text-headline-md text-evergreen mb-base border-l-4 border-harvest-orange pl-4 mb-section-gap-sm">Impact Locaties</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-base">
+<!-- 12 Cards -->
+<div class="p-base bg-pure-mist border border-evergreen flex flex-col justify-between">
+<div>
+<p class="font-label-sm text-label-sm text-harvest-orange uppercase mb-2">Incluzio</p>
+<h3 class="font-headline-md text-[18px] text-evergreen leading-tight">De Kip</h3>
+</div>
+<span class="material-symbols-outlined text-evergreen mt-4">location_on</span>
+</div>
+<div class="p-base bg-pure-mist border border-evergreen flex flex-col justify-between">
+<div>
+<p class="font-label-sm text-label-sm text-harvest-orange uppercase mb-2">Incluzio</p>
+<h3 class="font-headline-md text-[18px] text-evergreen leading-tight">De Gaffel</h3>
+</div>
+<span class="material-symbols-outlined text-evergreen mt-4">location_on</span>
+</div>
+<div class="p-base bg-pure-mist border border-evergreen flex flex-col justify-between">
+<div>
+<p class="font-label-sm text-label-sm text-harvest-orange uppercase mb-2">Incluzio</p>
+<h3 class="font-headline-md text-[18px] text-evergreen leading-tight">Middelpunt</h3>
+</div>
+<span class="material-symbols-outlined text-evergreen mt-4">location_on</span>
+</div>
+<div class="p-base bg-pure-mist border border-evergreen flex flex-col justify-between">
+<div>
+<p class="font-label-sm text-label-sm text-harvest-orange uppercase mb-2">Stichting</p>
+<h3 class="font-headline-md text-[18px] text-evergreen leading-tight">Overwin de Armoede</h3>
+</div>
+<span class="material-symbols-outlined text-evergreen mt-4">location_on</span>
+</div>
+<div class="p-base bg-pure-mist border border-evergreen flex flex-col justify-between">
+<div>
+<p class="font-label-sm text-label-sm text-harvest-orange uppercase mb-2">Speelcentrum</p>
+<h3 class="font-headline-md text-[18px] text-evergreen leading-tight">Weena</h3>
+</div>
+<span class="material-symbols-outlined text-evergreen mt-4">location_on</span>
+</div>
+<div class="p-base bg-pure-mist border border-evergreen flex flex-col justify-between">
+<div>
+<p class="font-label-sm text-label-sm text-harvest-orange uppercase mb-2">Stichting</p>
+<h3 class="font-headline-md text-[18px] text-evergreen leading-tight">Isaak en de Schittering</h3>
+</div>
+<span class="material-symbols-outlined text-evergreen mt-4">location_on</span>
+</div>
+<div class="p-base bg-pure-mist border border-evergreen flex flex-col justify-between">
+<div>
+<p class="font-label-sm text-label-sm text-harvest-orange uppercase mb-2">SOL</p>
+<h3 class="font-headline-md text-[18px] text-evergreen leading-tight">Riederkwartier</h3>
+</div>
+<span class="material-symbols-outlined text-evergreen mt-4">location_on</span>
+</div>
+<div class="p-base bg-pure-mist border border-evergreen flex flex-col justify-between">
+<div>
+<p class="font-label-sm text-label-sm text-harvest-orange uppercase mb-2">SOL</p>
+<h3 class="font-headline-md text-[18px] text-evergreen leading-tight">Feyenoord</h3>
+</div>
+<span class="material-symbols-outlined text-evergreen mt-4">location_on</span>
+</div>
+<div class="p-base bg-pure-mist border border-evergreen flex flex-col justify-between">
+<div>
+<p class="font-label-sm text-label-sm text-harvest-orange uppercase mb-2">Buurtinitiatief</p>
+<h3 class="font-headline-md text-[18px] text-evergreen leading-tight">Huiskamer Crooswijk</h3>
+</div>
+<span class="material-symbols-outlined text-evergreen mt-4">location_on</span>
+</div>
+<div class="p-base bg-pure-mist border border-evergreen flex flex-col justify-between">
+<div>
+<p class="font-label-sm text-label-sm text-harvest-orange uppercase mb-2">Hotspot</p>
+<h3 class="font-headline-md text-[18px] text-evergreen leading-tight">Hutspot</h3>
+</div>
+<span class="material-symbols-outlined text-evergreen mt-4">location_on</span>
+</div>
+<div class="p-base bg-pure-mist border border-evergreen flex flex-col justify-between">
+<div>
+<p class="font-label-sm text-label-sm text-harvest-orange uppercase mb-2">Villa</p>
+<h3 class="font-headline-md text-[18px] text-evergreen leading-tight">Vonk</h3>
+</div>
+<span class="material-symbols-outlined text-evergreen mt-4">location_on</span>
+</div>
+<div class="p-base bg-pure-mist border border-evergreen flex flex-col justify-between">
+<div>
+<p class="font-label-sm text-label-sm text-harvest-orange uppercase mb-2">St. Bewonersgroep</p>
+<h3 class="font-headline-md text-[18px] text-evergreen leading-tight">Kralingen-West</h3>
+</div>
+<span class="material-symbols-outlined text-evergreen mt-4">location_on</span>
+</div>
+</div>
+</section>
+<!-- Quote Section -->
+<section class="py-section-gap-sm">
+<div class="bg-sandstone-beige p-section-gap-sm border-evergreen border-2 flex flex-col items-center">
+<span class="material-symbols-outlined text-[48px] text-harvest-orange mb-4">format_quote</span>
+<blockquote class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-evergreen text-center max-w-3xl mb-8">
+                    "Onze samenwerking met Goodness for All brengt mensen echt weer bij elkaar aan tafel, zonder drempels."
+                </blockquote>
+<cite class="not-italic font-label-sm text-label-sm text-evergreen uppercase tracking-widest">— Rozanne Boelijn (SOL)</cite>
+</div>
+</section>
+<!-- Photo Gallery Section -->
+<section class="py-section-gap-sm">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="aspect-square bg-surface-variant relative overflow-hidden">
+<img class="object-cover w-full h-full filter grayscale hover:grayscale-0 transition-all duration-500" data-alt="A documentary style candid photograph of diverse community members sharing a vibrant, colorful meal in a bright Rotterdam community center. The lighting is warm and natural, emphasizing the organic textures of fresh vegetables and wooden tables. The overall aesthetic is minimalist yet deeply human, reflecting the Evergreen and Sandstone Beige palette of the brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVabBZG6tdkjtk343oo4Y95wd8kNGq8e1_JeinySllRhAbqWBprrVKjfkyzJvEZt7W3hkMIf76MZ8q-GxQoZjVe5lgvotuH47gBYOm3VfeqIsVjjFYG9RMb5YSo__wOXdEb3j6MflKWrXokT_zRNWVbtJLFMaQsQfEhHF7HlJ_xqU1WExxTAaKr1Ma9SmNTDtfIxudKU7XEyjlra6TaZiLWqNHMcSOn8VdqMC_9zkA3dCz0hmmGUdOk15H54FhNciWKpJJAy-ZiXYyg2o">
+</div>
+<div class="aspect-square bg-surface-variant flex items-center justify-center border-2 border-dashed border-evergreen/30 p-base text-center">
+<p class="font-label-sm text-label-sm text-evergreen/50">Voeg hier je eigen foto's toe.</p>
+</div>
+<div class="aspect-square bg-surface-variant relative overflow-hidden">
+<img class="object-cover w-full h-full filter grayscale hover:grayscale-0 transition-all duration-500" data-alt="A high-contrast close-up of hands preparing healthy meals in a professional community kitchen setting. The focus is on the fresh, green ingredients and the precision of the work. The style is brutalist-minimalist, with sharp edges and clear focus, lit by bright, high-key studio-like light against a clean Pure Mist background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4A6UdXAGdLHSjuT1421CQU183ZH3PYeXzauWV1tv5_7TVZS2SL-7RmSvRpj2vCVAq1FP7eLSK7Q8YxRMlwGUwv8uBamJEBnqdPoQECq312t5smSJ2qpC9ibxf1I5ECbifOFJT9JPjIKSq6zsQnkxCmiE1bZ87ltFRASd-8Nt7pjUEqAs5iKk1d-FGLduTiBk92Qp8R9DkWY9oDUEnQvhRfoYunRT1up8Urn7-JpuW9C-o5xaGiTfg5l36dLH_-5zivtxNt9OD4hAeTPI">
+</div>
+<div class="aspect-square bg-surface-variant relative overflow-hidden">
+<img class="object-cover w-full h-full filter grayscale hover:grayscale-0 transition-all duration-500" data-alt="An wide-angle atmospheric shot of an urban neighborhood center in Rotterdam at dusk, with warm light glowing from the large square windows. The architecture is modern and geometric. The mood is welcoming and secure, utilizing a deep Evergreen sky and Harvest Orange interior lights to create a comforting community beacon." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEkxMRC_4tgXcP-2lG8BDEsP7pXNEXwmvrit-Ng5sIOcBYRTPbmojJH_sqGmwJRbomCzq_sldZShtAD4W1n7qaFw3QWoZSJI5R1Hknsjp1aZ0Zuz7w4MoRPxhgnz3wMuUdByVqBbWOMYT-_k7eUjybWf8dfZNlDK4W6D6t41KGJlV0I6C9ZCLHypSzq1XKBjclAq4DO585eNGMU1cvcboCP18GVlvFMLvZCDs0hR-WrwI6b13-BGDkj0RYvYTRYYQz7gcZY_jsKTRDmM4">
+</div>
+</div>
+</section>
+<!-- Research Block -->
+<section class="py-section-gap-sm md:py-section-gap-lg grid md:grid-cols-2 gap-12 items-start">
+<div class="bg-evergreen p-section-gap-sm text-pure-mist border-2 border-evergreen">
+<h2 class="font-headline-md text-headline-md text-harvest-orange mb-6">Onderzoeksrapport</h2>
+<div class="font-body-md text-body-md space-y-4 mb-8">
+<p class="">Ons laatste onafhankelijke onderzoek toont aan dat de impact van een gezamenlijke maaltijd verder gaat dan alleen voeding. Het verlaagt de drempel naar verdere hulpverlening en versterkt de sociale cohesie in de wijk.</p>
+</div>
+<button class="bg-harvest-orange text-evergreen px-6 py-3 font-cta text-cta uppercase active:scale-95 transition-transform flex items-center gap-2">
+<span class="material-symbols-outlined">download</span>
+                    Rapport downloaden
+                </button>
+</div>
+<div class="p-section-gap-sm bg-sandstone-beige/30 border-2 border-evergreen self-stretch flex flex-col justify-center">
+<h3 class="font-label-sm text-label-sm text-evergreen uppercase mb-4 tracking-widest">SROI Analyse</h3>
+<p class="font-headline-md text-headline-md text-evergreen mb-4">9-33x Rendement</p>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    Voor elke euro geïnvesteerd in onze programma's, genereert de maatschappij een waarde tussen de 9 en 33 euro door vermindering van eenzaamheid en verbeterde gezondheid.
+                </p>
+<div class="mt-8 pt-8 border-t border-evergreen/20">
+<p class="font-label-sm text-[12px] text-evergreen/60">* Gebaseerd op externe Social Return on Investment berekeningen 2023-2024.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-evergreen dark:bg-surface-container-highest mt-section-gap-lg">
+<div class="w-full py-section-gap-sm px-container-margin flex flex-col md:flex-row justify-between items-center gap-base max-w-[1200px] mx-auto">
+<div class="flex flex-col gap-2">
+<span class="text-headline-md font-headline-md text-harvest-orange">Goodness for All</span>
+<p class="font-label-sm text-label-sm text-sandstone-beige/80">© 2024 Goodness for All</p>
+</div>
+<div class="flex gap-gutter">
+<a class="font-label-sm text-label-sm text-sandstone-beige/80 hover:text-harvest-orange transition-colors underline" href="#">Voor buurthuizen</a>
+<a class="font-label-sm text-label-sm text-sandstone-beige/80 hover:text-harvest-orange transition-colors underline" href="#">ANBI-informatie</a>
+<a class="font-label-sm text-label-sm text-sandstone-beige/80 hover:text-harvest-orange transition-colors underline" href="#">Privacy</a>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-sandstone-beige/80 cursor-pointer hover:text-harvest-orange">share</span>
+<span class="material-symbols-outlined text-sandstone-beige/80 cursor-pointer hover:text-harvest-orange">alternate_email</span>
+</div>
+</div>
+</footer>
+<!-- Micro-interaction for hover states on location cards -->
+<script>
+        document.querySelectorAll('.border-evergreen').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                if(!card.classList.contains('bg-evergreen')) {
+                    card.classList.add('translate-y-[-4px]');
+                    card.style.transition = 'all 0.2s ease-out';
+                }
+            });
+            card.addEventListener('mouseleave', () => {
+                card.classList.remove('translate-y-[-4px]');
+            });
+        });
+    </script>
+
+
+</body></html>

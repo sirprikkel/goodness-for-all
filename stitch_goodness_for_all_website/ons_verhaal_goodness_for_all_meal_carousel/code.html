@@ -1,0 +1,431 @@
+<!DOCTYPE html><html class="light" lang="nl" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Red+Hat+Display:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#74796d",
+                    "surface-dim": "#e1dac3",
+                    "on-secondary-fixed": "#2b1700",
+                    "on-tertiary-fixed": "#0f2000",
+                    "on-primary-fixed-variant": "#334e1f",
+                    "surface-container": "#f6eed6",
+                    "harvest-orange": "#ED961D",
+                    "surface-container-high": "#f0e8d1",
+                    "asparagus": "#7CA84C",
+                    "on-surface-variant": "#44483e",
+                    "on-tertiary-fixed-variant": "#2d5000",
+                    "on-primary-container": "#9fbf84",
+                    "surface-bright": "#fff9ed",
+                    "primary-fixed": "#cbedae",
+                    "outline-variant": "#c4c8ba",
+                    "on-secondary-fixed-variant": "#673d00",
+                    "surface": "#fff9ed",
+                    "primary": "#1d370a",
+                    "tertiary-fixed-dim": "#a6d573",
+                    "on-error-container": "#93000a",
+                    "evergreen": "#334E1F",
+                    "tertiary": "#1e3700",
+                    "on-tertiary-container": "#95c364",
+                    "on-primary": "#ffffff",
+                    "pure-mist": "#F7F4EF",
+                    "inverse-primary": "#b0d194",
+                    "primary-fixed-dim": "#b0d194",
+                    "background": "#fff9ed",
+                    "tertiary-container": "#2d5000",
+                    "on-surface": "#1f1c0e",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#ffa52e",
+                    "secondary": "#885200",
+                    "error-container": "#ffdad6",
+                    "sandstone-beige": "#F1E9D2",
+                    "surface-tint": "#4a6634",
+                    "secondary-fixed": "#ffddbb",
+                    "surface-variant": "#eae2cb",
+                    "surface-container-low": "#fbf3dc",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#f9f0d9",
+                    "surface-container-highest": "#eae2cb",
+                    "on-background": "#1f1c0e",
+                    "on-secondary": "#ffffff",
+                    "inverse-surface": "#343021",
+                    "on-primary-fixed": "#0b2000",
+                    "error": "#ba1a1a",
+                    "on-secondary-container": "#6b3f00",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed": "#c1f18c",
+                    "primary-container": "#334e1f",
+                    "secondary-fixed-dim": "#ffb868"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "section-gap-lg": "80px",
+                    "container-margin": "20px",
+                    "section-gap-sm": "40px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "body-md": ["Red Hat Display"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-lg": ["Red Hat Display"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Red Hat Display"],
+                    "cta": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "800"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "cta": ["16px", {"lineHeight": "1", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            background-color: #fff9ed;
+            color: #1f1c0e;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .team-card:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="font-body-md text-body-md antialiased">
+<!-- TopAppBar -->
+<header class="bg-surface sticky top-0 z-[90] w-full border-b-2 border-evergreen">
+<div class="flex justify-between items-center w-full px-container-margin py-base max-w-[1200px] mx-auto h-20">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-evergreen cursor-pointer text-2xl md:hidden" id="menu-toggle">menu</span>
+<span class="text-headline-md font-headline-md font-extrabold text-evergreen uppercase tracking-tight">Goodness for All</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-harvest-orange font-bold font-label-sm text-label-sm transition-colors duration-200 underline" href="#">Ons verhaal</a>
+<a class="text-evergreen dark:text-on-surface-variant font-label-sm text-label-sm hover:bg-sandstone-beige transition-colors duration-200 underline" href="#">Impact</a>
+<a class="text-evergreen dark:text-on-surface-variant font-label-sm text-label-sm hover:bg-sandstone-beige transition-colors duration-200 underline" href="#">Partners</a>
+<a class="text-evergreen dark:text-on-surface-variant font-label-sm text-label-sm hover:bg-sandstone-beige transition-colors duration-200 underline" href="#">Werken bij</a>
+<button class="bg-harvest-orange text-evergreen font-cta text-cta px-6 py-3 cursor-pointer active:scale-95 transition-transform uppercase tracking-wider">Contact</button>
+</nav>
+</div>
+</header>
+<!-- Side Navigation Drawer (Mobile) -->
+<div class="fixed inset-y-0 left-0 z-[100] flex flex-col p-gutter bg-pure-mist border-r-2 border-evergreen w-80 transform -translate-x-full transition-all duration-300 ease-in-out" id="mobile-drawer">
+<div class="flex justify-between items-center mb-10">
+<span class="text-headline-md font-headline-md text-evergreen">Menu</span>
+<span class="material-symbols-outlined cursor-pointer" id="close-drawer">close</span>
+</div>
+<div class="flex flex-col gap-4">
+<a class="bg-harvest-orange text-evergreen font-bold flex items-center gap-4 p-4 transition-all underline" href="#">
+<span class="material-symbols-outlined">history_edu</span>
+<span class="font-label-sm text-label-sm">Ons verhaal</span>
+</a>
+<a class="text-evergreen flex items-center gap-4 p-4 hover:bg-asparagus hover:text-white transition-all underline" href="#">
+<span class="material-symbols-outlined">query_stats</span>
+<span class="font-label-sm text-label-sm">Impact</span>
+</a>
+<a class="text-evergreen flex items-center gap-4 p-4 hover:bg-asparagus hover:text-white transition-all underline" href="#">
+<span class="material-symbols-outlined">handshake</span>
+<span class="font-label-sm text-label-sm">Partners</span>
+</a>
+<a class="text-evergreen flex items-center gap-4 p-4 hover:bg-asparagus hover:text-white transition-all underline" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="font-label-sm text-label-sm">Werken bij</span>
+</a>
+<a class="text-evergreen flex items-center gap-4 p-4 hover:bg-asparagus hover:text-white transition-all underline" href="#">
+<span class="material-symbols-outlined">mail</span>
+<span class="font-label-sm text-label-sm">Contact</span>
+</a>
+</div>
+</div>
+<main class="max-w-[1200px] mx-auto px-container-margin">
+<!-- Section 1: Rotterdam Challenge -->
+<section class="section-gap-lg flex flex-col md:flex-row items-center gap-section-gap-sm pt-section-gap-sm transition-all duration-700 opacity-100 translate-y-0">
+<div class="w-full md:w-1/2 overflow-hidden border-2 border-evergreen">
+<img class="w-full h-[500px] object-cover hover:scale-105 transition-transform duration-700" data-alt="A gritty yet humanistic high-contrast street photography shot of a Rotterdam residential neighborhood in the morning mist. The image uses a muted palette with deep shadows and soft, natural light, reflecting a grounded and community-focused atmosphere. The architecture is modern yet weathered, characteristic of Rotterdam's urban landscape. The mood is serious, urgent, and authentic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeoqOKXiFRz132Q7X-qGD1xuHgeWeyFjThDFOmozfTDjd_jD5JXe_6AyCHW1a1gF2qWcZD8gYVsxV7qWGhbFZOi-vOYO8jwoTrpaDau9oPBhNPa8_3nQOFNZ5BLw3y4mGaOybYMN92tBqhd0yUfsX7_8A5GjYGW5f2_VB_kG0rhI-W8nzuUFyw2siYjGXmp3BPPMBJ7le8d_A6YVqe6zR9fd7eNTN1sZqkCI0dm1AtkH1OZM_f82aqoEcVVtY2d7tP-qwmr8AokdHgZs8">
+</div>
+<div class="w-full md:w-1/2">
+<h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-evergreen mb-8">Rotterdam heeft een probleem. En dat lost zichzelf niet op.</h1>
+<p class="font-body-lg text-body-lg text-evergreen/90 mb-6">
+                    In onze stad groeit de kloof. Terwijl de ene wijk bloeit, hebben duizenden Rotterdammers dagelijks moeite om een gezonde maaltijd op tafel te krijgen. Voedselonzekerheid is niet alleen een gebrek aan calorieën; het is een gebrek aan waardigheid en kansen.
+                </p>
+<p class="font-body-md text-body-md text-evergreen/80">
+                    Wij geloven dat toegang tot goed eten een basisrecht is. Armoede in Rotterdam is vaak onzichtbaar, maar de gevolgen zijn dat niet. Wij wachten niet op beleid, wij bouwen aan een directe oplossing die de stad verbindt.
+                </p>
+</div>
+</section>
+<!-- Section 2: Diagram / Subsidy Flow -->
+<section class="section-gap-lg transition-all duration-700 opacity-100 translate-y-0">
+<div class="bg-sandstone-beige p-12 border-2 border-evergreen">
+<h2 class="font-headline-md text-headline-md text-evergreen mb-12 text-center uppercase tracking-widest">De één betaalt voor de ander.</h2>
+<div class="flex flex-col md:flex-row justify-around items-center gap-12 relative">
+<!-- Connector Line (Desktop) -->
+<div class="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1/3 border-t-2 border-dashed border-evergreen z-0"></div>
+<!-- Side 1: Corporate -->
+<div class="z-10 bg-pure-mist border-2 border-evergreen p-8 text-center w-full md:w-64">
+<span class="text-headline-lg font-headline-lg text-harvest-orange mb-2 block">€8</span>
+<p class="font-label-sm text-label-sm text-evergreen uppercase font-bold">Zakelijke Markt</p>
+<p class="text-xs text-evergreen/60 mt-2">Gezonde lunch op kantoor</p>
+</div>
+<!-- Flow Arrow -->
+<div class="z-10 bg-harvest-orange text-evergreen p-4 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl">trending_flat</span>
+</div>
+<!-- Side 2: Community -->
+<div class="z-10 bg-evergreen border-2 border-evergreen p-8 text-center w-full md:w-64">
+<span class="text-headline-lg font-headline-lg text-sandstone-beige mb-2 block">€1</span>
+<p class="font-label-sm text-label-sm text-sandstone-beige uppercase font-bold">In de Buurt</p>
+<p class="text-xs text-sandstone-beige/60 mt-2">Toegankelijk voor iedereen</p>
+</div>
+</div>
+<div class="mt-12 text-center max-w-2xl mx-auto">
+<p class="font-body-md text-body-md italic text-evergreen">
+                        Door een eerlijke prijs te vragen aan hen die het kunnen dragen, maken we gezonde voeding voor de hele stad toegankelijk. Geen liefdadigheid, maar solidariteit in actie.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Section 3: Distribution / Neighborhood Centers -->
+<section class="section-gap-lg transition-all duration-700 opacity-100 translate-y-0">
+<div class="flex flex-col md:flex-row-reverse items-center gap-section-gap-sm">
+<div class="w-full md:w-1/2 overflow-hidden border-2 border-evergreen">
+<img class="w-full h-[500px] object-cover hover:grayscale transition-all duration-500" data-alt="A warm and inviting interior shot of a vibrant neighborhood community center in Rotterdam. The image features people of diverse backgrounds interacting naturally, with a focus on a delivery person handing over fresh meal crates. The lighting is soft and golden, creating a sense of trust and safety. Minimalist-brutalist styling with clean lines and high contrast. The mood is welcoming, trusted, and neighborly." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkGt22YGlVFmsCs8eMkmFyKdvaWcFd-GsZqbxxASYLE5BObCqm8QbvVOPR3hOKcw-y0ef8kc3twMZTAQAGOh0mX0lr-MBzsSnjwOb2ZO8EMZfBbdK2P8ZnewGsZN2GxwBDP1WF6xGrZvAXOq1ZxVgQ9OUI70BAilF34OVfENsITvXE0HKbxHzwxU0Uh4KX9iKqgAtr2Tc9PSbYdlB7ObooQ_D49o-g9pglBWNFTnDshdMC_asUug-ivsct9RhoruNgxJAjbL9Wyw2W-qk">
+</div>
+<div class="w-full md:w-1/2">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-evergreen mb-8">Via buurthuizen die mensen al kennen.</h2>
+<p class="font-body-lg text-body-lg text-evergreen/90 mb-6">
+                        We gaan niet op zoek naar onze doelgroep; we zijn waar zij zijn. Onze maaltijden worden gedistribueerd via vertrouwde buurthuizen en lokale hubs.
+                    </p>
+<ul class="space-y-4">
+<li class="flex items-center gap-4 border-b border-evergreen pb-4">
+<span class="material-symbols-outlined text-harvest-orange">location_on</span>
+<span class="font-label-sm text-label-sm uppercase">Dichtbij huis</span>
+</li>
+<li class="flex items-center gap-4 border-b border-evergreen pb-4">
+<span class="material-symbols-outlined text-harvest-orange">favorite</span>
+<span class="font-label-sm text-label-sm uppercase">Zonder drempels</span>
+</li>
+<li class="flex items-center gap-4 border-b border-evergreen pb-4">
+<span class="material-symbols-outlined text-harvest-orange">groups</span>
+<span class="font-label-sm text-label-sm uppercase">Onderdeel van de wijk</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Section 4: Product / B-Corp -->
+<section class="section-gap-lg grid grid-cols-1 md:grid-cols-2 gap-base border-2 border-evergreen transition-all duration-700 opacity-100 translate-y-0">
+<div class="p-12 flex flex-col justify-center bg-pure-mist">
+<div class="mb-6">
+<span class="bg-asparagus text-evergreen font-label-sm text-[10px] px-3 py-1 uppercase tracking-tighter inline-block mb-4">B-Corp Gecertificeerd</span>
+<h2 class="font-headline-md text-headline-md text-evergreen uppercase">De maaltijd.</h2>
+</div>
+<p class="font-body-md text-body-md text-evergreen/90 mb-8">
+                    Gezond, vers en seizoensgebonden. Onze maaltijden worden bereid met passie en zorg voor de planeet. Wij geloven in 'business as a force for good'. Elke maaltijd draagt bij aan een rechtvaardiger Rotterdam.
+                </p>
+<div class="flex gap-4">
+<div class="p-4 bg-sandstone-beige border border-evergreen/20 flex-1">
+<p class="font-headline-md text-harvest-orange mb-1">100%</p>
+<p class="text-[10px] uppercase font-bold text-evergreen">Versgarantie</p>
+</div>
+<div class="p-4 bg-sandstone-beige border border-evergreen/20 flex-1">
+<p class="font-headline-md text-harvest-orange mb-1">CO2</p>
+<p class="text-[10px] uppercase font-bold text-evergreen">Neutraal</p>
+</div>
+</div>
+</div>
+<div class="relative h-[400px] md:h-full overflow-hidden border-l-2 border-evergreen">
+<div class="flex overflow-x-auto snap-x snap-mandatory no-scrollbar h-full">
+<!-- Slide 1 -->
+<div class="flex-none w-full h-full snap-start relative group">
+<img alt="9 verschillende smaken" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWZnQ_B45t0yKIi6JZ9bDYHYRZn1wMnZJ99Dxz8lfEDRvo8eDzbHVF8RYUgI-AXBy7VxBrDJ9KJGXhHMCsgCNaZ-HJW6JuZS-PulnAnFFBgaMzUW4VtklKkQFxMVx6eRG2PjVAhKh5WyNXlzLucarwPK81BZPNgPB-HlxZ7QXIjarNZCZh19bnj_urpFWB_tZPAJ_JXwUUl09G-x5u4RWWNJ3mB561XA1VDQm2Kp0t-aiMRp6ojLtn-KZfmO1AsO6YdZ7LR7E4CCPY">
+<div class="absolute bottom-0 left-0 right-0 bg-evergreen/80 p-4">
+<p class="font-body-lg text-sandstone-beige text-center">9 verschillende smaken</p>
+</div>
+</div>
+<!-- Slide 2 -->
+<div class="flex-none w-full h-full snap-start relative group">
+<img alt="Boordevol groente, geen troep" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3klY-Ln5b6ZL8GaD6sFfryfjnWHWhXKkKUvmd-L-pjUCZJ_e0FHKI3Z53Yl7L6v3TxgDCJ041izdFFVblvAyQMcLdYaN631Nv9iPIGpnxx55WiNcHT1YGP20aiS9X_jQm7Mwg3pAwiXDIyoE9cq6q6nIii2vPzziTTxiV7vF1PbbPzXGgfs4hSx6dWTgih-r7dehUVLE5f_7z0UY3evrzWIbd4SETSMCFl80d2DIRlw6BpDEQZaeN9YUBceHk0An9gXyDfcxx6FrH">
+<div class="absolute bottom-0 left-0 right-0 bg-evergreen/80 p-4">
+<p class="font-body-lg text-sandstone-beige text-center">Boordevol groente, geen troep</p>
+</div>
+</div>
+<!-- Slide 3 -->
+<div class="flex-none w-full h-full snap-start relative group">
+<img alt="Past in (bijna) elk dieet en levensovertuiging" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtUbbM5v_XL7ahb3LHUvEejdraY_uOdwhmQvjS9mv18M7gsngggGcjsKw3RBuGANSsiRjHKJIar8be7tmV3-N8GbGQ44KqaelQbIqK5Nh7Ka6lSh32fUF91Bh2fHog0HcpoV3fyok3ERtOl4Xa9ouzpE16B2DEyqRun9FfnOhaWIGr7kjEFDy1Qxn9QWj5Uj6fbWuxZFqtLDQqSoVBZPZ7U2lu6R4IPCqnHUui4wsDgi6wxyYMAtXtcx9OyBZwLMTu9JFtuZ0kVMWE">
+<div class="absolute bottom-0 left-0 right-0 bg-evergreen/80 p-4">
+<p class="font-body-lg text-sandstone-beige text-center">Past in (bijna) elk dieet en levensovertuiging</p>
+</div>
+</div>
+</div>
+<!-- Navigation Dots -->
+<div class="absolute bottom-16 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+<div class="w-2 h-2 rounded-full bg-harvest-orange"></div>
+<div class="w-2 h-2 rounded-full bg-sandstone-beige/50"></div>
+<div class="w-2 h-2 rounded-full bg-sandstone-beige/50"></div>
+</div>
+</div>
+</section>
+<!-- Section 5: Team Grid -->
+<section class="section-gap-lg mb-section-gap-lg transition-all duration-700 opacity-100 translate-y-0">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-evergreen mb-12 text-center">Het Team</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Member 1 -->
+<div class="team-card group">
+<div class="border-2 border-evergreen overflow-hidden aspect-square relative">
+<img class="w-full h-full object-cover transition-transform duration-500" data-alt="A professional headshot of Reinout de Kraker, a Dutch male in his late 30s with an approachable, confident expression. Minimalist studio lighting against a clean white background. High contrast, sharp details. Modern professional aesthetic consistent with a socially conscious enterprise leader." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCI3EmmNQ5pZxy2y4MHMeKo8q1-WGZ-8OZVSyjbpgJbAd9JPtekCMA5JiDHnqvK8gBNlMBIYAIDAl54W0ZxTffpeEpZxZ0EwUV6OW3iYsH6djTKgi-2R30avClHyOcW0JYgRjkJ7yfLxk4bXvd8N16HM2cMFLD-a9yPEleJMUg34ofwVkOe7AYAiCkkjhdJAnCJeHWCSXl2RQnGKMrePkOzCACe-KN01OQzMUs5OQo3rxp9cjcS4oGm7Mu6bvUyjxNKDnmXXwMmJJJNP9w">
+<div class="absolute inset-0 bg-evergreen/10 group-hover:bg-transparent transition-colors"></div>
+</div>
+<div class="mt-4">
+<h3 class="font-headline-md text-evergreen">Reinout de Kraker</h3>
+<p class="font-label-sm text-label-sm text-harvest-orange uppercase">Oprichter &amp; Strategie</p>
+</div>
+</div>
+<!-- Member 2 -->
+<div class="team-card group">
+<div class="border-2 border-evergreen overflow-hidden aspect-square relative">
+<img class="w-full h-full object-cover transition-transform duration-500" data-alt="A professional headshot of Thomas Hilbrands, a Dutch male professional with a friendly smile. Sharp, high-contrast photography in a minimalist style. Studio lighting, white backdrop. Representing reliability and community focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaC4hkWnt03Q_q2mGbSXxLPwos1Dg5RQa2H3c7Ks0ShzOB3ctuokZerd9rkJ2qvKB5kMkJX2fACdWhZHN5BIy5HqJJUVvHvC57p_pUMCr9D-xxpEHfVd_3p7652ekwKwnd_WzTthbO6WsoUIc9phSTiI7Du9i7OrXNV99IBrxtmimtLhjwoMtWlhn7Rw5h86nCjJKBwg0ki5-SqbWgBXvbBe1PyHhqv5zz5xfHlavUWijfuKlM6LHUcksytDz_PGtxs5xBtO_pnCRUb2Y">
+<div class="absolute inset-0 bg-evergreen/10 group-hover:bg-transparent transition-colors"></div>
+</div>
+<div class="mt-4">
+<h3 class="font-headline-md text-evergreen">Thomas Hilbrands</h3>
+<p class="font-label-sm text-label-sm text-harvest-orange uppercase">Operations &amp; Logistiek</p>
+</div>
+</div>
+<!-- Member 3 -->
+<div class="team-card group">
+<div class="border-2 border-evergreen overflow-hidden aspect-square relative">
+<img class="w-full h-full object-cover transition-transform duration-500" data-alt="A professional headshot of Laurens van Dalen, a Dutch male with a clear-eyed, visionary look. Minimalist aesthetic, stark white background, high contrast lighting. Clean and professional appearance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCq_yBd0VwYPZO8gyyxpGm-YZQodZEKwyr69O6iXWZU8ndWaiChUJDExp5FTwogkMEmIN3Y8D06YtxUYikjkDPZtTy3Y9OdL5LT-Q62gYps-aEPrvlq7pYfn8QwLSs1p419xGrmuFvUokASqoSwNzunJ61mQ6qa8m7Tg-8HTA0HfsDjrsq7NOSIvmaCwXutech02jbNMIVafbvv0gfYJHYuYZLOuJv3hfIiy3feCHcE0Zih7oErSdQwCLk6ofojom4k29paCc8Aa3AVBP4">
+<div class="absolute inset-0 bg-evergreen/10 group-hover:bg-transparent transition-colors"></div>
+</div>
+<div class="mt-4">
+<h3 class="font-headline-md text-evergreen">Laurens van Dalen</h3>
+<p class="font-label-sm text-label-sm text-harvest-orange uppercase">Commercieel Directeur</p>
+</div>
+</div>
+<!-- Member 4 -->
+<div class="team-card group">
+<div class="border-2 border-evergreen overflow-hidden aspect-square relative">
+<img class="w-full h-full object-cover transition-transform duration-500" data-alt="A professional headshot of Jori Schara, a professional Dutch male with a warm and grounded presence. Minimalist-brutalist photo style, high-key lighting, white background. Sharp focus and natural look." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZZ93Vyt6eA5StBjOVMAHyItwmirOvjFq6gcUCHJl7NT8OhfhKGKGwA2F2-T3uYEQWaWfBVFIfd11Eaiv9Des-JnKNgCoQUMHQvuFr5tlKwcpF_2zd7Zpw-hkgNw_zGxo3bQv95kwJxvjoX543L32KjXCZ-plYEEdzSc94YWnjCl1r03GjZW0P1APVPx08eDA-IQxZdSlO9TCQttEyBBFU5ph5xGTC7LQiJlIKY1ct6zS3glb2Ddaa6ByYAIRqAJG6sASdn5C-KDlzKrU">
+<div class="absolute inset-0 bg-evergreen/10 group-hover:bg-transparent transition-colors"></div>
+</div>
+<div class="mt-4">
+<h3 class="font-headline-md text-evergreen">Jori Schara</h3>
+<p class="font-label-sm text-label-sm text-harvest-orange uppercase">Impact Manager</p>
+</div>
+</div>
+<!-- Member 5 -->
+<div class="team-card group">
+<div class="border-2 border-evergreen overflow-hidden aspect-square relative">
+<img class="w-full h-full object-cover transition-transform duration-500" data-alt="A professional headshot of Stef Gallé, a young Dutch professional male with an energetic and friendly expression. Minimalist studio setup, bright lighting, high contrast. Clean professional image for a social startup." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChRtLVLWk9yYfJdrvOXs2X72omiE45-pdMbnURWQSBFOjZDBklNETHah8Ods93anLvA-DV0iI_wctE1a5cIm5ypbBQ5ZdQ1Iav3Wjnf5LCJCWCwuawLxlkQV6umancDluwNto3O-6cX6sIkrtiuOj_IdDYKx8GaNfBWYl2-Khabqi5JBnkNdiDQZdL8a90mmsZSNZCmcIYGYGwxu0s1Sul-ssOeMcBLOPnOkEI0M8Q5faz9eWaq482hvuGCzFL9KHJ-b_2gZkJTVxNFNc">
+<div class="absolute inset-0 bg-evergreen/10 group-hover:bg-transparent transition-colors"></div>
+</div>
+<div class="mt-4">
+<h3 class="font-headline-md text-evergreen">Stef Gallé</h3>
+<p class="font-label-sm text-label-sm text-harvest-orange uppercase">Community Lead</p>
+</div>
+</div>
+<!-- Member 6 -->
+<div class="team-card group">
+<div class="border-2 border-evergreen overflow-hidden aspect-square relative">
+<img class="w-full h-full object-cover transition-transform duration-500" data-alt="A professional headshot of Martijn Bekking, a professional Dutch male with an experienced and trusted presence. Studio portraiture with minimalist-brutalist influence. High contrast, sharp detail, white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMQuJnEvsyerBN-_egfAm8JYY4HKAh1Xae4hSfJ9ttNNqi2VXHQiArlVCH-2JNfCFrCLkqujE8nAen1UGUevj8KVytVFekDLgynTC1k5Hj3Now4n4U47ehUxFc7G40mtrFXZj2aDKbYydfCTyEUg3gczF8QdzoxKIK6EDsmjTL5preIEPoNXRqbEnP89hxbinnd1nAwj4ypi-35tx1RBbt3QYqfh2JJxcu2cVcjPcKihG48PuTB50xy203lXH52o8bjOxc52TMYsYh">
+<div class="absolute inset-0 bg-evergreen/10 group-hover:bg-transparent transition-colors"></div>
+</div>
+<div class="mt-4">
+<h3 class="font-headline-md text-evergreen">Martijn Bekking</h3>
+<p class="font-label-sm text-label-sm text-harvest-orange uppercase">Financieel Adviseur</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-evergreen dark:bg-surface-container-highest w-full border-t-2 border-evergreen">
+<div class="w-full py-section-gap-sm px-container-margin flex flex-col md:flex-row justify-between items-center gap-base max-w-[1200px] mx-auto">
+<div class="flex flex-col gap-4 items-center md:items-start">
+<span class="text-headline-md font-headline-md text-harvest-orange uppercase tracking-tight">Goodness for All</span>
+<p class="text-sandstone-beige/80 font-body-md text-body-md">Samen bouwen we aan een gezonder Rotterdam.</p>
+<p class="text-sandstone-beige/80 font-label-sm text-label-sm mt-4">© 2024 Goodness for All</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8 mt-8 md:mt-0">
+<a class="text-sandstone-beige/80 dark:text-on-surface/80 font-label-sm text-label-sm hover:text-harvest-orange transition-colors underline" href="#">Voor buurthuizen</a>
+<a class="text-sandstone-beige/80 dark:text-on-surface/80 font-label-sm text-label-sm hover:text-harvest-orange transition-colors underline" href="#">ANBI-informatie</a>
+<a class="text-sandstone-beige/80 dark:text-on-surface/80 font-label-sm text-label-sm hover:text-harvest-orange transition-colors underline" href="#">Privacy</a>
+</div>
+</div>
+</footer>
+<script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const closeDrawer = document.getElementById('close-drawer');
+        const drawer = document.getElementById('mobile-drawer');
+
+        menuToggle?.addEventListener('click', () => {
+            drawer.classList.remove('-translate-x-full');
+        });
+
+        closeDrawer?.addEventListener('click', () => {
+            drawer.classList.add('-translate-x-full');
+        });
+
+        // Simple Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+    </script>
+
+
+</body></html>

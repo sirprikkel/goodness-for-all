@@ -1,0 +1,370 @@
+<!DOCTYPE html><html lang="nl"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Red+Hat+Display:wght@400;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&amp;family=Red+Hat+Display:wght@100..900&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#74796d",
+                    "surface-dim": "#e1dac3",
+                    "on-secondary-fixed": "#2b1700",
+                    "on-tertiary-fixed": "#0f2000",
+                    "on-primary-fixed-variant": "#334e1f",
+                    "surface-container": "#f6eed6",
+                    "harvest-orange": "#ED961D",
+                    "surface-container-high": "#f0e8d1",
+                    "asparagus": "#7CA84C",
+                    "on-surface-variant": "#44483e",
+                    "on-tertiary-fixed-variant": "#2d5000",
+                    "on-primary-container": "#9fbf84",
+                    "surface-bright": "#fff9ed",
+                    "primary-fixed": "#cbedae",
+                    "outline-variant": "#c4c8ba",
+                    "on-secondary-fixed-variant": "#673d00",
+                    "surface": "#fff9ed",
+                    "primary": "#1d370a",
+                    "tertiary-fixed-dim": "#a6d573",
+                    "on-error-container": "#93000a",
+                    "evergreen": "#334E1F",
+                    "tertiary": "#1e3700",
+                    "on-tertiary-container": "#95c364",
+                    "on-primary": "#ffffff",
+                    "pure-mist": "#F7F4EF",
+                    "inverse-primary": "#b0d194",
+                    "primary-fixed-dim": "#b0d194",
+                    "background": "#fff9ed",
+                    "tertiary-container": "#2d5000",
+                    "on-surface": "#1f1c0e",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#ffa52e",
+                    "secondary": "#885200",
+                    "error-container": "#ffdad6",
+                    "sandstone-beige": "#F1E9D2",
+                    "surface-tint": "#4a6634",
+                    "secondary-fixed": "#ffddbb",
+                    "surface-variant": "#eae2cb",
+                    "surface-container-low": "#fbf3dc",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#f9f0d9",
+                    "surface-container-highest": "#eae2cb",
+                    "on-background": "#1f1c0e",
+                    "on-secondary": "#ffffff",
+                    "inverse-surface": "#343021",
+                    "on-primary-fixed": "#0b2000",
+                    "error": "#ba1a1a",
+                    "on-secondary-container": "#6b3f00",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed": "#c1f18c",
+                    "primary-container": "#334e1f",
+                    "secondary-fixed-dim": "#ffb868"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "section-gap-lg": "80px",
+                    "container-margin": "20px",
+                    "section-gap-sm": "40px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "body-md": ["Red Hat Display"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-lg": ["Red Hat Display"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Red Hat Display"],
+                    "cta": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "800"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "cta": ["16px", {"lineHeight": "1", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fff9ed;
+            color: #1f1c0e;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2px;
+        }
+        /* Applied persistent underline style to all anchor tags as requested */
+        a {
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            text-decoration-thickness: 1px;
+        }
+    </style>
+<style>
+        body {
+          min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="font-body-md">
+<!-- TopAppBar -->
+<header class="bg-surface sticky top-0 z-[50] border-b-2 border-evergreen">
+<nav class="flex justify-between items-center w-full px-container-margin py-base max-w-[1200px] mx-auto">
+<div class="text-headline-md font-headline-md font-extrabold text-evergreen uppercase tracking-tight cursor-pointer">
+                Goodness for All
+            </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-sm text-label-sm text-evergreen hover:bg-sandstone-beige transition-colors px-2 py-1" href="#">Ons verhaal</a>
+<a class="font-label-sm text-label-sm text-evergreen hover:bg-sandstone-beige transition-colors px-2 py-1" href="#">Impact</a>
+<a class="font-label-sm text-label-sm text-harvest-orange font-bold px-2 py-1" href="#">Partners</a>
+<a class="font-label-sm text-label-sm text-evergreen hover:bg-sandstone-beige transition-colors px-2 py-1" href="#">Werken bij</a>
+<button class="bg-harvest-orange text-evergreen px-6 py-3 font-cta text-cta cursor-pointer active:scale-95 transition-transform">Contact</button>
+</div>
+<button class="md:hidden text-evergreen">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</nav>
+</header>
+<main>
+<!-- Hero Split Layout -->
+<section class="flex flex-col md:flex-row min-h-[618px] border-b-2 border-evergreen">
+<div class="w-full md:w-1/2 bg-white p-container-margin md:p-section-gap-sm flex flex-col justify-center">
+<h1 class="font-headline-lg text-headline-lg text-evergreen max-w-md">
+                    Rotterdam is ook jullie stad.
+                </h1>
+<p class="mt-6 text-body-lg text-body-lg text-on-surface-variant max-w-sm">
+                    Samen bouwen we aan een stad zonder honger. Uw organisatie kan het verschil maken voor duizenden buurtgenoten.
+                </p>
+</div>
+<div class="w-full md:w-1/2 bg-evergreen p-container-margin md:p-section-gap-sm flex flex-col justify-center">
+<h2 class="font-headline-lg text-headline-lg text-harvest-orange">
+                    Word Goodness Impact Partner.
+                </h2>
+<div class="mt-8 flex flex-wrap gap-4">
+<div class="bg-asparagus text-evergreen px-4 py-2 font-label-sm text-label-sm">CSRD PROOF</div>
+<div class="bg-asparagus text-evergreen px-4 py-2 font-label-sm text-label-sm">ESG COMPLIANT</div>
+</div>
+<p class="mt-6 text-body-md text-body-md text-sandstone-beige max-w-md">
+                    Voldoe aan uw duurzaamheidsdoelstellingen en rapportageverplichtingen (CSRD/ESG) terwijl u direct bijdraagt aan lokale voedselzekerheid in Rotterdam.
+                </p>
+</div>
+</section>
+<!-- Comparison Cards -->
+<section class="py-section-gap-lg px-container-margin max-w-[1200px] mx-auto">
+<div class="text-center mb-12">
+<h2 class="font-headline-lg text-headline-lg text-evergreen">Kies uw impact niveau</h2>
+<p class="text-body-lg text-body-lg mt-4">Transparante bijdragen, meetbaar resultaat.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Supporter -->
+<div class="bg-sandstone-beige p-8 border-2 border-evergreen flex flex-col h-full">
+<span class="font-label-sm text-label-sm text-evergreen uppercase tracking-widest mb-4">Impact Supporter</span>
+<div class="text-headline-lg text-headline-lg text-evergreen mb-6">€500 <span class="text-body-md">/ jaar</span></div>
+<ul class="space-y-4 mb-10 flex-grow">
+<li class="flex items-start gap-2 text-body-md">
+<span class="material-symbols-outlined text-evergreen">check_box</span>
+                            100 gezonde maaltijden voor Rotterdamse gezinnen.
+                        </li>
+<li class="flex items-start gap-2 text-body-md">
+<span class="material-symbols-outlined text-evergreen">check_box</span>
+                            Jaarlijks digitaal impact certificaat.
+                        </li>
+<li class="flex items-start gap-2 text-body-md">
+<span class="material-symbols-outlined text-evergreen">check_box</span>
+                            Logo vermelding op onze website.
+                        </li>
+</ul>
+<button class="w-full bg-evergreen text-sandstone-beige py-4 font-cta text-cta hover:bg-primary transition-colors">Start als Supporter</button>
+</div>
+<!-- Builder -->
+<div class="bg-pure-mist p-8 border-2 border-harvest-orange flex flex-col h-full relative overflow-hidden">
+<div class="absolute top-0 right-0 bg-harvest-orange text-evergreen px-4 py-1 font-label-sm text-label-sm">POPULAIR</div>
+<span class="font-label-sm text-label-sm text-evergreen uppercase tracking-widest mb-4">Impact Builder</span>
+<div class="text-headline-lg text-headline-lg text-evergreen mb-6">€1.250 <span class="text-body-md">/ jaar</span></div>
+<ul class="space-y-4 mb-10 flex-grow">
+<li class="flex items-start gap-2 text-body-md">
+<span class="material-symbols-outlined text-evergreen">check_box</span>
+                            300 gezonde maaltijden.
+                        </li>
+<li class="flex items-start gap-2 text-body-md">
+<span class="material-symbols-outlined text-evergreen">check_box</span>
+                            Volledig CSRD-klaar impact rapportage.
+                        </li>
+<li class="flex items-start gap-2 text-body-md">
+<span class="material-symbols-outlined text-evergreen">check_box</span>
+                            Goodness vrieskast voor op kantoor (optioneel).
+                        </li>
+</ul>
+<button class="w-full bg-harvest-orange text-evergreen py-4 font-cta text-cta active:scale-95 transition-transform">Word Impact Builder</button>
+</div>
+<!-- Leader -->
+<div class="bg-evergreen p-8 border-2 border-evergreen flex flex-col h-full">
+<span class="font-label-sm text-label-sm text-sandstone-beige uppercase tracking-widest mb-4">Impact Leader</span>
+<div class="text-headline-lg text-headline-lg text-harvest-orange mb-6">€2.500 <span class="text-body-md text-sandstone-beige">/ jaar</span></div>
+<ul class="space-y-4 mb-10 flex-grow">
+<li class="flex items-start gap-2 text-body-md text-sandstone-beige">
+<span class="material-symbols-outlined text-harvest-orange">check_box</span>
+                            750 gezonde maaltijden.
+                        </li>
+<li class="flex items-start gap-2 text-body-md text-sandstone-beige">
+<span class="material-symbols-outlined text-harvest-orange">check_box</span>
+                            Gepersonaliseerd CSRD/ESG rapport per kwartaal.
+                        </li>
+<li class="flex items-start gap-2 text-body-md text-sandstone-beige">
+<span class="material-symbols-outlined text-harvest-orange">check_box</span>
+                            Impact video voor uw bedrijfscommunicatie.
+                        </li>
+</ul>
+<button class="w-full bg-sandstone-beige text-evergreen py-4 font-cta text-cta hover:bg-white transition-colors">Leid de Impact</button>
+</div>
+</div>
+</section>
+<!-- Freezer Showcase Section -->
+<section class="grid grid-cols-1 md:grid-cols-2 bg-sandstone-beige items-center">
+<div class="h-[400px] md:h-[600px] relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional high-resolution photograph of a modern, sleek Goodness for All branded industrial freezer placed within a bright, contemporary Rotterdam corporate office lounge. The freezer is stocked with colorful, healthy pre-packaged meals. The surrounding environment is minimalist with light wood floors and large windows showing a blurry urban background. The lighting is natural and bright, emphasizing a clean and high-quality aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_FJVmjYR3LeGm8uv5Oo_iURTSZgZUpjYa2D4wY65YROaegPRPVJ1f6RVV0Wf8bwH8cuydIBdxslZwbOg39FJpdVcTpM89acU9Jyjuk5wthTjMLqTcuSc8BD68eowZXZlGNB2xSEWct-sLG0OZf9W67-tujeDdHzjd8SYPofiBOap5iyGT4zMohkzyW9hrGxAfhmLhPCqXMwg4dMJ5C4D1oSCzEwUlj-Mhn745dLNwoSQ5AVL8_qIrqrc-Q4PNS1qn-B8dpPVTv_HL">
+</div>
+<div class="p-container-margin md:p-section-gap-sm">
+<h3 class="font-headline-lg text-headline-lg text-evergreen mb-6">Directe impact in uw kantoor.</h3>
+<p class="text-body-lg text-body-lg mb-8 max-w-md">
+                    Met de GfA vrieskast op locatie biedt u niet alleen gezonde opties aan uw medewerkers, maar toont u elke dag uw betrokkenheid bij de stad. 
+                </p>
+<div class="border-l-4 border-harvest-orange pl-6 py-2">
+<p class="italic text-body-md font-bold text-evergreen">"De vrieskast is een dagelijkse reminder aan onze missie om Rotterdam sterker te maken."</p>
+<p class="text-label-sm mt-2 text-on-surface-variant">— HR Directeur, Rotterdamse Partner</p>
+</div>
+</div>
+</section>
+<!-- Partner Grid -->
+<section class="py-section-gap-lg px-container-margin max-w-[1200px] mx-auto text-center">
+<h2 class="font-headline-md text-headline-md text-evergreen mb-12">Zij gingen je voor</h2>
+<div class="grid grid-cols-2 md:grid-cols-5 gap-8 opacity-70 grayscale hover:grayscale-0 transition-all">
+<!-- Partner logos placeholders -->
+<div class="flex items-center justify-center p-8 border border-evergreen/10">
+<div class="font-extrabold text-evergreen/40 text-xl">HAVENBEDRIJF</div>
+</div>
+<div class="flex items-center justify-center p-8 border border-evergreen/10">
+<div class="font-extrabold text-evergreen/40 text-xl">ERASMUS MC</div>
+</div>
+<div class="flex items-center justify-center p-8 border border-evergreen/10">
+<div class="font-extrabold text-evergreen/40 text-xl">COOLBLUE</div>
+</div>
+<div class="flex items-center justify-center p-8 border border-evergreen/10">
+<div class="font-extrabold text-evergreen/40 text-xl">UNILEVER</div>
+</div>
+<div class="flex items-center justify-center p-8 border border-evergreen/10">
+<div class="font-extrabold text-evergreen/40 text-xl">PORT BASE</div>
+</div>
+</div>
+</section>
+<!-- Contact Form Section -->
+<section class="py-section-gap-lg bg-evergreen px-container-margin">
+<div class="max-w-[800px] mx-auto bg-pure-mist p-8 md:p-12 border-2 border-harvest-orange">
+<div class="mb-10">
+<h2 class="font-headline-lg text-headline-lg text-evergreen mb-2">Impact maken?</h2>
+<p class="text-body-md text-evergreen">Vul het formulier in en we nemen binnen 24 uur contact op.</p>
+</div>
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm text-evergreen uppercase">Naam</label>
+<input class="w-full bg-white border border-evergreen p-4 font-body-md focus:ring-2 focus:ring-harvest-orange outline-none" placeholder="Uw volledige naam" type="text">
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm text-evergreen uppercase">Bedrijf</label>
+<input class="w-full bg-white border border-evergreen p-4 font-body-md focus:ring-2 focus:ring-harvest-orange outline-none" placeholder="Bedrijfsnaam" type="text">
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm text-evergreen uppercase">Rol</label>
+<input class="w-full bg-white border border-evergreen p-4 font-body-md focus:ring-2 focus:ring-harvest-orange outline-none" placeholder="Bijv. ESG Manager of Directie" type="text">
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm text-evergreen uppercase">Email</label>
+<input class="w-full bg-white border border-evergreen p-4 font-body-md focus:ring-2 focus:ring-harvest-orange outline-none" placeholder="zakelijk@email.nl" type="email">
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm text-evergreen uppercase">Bericht</label>
+<textarea class="w-full bg-white border border-evergreen p-4 font-body-md focus:ring-2 focus:ring-harvest-orange outline-none" placeholder="Hoe wilt u bijdragen aan de stad?" rows="4"></textarea>
+</div>
+<button class="w-full md:w-auto bg-harvest-orange text-evergreen px-12 py-5 font-cta text-cta hover:bg-secondary-container transition-all cursor-pointer" type="submit">Neem contact op</button>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-evergreen text-sandstone-beige py-section-gap-sm px-container-margin border-t-2 border-evergreen">
+<div class="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+<div class="text-headline-md font-headline-md text-harvest-orange">
+                Goodness for All
+            </div>
+<div class="flex flex-wrap gap-8">
+<a class="font-label-sm text-label-sm text-sandstone-beige/80 hover:text-harvest-orange transition-colors" href="#">Voor buurthuizen</a>
+<a class="font-label-sm text-label-sm text-sandstone-beige/80 hover:text-harvest-orange transition-colors" href="#">ANBI-informatie</a>
+<a class="font-label-sm text-label-sm text-sandstone-beige/80 hover:text-harvest-orange transition-colors" href="#">Privacy</a>
+</div>
+<div class="font-body-md text-body-md text-sandstone-beige/60">
+                © 2024 Goodness for All
+            </div>
+</div>
+</footer>
+<script>
+        // Micro-interactions
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('mousedown', () => {
+                el.style.transform = 'scale(0.98)';
+            });
+            el.addEventListener('mouseup', () => {
+                el.style.transform = 'scale(1)';
+            });
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = 'scale(1)';
+            });
+        });
+
+        // Form Submission visual feedback
+        const form = document.querySelector('form');
+        if(form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const btn = form.querySelector('button');
+                const originalText = btn.innerText;
+                btn.innerText = 'Versturen...';
+                btn.classList.add('opacity-50', 'pointer-events-none');
+                
+                setTimeout(() => {
+                    btn.innerText = 'Bericht verzonden!';
+                    btn.classList.remove('bg-harvest-orange');
+                    btn.classList.add('bg-asparagus');
+                    form.reset();
+                    setTimeout(() => {
+                        btn.innerText = originalText;
+                        btn.classList.remove('bg-asparagus', 'opacity-50', 'pointer-events-none');
+                        btn.classList.add('bg-harvest-orange');
+                    }, 3000);
+                }, 1500);
+            });
+        }
+    </script>
+</body></html>
