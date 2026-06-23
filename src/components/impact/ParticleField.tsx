@@ -19,9 +19,10 @@ export default function ParticleField() {
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const COUNT = 90;
-    // Brand palette (evergreen, harvest-orange, asparagus, sandstone-beige).
-    const PALETTE = [0x334e1f, 0xed961d, 0x7ca84c, 0xf1e9d2];
+    const COUNT = 110;
+    // Brand palette — evergreen, harvest-orange, asparagus (drop the pale beige
+    // so particles stay visible against the sandstone background).
+    const PALETTE = [0x334e1f, 0xed961d, 0x7ca84c, 0xed961d];
 
     const scene = new THREE.Scene();
 
@@ -29,9 +30,13 @@ export default function ParticleField() {
     let height = el.clientHeight || 1;
 
     const camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 100);
-    camera.position.z = 14;
+    camera.position.z = 10;
 
-    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    const renderer = new THREE.WebGLRenderer({
+      alpha: true,
+      antialias: true,
+      preserveDrawingBuffer: true,
+    });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(width, height);
     renderer.setClearColor(0x000000, 0);
@@ -65,17 +70,19 @@ export default function ParticleField() {
     }
 
     const geometry = new THREE.BufferGeometry();
-    geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+    const posBuffer = new THREE.BufferAttribute(positions, 3);
+    posBuffer.setUsage(THREE.DynamicDrawUsage); // updated every frame
+    geometry.setAttribute("position", posBuffer);
     geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
 
     // Soft round sprite so particles read as gentle dots, not squares.
     const sprite = makeCircleTexture();
     const material = new THREE.PointsMaterial({
-      size: 0.5,
+      size: 0.9,
       map: sprite,
       vertexColors: true,
       transparent: true,
-      opacity: 0.7,
+      opacity: 0.9,
       depthWrite: false,
       blending: THREE.NormalBlending,
       sizeAttenuation: true,
@@ -87,47 +94,50 @@ export default function ParticleField() {
     const posAttr = geometry.getAttribute("position") as THREE.BufferAttribute;
 
     let raf = 0;
-    let running = true;
+    let looping = false; // guards against double rAF loops
     const clock = new THREE.Clock();
 
-    function animate() {
-      if (!running) return;
-      raf = requestAnimationFrame(animate);
+    function frame() {
       const t = clock.getElapsedTime();
 
-      // Each particle drifts on a slow vertical bob + tiny horizontal sway.
+      // Each particle drifts on a clearly visible vertical bob + horizontal sway.
       for (let i = 0; i < COUNT; i++) {
         const baseY = positions[i * 3 + 1];
         const baseX = positions[i * 3];
-        posAttr.setY(i, baseY + Math.sin(t * speed[i] + phase[i]) * 0.6);
-        posAttr.setX(i, baseX + Math.cos(t * speed[i] * 0.6 + phase[i]) * 0.3);
+        posAttr.setY(i, baseY + Math.sin(t * speed[i] + phase[i]) * 1.1);
+        posAttr.setX(i, baseX + Math.cos(t * speed[i] * 0.7 + phase[i]) * 0.7);
       }
       posAttr.needsUpdate = true;
 
-      // Whole field rotates almost imperceptibly for depth.
-      points.rotation.z = Math.sin(t * 0.05) * 0.05;
+      // Whole field rotates gently for depth.
+      points.rotation.z = Math.sin(t * 0.08) * 0.08;
 
       renderer.render(scene, camera);
+      raf = requestAnimationFrame(frame);
+    }
+
+    function start() {
+      if (looping || reduceMotion) return;
+      looping = true;
+      raf = requestAnimationFrame(frame);
+    }
+
+    function stop() {
+      looping = false;
+      cancelAnimationFrame(raf);
     }
 
     function renderStatic() {
       renderer.render(scene, camera);
     }
 
-    // Only animate while visible; render one static frame otherwise.
+    // Animate only while the section is on screen; pause otherwise.
     const io = new IntersectionObserver(
       (entries) => {
-        const visible = entries[0].isIntersecting;
-        if (visible && !reduceMotion && !running) {
-          running = true;
-          clock.start();
-          animate();
-        } else if (!visible && running) {
-          running = false;
-          cancelAnimationFrame(raf);
-        }
+        if (entries[0].isIntersecting) start();
+        else stop();
       },
-      { threshold: 0.05 },
+      { threshold: 0 },
     );
     io.observe(el);
 
@@ -137,20 +147,16 @@ export default function ParticleField() {
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
       renderer.setSize(width, height);
-      if (!running) renderStatic();
+      if (!looping) renderStatic();
     }
     window.addEventListener("resize", handleResize);
 
-    if (reduceMotion) {
-      running = false;
-      renderStatic();
-    } else {
-      animate();
-    }
+    // Always render at least one frame; start the loop unless reduced-motion.
+    renderStatic();
+    start();
 
     return () => {
-      running = false;
-      cancelAnimationFrame(raf);
+      stop();
       io.disconnect();
       window.removeEventListener("resize", handleResize);
       geometry.dispose();
