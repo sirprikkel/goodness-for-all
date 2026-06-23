@@ -116,10 +116,13 @@ export default function ImpactPage() {
             <div className="font-body-md text-body-md space-y-4 mb-8">
               <p>{impact.research.text}</p>
             </div>
-            <button className="bg-harvest-orange text-evergreen px-6 py-3 font-cta text-cta uppercase active:scale-95 transition-transform flex items-center gap-2">
+            <a
+              href={impact.research.buttonHref}
+              className="bg-harvest-orange text-evergreen px-6 py-3 font-cta text-cta uppercase active:scale-95 transition-transform inline-flex items-center gap-2"
+            >
               <span className="material-symbols-outlined">download</span>
               {impact.research.buttonLabel}
-            </button>
+            </a>
           </div>
           <div className="p-section-gap-sm bg-sandstone-beige/30 border-2 border-evergreen self-stretch flex flex-col justify-center transition-all duration-200 ease-out hover:-translate-y-1 hover:bg-sandstone-beige hover:shadow-[8px_8px_0_0_#334E1F]">
             <h3 className="font-label-sm text-label-sm text-evergreen uppercase mb-4 tracking-widest">

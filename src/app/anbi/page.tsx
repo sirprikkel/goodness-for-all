@@ -38,6 +38,7 @@ export default function AnbiPage() {
               tone={card.tone as "sandstone" | "mist"}
               delay={index * 100}
               downloadLabel={card.downloadLabel || undefined}
+              downloadHref={card.downloadHref || undefined}
             >
               {card.lines.map((line) => (
                 <p key={line}>{line}</p>

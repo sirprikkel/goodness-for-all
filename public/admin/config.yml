@@ -32,10 +32,12 @@ collections:
               - { label: Stad, name: city, widget: string }
               - { label: Land, name: country, widget: string }
               - { label: Copyright, name: copyright, widget: string }
+              - { label: Home label, name: homeLabel, widget: string }
               - { label: Contactknop, name: contactButton, widget: string }
               - { label: Menulabel, name: menuLabel, widget: string }
               - { label: Open menulabel, name: openMenuLabel, widget: string }
               - { label: Sluit menulabel, name: closeMenuLabel, widget: string }
+              - { label: Partnerstrip aria-label, name: partnerStripAriaLabel, widget: string }
               - label: Navigatie
                 name: nav
                 widget: list
@@ -144,7 +146,7 @@ collections:
                 name: logoGrid
                 widget: list
                 fields:
-                  - { label: Bestandsnaam zonder .png, name: file, widget: string }
+                  - { label: Logo afbeelding, name: image, widget: image }
                   - { label: Alt-tekst, name: alt, widget: string }
               - { label: Formulier titel, name: formTitle, widget: string }
               - { label: Formulier tekst, name: formText, widget: text }
@@ -153,7 +155,7 @@ collections:
             name: partnerLogos
             widget: list
             fields:
-              - { label: Bestandsnaam zonder .png, name: file, widget: string }
+              - { label: Logo afbeelding, name: image, widget: image }
               - { label: Alt-tekst, name: alt, widget: string }
 
           - label: Impact pagina
@@ -193,6 +195,7 @@ collections:
                   - { label: Titel, name: title, widget: string }
                   - { label: Tekst, name: text, widget: text }
                   - { label: Knoplabel, name: buttonLabel, widget: string }
+                  - { label: Knop URL, name: buttonHref, widget: string }
                   - { label: SROI eyebrow, name: sroiEyebrow, widget: string }
                   - { label: SROI titel, name: sroiTitle, widget: string }
                   - { label: SROI tekst, name: sroiText, widget: text }
@@ -278,6 +281,7 @@ collections:
                   - { label: Titel, name: title, widget: string }
                   - { label: Tone, name: tone, widget: select, options: [sandstone, mist] }
                   - { label: Download label, name: downloadLabel, widget: string, required: false }
+                  - { label: Download/contact URL, name: downloadHref, widget: string, required: false }
                   - { label: Regels, name: lines, widget: list, field: { label: Regel, name: line, widget: string } }
               - { label: CTA titel, name: ctaTitle, widget: string }
               - { label: CTA tekst, name: ctaText, widget: text }

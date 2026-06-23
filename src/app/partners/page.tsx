@@ -133,11 +133,11 @@ export default function PartnersPage() {
           <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
             {partners.logoGrid.map((partner) => (
               <div
-                key={partner.file}
+                key={partner.image}
                 className="flex items-center justify-center p-2 border border-evergreen/10"
               >
                 <img
-                  src={`/images/partners/logos/${partner.file}.png`}
+                  src={partner.image}
                   alt={partner.alt}
                   className="max-h-40 w-auto max-w-full object-contain opacity-80 hover:opacity-100 transition-opacity"
                 />

@@ -7,10 +7,12 @@
     "city": "Rotterdam",
     "country": "Nederland",
     "copyright": "© 2026 Goodness for All",
+    "homeLabel": "Home",
     "contactButton": "Contact",
     "menuLabel": "Menu",
     "openMenuLabel": "Open menu",
     "closeMenuLabel": "Close menu",
+    "partnerStripAriaLabel": "Onze partners",
     "nav": [
       { "href": "/ons-verhaal", "label": "Ons verhaal", "icon": "history_edu" },
       { "href": "/impact", "label": "Impact", "icon": "query_stats" },
@@ -135,27 +137,27 @@
     },
     "logoGridTitle": "Zij gingen je voor",
     "logoGrid": [
-      { "file": "havenbedrijf", "alt": "Havenbedrijf Rotterdam" },
-      { "file": "erasmus-mc", "alt": "Erasmus MC" },
-      { "file": "coolblue", "alt": "Coolblue" },
-      { "file": "unilever", "alt": "Unilever" },
-      { "file": "port-base", "alt": "Port Base" }
+      { "image": "/images/partners/logos/havenbedrijf.png", "alt": "Havenbedrijf Rotterdam" },
+      { "image": "/images/partners/logos/erasmus-mc.png", "alt": "Erasmus MC" },
+      { "image": "/images/partners/logos/coolblue.png", "alt": "Coolblue" },
+      { "image": "/images/partners/logos/unilever.png", "alt": "Unilever" },
+      { "image": "/images/partners/logos/port-base.png", "alt": "Port Base" }
     ],
     "formTitle": "Impact maken?",
     "formText": "Vul het formulier in en we nemen binnen 24 uur contact op."
   },
   "partnerLogos": [
-    { "file": "gemeente-rotterdam", "alt": "Gemeente Rotterdam" },
-    { "file": "provincie-zuid-holland", "alt": "Provincie Zuid-Holland" },
-    { "file": "rabobank", "alt": "Rabobank" },
-    { "file": "fmo", "alt": "FMO" },
-    { "file": "abb", "alt": "ABB" },
-    { "file": "savills", "alt": "Savills" },
-    { "file": "azbel", "alt": "Azbel" },
-    { "file": "ns-stations", "alt": "NS Stations" },
-    { "file": "lazy", "alt": "Lazy" },
-    { "file": "sol", "alt": "SOL" },
-    { "file": "incluzio", "alt": "Incluzio" }
+    { "image": "/images/partners/logos/gemeente-rotterdam.png", "alt": "Gemeente Rotterdam" },
+    { "image": "/images/partners/logos/provincie-zuid-holland.png", "alt": "Provincie Zuid-Holland" },
+    { "image": "/images/partners/logos/rabobank.png", "alt": "Rabobank" },
+    { "image": "/images/partners/logos/fmo.png", "alt": "FMO" },
+    { "image": "/images/partners/logos/abb.png", "alt": "ABB" },
+    { "image": "/images/partners/logos/savills.png", "alt": "Savills" },
+    { "image": "/images/partners/logos/azbel.png", "alt": "Azbel" },
+    { "image": "/images/partners/logos/ns-stations.png", "alt": "NS Stations" },
+    { "image": "/images/partners/logos/lazy.png", "alt": "Lazy" },
+    { "image": "/images/partners/logos/sol.png", "alt": "SOL" },
+    { "image": "/images/partners/logos/incluzio.png", "alt": "Incluzio" }
   ],
   "impact": {
     "metaTitle": "Impact | Goodness for All",
@@ -200,6 +202,7 @@
       "title": "Onderzoeksrapport",
       "text": "Ons laatste onafhankelijke onderzoek toont aan dat de impact van een gezamenlijke maaltijd verder gaat dan alleen voeding. Het verlaagt de drempel naar verdere hulpverlening en versterkt de sociale cohesie in de wijk.",
       "buttonLabel": "Rapport downloaden",
+      "buttonHref": "#",
       "sroiEyebrow": "SROI Analyse",
       "sroiTitle": "9-33x Rendement",
       "sroiText": "Voor elke euro geïnvesteerd in onze programma's, genereert de maatschappij een waarde tussen de 9 en 33 euro door vermindering van eenzaamheid en verbeterde gezondheid.",
@@ -280,6 +283,7 @@
         "title": "Officiële naam",
         "tone": "sandstone",
         "downloadLabel": "",
+        "downloadHref": "",
         "lines": ["Stichting Goodness for All Foundation Nederland"]
       },
       {
@@ -287,6 +291,7 @@
         "title": "RSIN-nummer",
         "tone": "mist",
         "downloadLabel": "",
+        "downloadHref": "",
         "lines": ["RSIN: 8593.12.744", "KVK: 73004521"]
       },
       {
@@ -294,6 +299,7 @@
         "title": "Contactgegevens",
         "tone": "sandstone",
         "downloadLabel": "Contact",
+        "downloadHref": "/contact",
         "lines": ["Van der Duyn van Maasdamweg 480", "Rotterdam", "info@goodnessforall.nl"]
       },
       {
@@ -301,6 +307,7 @@
         "title": "Actueel beleidsplan",
         "tone": "sandstone",
         "downloadLabel": "Download PDF",
+        "downloadHref": "#",
         "lines": ["Onze strategische visie en operationele doelen voor 2024-2026."]
       },
       {
@@ -308,6 +315,7 @@
         "title": "Jaarverslag",
         "tone": "mist",
         "downloadLabel": "Download PDF",
+        "downloadHref": "#",
         "lines": ["Verslaglegging van onze activiteiten en bereikte impact van afgelopen jaar."]
       }
     ],

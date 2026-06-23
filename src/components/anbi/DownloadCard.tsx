@@ -8,6 +8,8 @@ type DownloadCardProps = {
   children: ReactNode;
   /** Label for the download/action button. Omit for cards without a button. */
   downloadLabel?: string;
+  /** Optional CMS-managed href for downloads or related actions. */
+  downloadHref?: string;
   /** Stagger delay (ms) before the reveal fires once in view. */
   delay?: number;
   /** Alternating tile background tone. */
@@ -24,6 +26,7 @@ export default function DownloadCard({
   title,
   children,
   downloadLabel,
+  downloadHref,
   delay = 0,
   tone,
 }: DownloadCardProps) {
@@ -79,7 +82,15 @@ export default function DownloadCard({
         <h3 className="font-headline-md text-headline-md text-evergreen mb-4">{title}</h3>
         <div className="font-body-md text-body-md text-on-surface-variant mb-6">{children}</div>
       </div>
-      {downloadLabel && (
+      {downloadLabel && downloadHref ? (
+        <a
+          href={downloadHref}
+          className="w-full bg-evergreen hover:bg-harvest-orange hover:text-evergreen text-sandstone-beige font-cta text-cta py-4 uppercase tracking-widest transition-all duration-200 active:scale-95 flex items-center justify-center gap-2"
+        >
+          <span className="material-symbols-outlined text-sm">download</span>
+          {downloadLabel}
+        </a>
+      ) : downloadLabel ? (
         <button
           onClick={handleDownload}
           className={`w-full text-sandstone-beige font-cta text-cta py-4 uppercase tracking-widest transition-all duration-200 active:scale-95 flex items-center justify-center gap-2 ${
@@ -91,7 +102,7 @@ export default function DownloadCard({
           <span className="material-symbols-outlined text-sm">{btnIcon}</span>
           {downloadLabel}
         </button>
-      )}
+      ) : null}
     </div>
   );
 }

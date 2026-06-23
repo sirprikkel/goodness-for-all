@@ -54,7 +54,7 @@ export default function Header({ active, position = "sticky", settings }: Header
               }`}
               href="/"
             >
-              Home
+              {settings?.homeLabel ?? "Home"}
             </Link>
             {navLinks.filter((l) => l.href !== "/contact").map((l) => (
               <Link
