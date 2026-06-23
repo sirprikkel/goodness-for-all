@@ -1,6 +1,9 @@
 {
   "settings": {
     "siteName": "Goodness for All",
+    "cmsTitle": "Goodness for All CMS",
+    "defaultMetaTitle": "Goodness for All | Iedereen een gezonde maaltijd",
+    "defaultMetaDescription": "Samen maken we een einde aan honger in Rotterdam.",
     "logo": "/images/logo.png",
     "logoAlt": "Goodness for All",
     "email": "info@goodnessforall.nl",
@@ -8,7 +11,10 @@
     "country": "Nederland",
     "copyright": "© 2026 Goodness for All",
     "homeLabel": "Home",
+    "homeHref": "/",
+    "homeAriaLabel": "Goodness for All - home",
     "contactButton": "Contact",
+    "contactButtonHref": "/contact",
     "menuLabel": "Menu",
     "openMenuLabel": "Open menu",
     "closeMenuLabel": "Close menu",
@@ -97,7 +103,8 @@
           "Jaarlijks digitaal impact certificaat.",
           "Logo vermelding op onze website."
         ],
-        "buttonLabel": "Start als Supporter"
+        "buttonLabel": "Start als Supporter",
+        "buttonHref": "/contact"
       },
       {
         "name": "Impact Builder",
@@ -111,7 +118,8 @@
           "Volledig CSRD-klaar impact rapportage.",
           "Goodness vrieskast voor op kantoor (optioneel)."
         ],
-        "buttonLabel": "Word Impact Builder"
+        "buttonLabel": "Word Impact Builder",
+        "buttonHref": "/contact"
       },
       {
         "name": "Impact Leader",
@@ -124,7 +132,8 @@
           "Gepersonaliseerd CSRD/ESG rapport per kwartaal.",
           "Impact video voor uw bedrijfscommunicatie."
         ],
-        "buttonLabel": "Leid de Impact"
+        "buttonLabel": "Leid de Impact",
+        "buttonHref": "/contact"
       }
     ],
     "freezer": {
@@ -234,6 +243,7 @@
     "vacanciesTitle": "Huidige Vacatures",
     "vacanciesText": "Vind jouw plek in ons groeiende ecosysteem.",
     "openApplicationLabel": "OPEN SOLLICITATIE",
+    "openApplicationHref": "mailto:info@goodnessforall.nl",
     "emptyIcon": "search_off",
     "emptyTitle": "We zoeken mensen die kunnen helpen met promotie, logistiek en een co-founder.",
     "emptyText": "Van een unieke bijbaan voor een paar uur in de week waar je écht verschil maakt, en ca. €20 per uur verdient, tot mede founder worden. Kom met een goed verhaal en we zijn in gesprek!",
@@ -322,7 +332,8 @@
     "ctaTitle": "Heb je vragen?",
     "ctaText": "Ons team staat klaar om je te helpen bij aanvullende vragen over onze ANBI-status of financiële structuur.",
     "mailButton": "Mail ons",
-    "contactButton": "Contactformulier"
+    "contactButton": "Contactformulier",
+    "contactHref": "/contact"
   },
   "forms": {
     "contact": {
@@ -414,6 +425,17 @@
         { "icon": "favorite", "label": "Zonder drempels" },
         { "icon": "groups", "label": "Onderdeel van de wijk" }
       ]
+    },
+    "subsidy": {
+      "title": "De één betaalt voor de ander.",
+      "corporateAmount": "€8",
+      "corporateTitle": "Zakelijke Markt",
+      "corporateText": "Gezonde lunch op kantoor",
+      "arrowIcon": "trending_flat",
+      "communityAmount": "€1",
+      "communityTitle": "In de Buurt",
+      "communityText": "Toegankelijk voor iedereen",
+      "closingText": "Door een eerlijke prijs te vragen aan hen die het kunnen dragen, maken we gezonde voeding voor de hele stad toegankelijk. Geen liefdadigheid, maar solidariteit in actie."
     },
     "meal": {
       "eyebrow": "B-Corp Gecertificeerd",

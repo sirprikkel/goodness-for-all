@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { getSiteContent } from "@/lib/content";
+
+const site = getSiteContent();
 
 export const metadata: Metadata = {
-  title: "Goodness for All CMS",
+  title: site.settings.cmsTitle,
   robots: {
     index: false,
     follow: false,

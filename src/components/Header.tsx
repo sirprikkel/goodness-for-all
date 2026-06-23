@@ -3,20 +3,16 @@
 import { useState } from "react";
 import Link from "next/link";
 import type { SiteSettings } from "@/lib/content";
-import { NAV_LINKS } from "./nav-links";
 
 type HeaderProps = {
   active?: string;
   position?: "sticky" | "fixed";
-  settings?: SiteSettings;
+  settings: SiteSettings;
 };
 
 export default function Header({ active, position = "sticky", settings }: HeaderProps) {
   const [open, setOpen] = useState(false);
-  const navLinks = settings?.nav ?? NAV_LINKS;
-  const logo = settings?.logo ?? "/images/logo.png";
-  const logoAlt = settings?.logoAlt ?? "Goodness for All";
-  const siteName = settings?.siteName ?? "Goodness for All";
+  const navLinks = settings.nav;
 
   const positionClass =
     position === "fixed"
@@ -31,16 +27,19 @@ export default function Header({ active, position = "sticky", settings }: Header
         <div className="flex justify-between items-center w-full px-container-margin py-base max-w-[1200px] mx-auto">
           <div className="flex items-center gap-4">
             <button
-              aria-label={settings?.openMenuLabel ?? "Open menu"}
+              aria-label={settings.openMenuLabel}
               className="material-symbols-outlined text-evergreen cursor-pointer active:scale-95 transition-transform"
               onClick={() => setOpen(true)}
             >
               menu
             </button>
-            <Link href="/" aria-label={`${siteName} - home`}>
+            <Link
+              href={settings.homeHref}
+              aria-label={settings.homeAriaLabel}
+            >
               <img
-                src={logo}
-                alt={logoAlt}
+                src={settings.logo}
+                alt={settings.logoAlt}
                 width={545}
                 height={168}
                 className="h-8 w-auto"
@@ -52,9 +51,9 @@ export default function Header({ active, position = "sticky", settings }: Header
               className={`font-bold font-label-sm text-label-sm px-4 py-2 hover:bg-sandstone-beige transition-colors duration-200 ${
                 active === "/" ? "text-harvest-orange" : "text-evergreen"
               }`}
-              href="/"
+              href={settings.homeHref}
             >
-              {settings?.homeLabel ?? "Home"}
+              {settings.homeLabel}
             </Link>
             {navLinks.filter((l) => l.href !== "/contact").map((l) => (
               <Link
@@ -69,10 +68,10 @@ export default function Header({ active, position = "sticky", settings }: Header
             ))}
           </nav>
           <Link
-            href="/contact"
+            href={settings.contactButtonHref}
             className="bg-evergreen text-sandstone-beige hover:bg-harvest-orange hover:text-evergreen px-6 py-2 font-cta text-cta uppercase tracking-widest cursor-pointer active:scale-95 transition-all inline-block"
           >
-            {settings?.contactButton ?? "Contact"}
+            {settings.contactButton}
           </Link>
         </div>
       </header>
@@ -84,10 +83,10 @@ export default function Header({ active, position = "sticky", settings }: Header
       >
         <div className="flex justify-between items-center mb-8">
           <span className="text-headline-md font-headline-md text-evergreen">
-            {settings?.menuLabel ?? "Menu"}
+            {settings.menuLabel}
           </span>
           <button
-            aria-label={settings?.closeMenuLabel ?? "Close menu"}
+            aria-label={settings.closeMenuLabel}
             className="material-symbols-outlined cursor-pointer"
             onClick={() => setOpen(false)}
           >

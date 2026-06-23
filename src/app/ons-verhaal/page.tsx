@@ -47,7 +47,7 @@ export default function OnsVerhaalPage() {
         </section>
       </main>
 
-      <SubsidyFlowScroll />
+      <SubsidyFlowScroll content={story.subsidy} />
 
       <main className="max-w-[1200px] mx-auto px-container-margin">
         <section className="py-section-gap-lg">

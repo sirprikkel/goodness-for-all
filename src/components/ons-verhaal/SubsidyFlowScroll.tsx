@@ -8,6 +8,9 @@ import {
   useTransform,
   type MotionValue,
 } from "motion/react";
+import type { SiteContent } from "@/lib/content";
+
+type SubsidyFlowContent = SiteContent["story"]["subsidy"];
 
 /**
  * Section 2 of /ons-verhaal — "De één betaalt voor de ander".
@@ -26,7 +29,7 @@ import {
  * motion every piece is simply shown statically (no scroll-driven movement),
  * mirroring the prefers-reduced-motion guards used elsewhere.
  */
-export default function SubsidyFlowScroll() {
+export default function SubsidyFlowScroll({ content }: { content: SubsidyFlowContent }) {
   const reduceMotion = useReducedMotion() ?? false;
   const runwayRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
@@ -44,7 +47,7 @@ export default function SubsidyFlowScroll() {
         <div className="w-full max-w-[1200px] mx-auto px-container-margin">
           <div className="bg-sandstone-beige p-12 border-2 border-evergreen">
             <h2 className="font-headline-md text-headline-md text-evergreen mb-12 text-center uppercase tracking-widest">
-              De één betaalt voor de ander.
+              {content.title}
             </h2>
 
             <div className="flex flex-col md:flex-row justify-around items-center gap-12 relative">
@@ -58,12 +61,12 @@ export default function SubsidyFlowScroll() {
               >
                 <div className="z-10 bg-pure-mist border-2 border-evergreen p-8 text-center w-full md:w-64">
                   <span className="text-headline-lg font-headline-lg text-harvest-orange mb-2 block">
-                    €8
+                    {content.corporateAmount}
                   </span>
                   <p className="font-label-sm text-label-sm text-evergreen uppercase font-bold">
-                    Zakelijke Markt
+                    {content.corporateTitle}
                   </p>
-                  <p className="text-xs text-evergreen/60 mt-2">Gezonde lunch op kantoor</p>
+                  <p className="text-xs text-evergreen/60 mt-2">{content.corporateText}</p>
                 </div>
               </Piece>
 
@@ -73,7 +76,7 @@ export default function SubsidyFlowScroll() {
                 reduceMotion={reduceMotion}
               >
                 <div className="z-10 bg-harvest-orange text-evergreen p-4 flex items-center justify-center">
-                  <span className="material-symbols-outlined text-4xl">trending_flat</span>
+                  <span className="material-symbols-outlined text-4xl">{content.arrowIcon}</span>
                 </div>
               </Piece>
 
@@ -84,12 +87,12 @@ export default function SubsidyFlowScroll() {
               >
                 <div className="z-10 bg-evergreen border-2 border-evergreen p-8 text-center w-full md:w-64">
                   <span className="text-headline-lg font-headline-lg text-sandstone-beige mb-2 block">
-                    €1
+                    {content.communityAmount}
                   </span>
                   <p className="font-label-sm text-label-sm text-sandstone-beige uppercase font-bold">
-                    In de Buurt
+                    {content.communityTitle}
                   </p>
-                  <p className="text-xs text-sandstone-beige/60 mt-2">Toegankelijk voor iedereen</p>
+                  <p className="text-xs text-sandstone-beige/60 mt-2">{content.communityText}</p>
                 </div>
               </Piece>
             </div>
@@ -101,9 +104,7 @@ export default function SubsidyFlowScroll() {
               className="mt-12 text-center max-w-2xl mx-auto"
             >
               <p className="font-body-md text-body-md italic text-evergreen">
-                Door een eerlijke prijs te vragen aan hen die het kunnen dragen, maken we gezonde
-                voeding voor de hele stad toegankelijk. Geen liefdadigheid, maar solidariteit in
-                actie.
+                {content.closingText}
               </p>
             </Piece>
           </div>

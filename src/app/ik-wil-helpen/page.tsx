@@ -56,9 +56,12 @@ export default function IkWilHelpenPage() {
               </p>
             </div>
             <div className="hidden md:block">
-              <button className="bg-harvest-orange text-evergreen font-cta text-cta px-gutter py-4 border-2 border-evergreen hover:bg-evergreen hover:text-sandstone-beige transition-all">
+              <a
+                href={help.openApplicationHref}
+                className="inline-block bg-harvest-orange text-evergreen font-cta text-cta px-gutter py-4 border-2 border-evergreen hover:bg-evergreen hover:text-sandstone-beige transition-all"
+              >
                 {help.openApplicationLabel}
-              </button>
+              </a>
             </div>
           </div>
           <div className="bg-pure-mist border-2 border-evergreen p-12 text-center flex flex-col items-center justify-center min-h-[300px]">

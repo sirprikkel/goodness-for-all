@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Red_Hat_Display, Baloo_2 } from "next/font/google";
+import { getSiteContent } from "@/lib/content";
 import "./globals.css";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -20,9 +21,11 @@ const baloo = Baloo_2({
   weight: ["700", "800"],
 });
 
+const site = getSiteContent();
+
 export const metadata: Metadata = {
-  title: "Goodness for All | Iedereen een gezonde maaltijd",
-  description: "Samen maken we een einde aan honger in Rotterdam.",
+  title: site.settings.defaultMetaTitle,
+  description: site.settings.defaultMetaDescription,
 };
 
 export default function RootLayout({

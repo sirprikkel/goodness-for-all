@@ -64,7 +64,7 @@ export default function AnbiPage() {
               {anbi.mailButton}
             </a>
             <Link
-              href="/contact"
+              href={anbi.contactHref}
               className="bg-evergreen text-sandstone-beige font-cta text-cta py-4 px-8 uppercase tracking-widest hover:bg-asparagus transition-all duration-300 active:scale-95"
             >
               {anbi.contactButton}

@@ -81,8 +81,9 @@ export default function PartnersPage() {
                     </li>
                   ))}
                 </ul>
-                <button
-                  className={`w-full py-4 font-cta text-cta transition-colors ${
+                <a
+                  href={plan.buttonHref}
+                  className={`block text-center w-full py-4 font-cta text-cta transition-colors ${
                     plan.dark
                       ? "bg-sandstone-beige text-evergreen hover:bg-white"
                       : plan.featured
@@ -91,7 +92,7 @@ export default function PartnersPage() {
                   }`}
                 >
                   {plan.buttonLabel}
-                </button>
+                </a>
               </div>
             ))}
           </div>

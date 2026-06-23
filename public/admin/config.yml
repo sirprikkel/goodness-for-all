@@ -26,6 +26,9 @@ collections:
             widget: object
             fields:
               - { label: Sitenaam, name: siteName, widget: string }
+              - { label: CMS titel, name: cmsTitle, widget: string }
+              - { label: Standaard SEO titel, name: defaultMetaTitle, widget: string }
+              - { label: Standaard SEO omschrijving, name: defaultMetaDescription, widget: text }
               - { label: Logo, name: logo, widget: image }
               - { label: Logo alt-tekst, name: logoAlt, widget: string }
               - { label: E-mail, name: email, widget: string }
@@ -33,7 +36,10 @@ collections:
               - { label: Land, name: country, widget: string }
               - { label: Copyright, name: copyright, widget: string }
               - { label: Home label, name: homeLabel, widget: string }
+              - { label: Home URL, name: homeHref, widget: string }
+              - { label: Home aria-label, name: homeAriaLabel, widget: string }
               - { label: Contactknop, name: contactButton, widget: string }
+              - { label: Contactknop URL, name: contactButtonHref, widget: string }
               - { label: Menulabel, name: menuLabel, widget: string }
               - { label: Open menulabel, name: openMenuLabel, widget: string }
               - { label: Sluit menulabel, name: closeMenuLabel, widget: string }
@@ -131,6 +137,7 @@ collections:
                   - { label: Donkere kaart, name: dark, widget: boolean, required: false }
                   - { label: Features, name: features, widget: list, field: { label: Feature, name: feature, widget: string } }
                   - { label: Knoplabel, name: buttonLabel, widget: string }
+                  - { label: Knop URL, name: buttonHref, widget: string }
               - label: Vrieskast
                 name: freezer
                 widget: object
@@ -232,6 +239,7 @@ collections:
               - { label: Vacatures titel, name: vacanciesTitle, widget: string }
               - { label: Vacatures tekst, name: vacanciesText, widget: text }
               - { label: Open sollicitatie knop, name: openApplicationLabel, widget: string }
+              - { label: Open sollicitatie URL, name: openApplicationHref, widget: string }
               - { label: Leeg icoon, name: emptyIcon, widget: string }
               - { label: Leeg titel, name: emptyTitle, widget: text }
               - { label: Leeg tekst, name: emptyText, widget: text }
@@ -287,6 +295,7 @@ collections:
               - { label: CTA tekst, name: ctaText, widget: text }
               - { label: Mailknop, name: mailButton, widget: string }
               - { label: Contactknop, name: contactButton, widget: string }
+              - { label: Contactknop URL, name: contactHref, widget: string }
 
           - label: Formulieren
             name: forms
@@ -399,6 +408,19 @@ collections:
                     fields:
                       - { label: Icon, name: icon, widget: string }
                       - { label: Label, name: label, widget: string }
+              - label: Solidariteitsvisual
+                name: subsidy
+                widget: object
+                fields:
+                  - { label: Titel, name: title, widget: string }
+                  - { label: Zakelijke bedrag, name: corporateAmount, widget: string }
+                  - { label: Zakelijke titel, name: corporateTitle, widget: string }
+                  - { label: Zakelijke tekst, name: corporateText, widget: string }
+                  - { label: Pijl icon, name: arrowIcon, widget: string }
+                  - { label: Buurt bedrag, name: communityAmount, widget: string }
+                  - { label: Buurt titel, name: communityTitle, widget: string }
+                  - { label: Buurt tekst, name: communityText, widget: string }
+                  - { label: Afsluitende tekst, name: closingText, widget: text }
               - label: Maaltijdsectie
                 name: meal
                 widget: object
