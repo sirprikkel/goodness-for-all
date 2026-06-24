@@ -10,14 +10,21 @@ function htmlResponse(result: AuthResult): Response {
   const content = result.error
     ? { provider: PROVIDER, error: result.error, errorCode: result.errorCode }
     : { provider: PROVIDER, token: result.token };
+  const message = `authorization:${PROVIDER}:${state}:${JSON.stringify(content)}`;
+  const title = result.error ? "CMS login niet voltooid" : "CMS login voltooid";
+  const text = result.error
+    ? result.error
+    : "Je bent ingelogd. Dit venster kan automatisch sluiten.";
 
   return new Response(
-    `<!doctype html><html><body><script>
+    `<!doctype html><html lang="nl"><head><meta charset="utf-8"><title>${title}</title></head><body>
+<p>${text}</p>
+<script>
 (() => {
   window.addEventListener("message", ({ data, origin }) => {
     if (data === "authorizing:${PROVIDER}") {
       window.opener?.postMessage(
-        "authorization:${PROVIDER}:${state}:${JSON.stringify(content)}",
+        ${JSON.stringify(message)},
         origin
       );
     }
