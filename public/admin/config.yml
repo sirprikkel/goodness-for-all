@@ -2,6 +2,7 @@ backend:
   name: github
   repo: Pimmetjeoss/goodness-for-all
   branch: master
+  base_url: https://goodness-mu.vercel.app/api/cms
 
 local_backend: true
 

@@ -9,8 +9,30 @@ De content staat in `content/site.json`. Sveltia CMS schrijft wijzigingen als co
 
 - Repository: `Pimmetjeoss/goodness-for-all`
 - Branch: `master`
+- OAuth: via de eigen Vercel/Next routes `/api/cms/auth` en `/api/cms/callback`, niet via Netlify
 
 Afbeeldingen die via de CMS worden geupload komen in `public/images/uploads` en zijn op de site bereikbaar als `/images/uploads/...`.
+
+## GitHub login zonder Netlify
+
+Sveltia CMS heeft voor de knop "Sign in with GitHub" een OAuth-client nodig. Deze site gebruikt daarvoor de eigen Vercel deployment:
+
+- CMS config: `public/admin/config.yml`
+- OAuth start: `https://goodness-mu.vercel.app/api/cms/auth`
+- OAuth callback: `https://goodness-mu.vercel.app/api/cms/callback`
+
+Maak in GitHub een OAuth App aan met:
+
+- Homepage URL: `https://goodness-mu.vercel.app`
+- Authorization callback URL: `https://goodness-mu.vercel.app/api/cms/callback`
+
+Zet daarna in Vercel bij het project de Environment Variables:
+
+- `GITHUB_CLIENT_ID`: Client ID van de GitHub OAuth App
+- `GITHUB_CLIENT_SECRET`: Client Secret van de GitHub OAuth App
+- `CMS_ALLOWED_DOMAINS`: `goodness-mu.vercel.app`
+
+Na aanpassen van environment variables moet Vercel opnieuw deployen. De login-URL mag daarna niet meer naar `api.netlify.com` verwijzen.
 
 ## Toegang voor klant
 
