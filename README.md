@@ -34,3 +34,18 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Buurthuis Order Log
+
+The form on `/voor-buurthuizen` posts to `/api/orders`. Submissions are logged as CSV rows with one column per question in `content/buurthuis-bestellingen.csv`.
+
+Local development appends to the CSV file directly. Production on Vercel writes the same CSV through the GitHub Contents API and requires:
+
+```bash
+ORDER_LOG_GITHUB_TOKEN=github_pat_...
+ORDER_LOG_GITHUB_REPO=Pimmetjeoss/goodness-for-all
+ORDER_LOG_GITHUB_BRANCH=master
+ORDER_LOG_GITHUB_PATH=content/buurthuis-bestellingen.csv
+```
+
+Use a fine-grained GitHub token scoped to this repository with `Contents: read/write`.

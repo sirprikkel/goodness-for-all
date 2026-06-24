@@ -52,6 +52,7 @@ export default function OrderFlow({ content }: { content: OrderFlowContent }) {
   const [calcText, setCalcText] = useState("");
   const [rejectionText, setRejectionText] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   function goTo(index: number) {
     setHistory((h) => [...h, index]);
@@ -131,23 +132,47 @@ export default function OrderFlow({ content }: { content: OrderFlowContent }) {
     }));
   }
 
-  function submitOrder() {
+  async function submitOrder() {
     if (!data.voornaam || !data.achternaam || !data.telefoon) {
       window.alert(content.contactAlert);
       return;
     }
+
     setSubmitting(true);
-    // TODO: POST `data` to backend / Google Sheets endpoint.
-    setTimeout(() => {
+    setSubmitError("");
+
+    try {
+      const response = await fetch("/api/orders", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...data,
+          source: "voor-buurthuizen",
+        }),
+      });
+
+      if (!response.ok) {
+        const payload = (await response.json().catch(() => null)) as { error?: string } | null;
+        throw new Error(payload?.error ?? "Bestelling kon niet worden verzonden.");
+      }
+
       setSubmitting(false);
       goTo(9);
-    }, 1500);
+    } catch (error) {
+      setSubmitting(false);
+      setSubmitError(
+        error instanceof Error ? error.message : "Bestelling kon niet worden verzonden.",
+      );
+    }
   }
 
   function reset() {
     setData(INITIAL);
     setCalcText("");
     setRejectionText("");
+    setSubmitError("");
     setHistory([0]);
     setStep(0);
   }
@@ -316,7 +341,8 @@ export default function OrderFlow({ content }: { content: OrderFlowContent }) {
               {content.flavors.map((flavor) => {
                 const selected = data.smaken.includes(flavor);
                 return (
-                  <div
+                  <button
+                    type="button"
                     key={flavor}
                     onClick={() => toggleFlavor(flavor)}
                     className={`border-2 border-evergreen p-2 cursor-pointer font-bold text-center flex items-center justify-center h-16 transition-colors ${
@@ -324,7 +350,7 @@ export default function OrderFlow({ content }: { content: OrderFlowContent }) {
                     }`}
                   >
                     {flavor}
-                  </div>
+                  </button>
                 );
               })}
             </div>
@@ -396,6 +422,11 @@ export default function OrderFlow({ content }: { content: OrderFlowContent }) {
               {submitting ? content.submittingLabel : content.submitLabel}
               {!submitting && <span className="material-symbols-outlined">send</span>}
             </button>
+            {submitError && (
+              <p className="mt-3 text-sm font-bold text-red-700" role="alert">
+                {submitError}
+              </p>
+            )}
           </Screen>
 
           {/* SUCCESS */}
