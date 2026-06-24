@@ -34,6 +34,14 @@ Zet daarna in Vercel bij het project de Environment Variables:
 
 Na aanpassen van environment variables moet Vercel opnieuw deployen. De login-URL mag daarna niet meer naar `api.netlify.com` verwijzen.
 
+Controleer na de redeploy:
+
+```bash
+npm run cms:auth:check
+```
+
+Een goede configuratie geeft een `github.com/login/oauth/authorize` URL terug. Als de command meldt dat `GITHUB_CLIENT_ID` of `GITHUB_CLIENT_SECRET` mist, staan de Vercel secrets nog niet goed.
+
 ## Toegang voor klant
 
 Geef de klant een GitHub-account met schrijfrechten op `Pimmetjeoss/goodness-for-all`. Daarna kan de klant via `/admin` inloggen en wijzigingen publiceren. Elke publicatie maakt een commit naar `master`; Vercel bouwt daarna opnieuw.

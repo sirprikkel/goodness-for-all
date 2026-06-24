@@ -30,7 +30,7 @@ npm run build
    - GitHub callback URL: `https://goodness-mu.vercel.app/api/cms/callback`.
    - Zet in Vercel environment variables: `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET` en `CMS_ALLOWED_DOMAINS=goodness-mu.vercel.app`.
    - Deploy daarna opnieuw naar productie.
-   - Test dat "Sign in with GitHub" naar `github.com/login/oauth/authorize` gaat en niet naar `api.netlify.com`.
+   - Test met `npm run cms:auth:check` dat "Sign in with GitHub" naar `github.com/login/oauth/authorize` gaat en niet naar `api.netlify.com`.
 
 2. Geef de Vercel GitHub App toegang tot de private repo `Pimmetjeoss/goodness-for-all`.
    - GitHub: Settings -> Applications -> Installed GitHub Apps -> Vercel -> Configure.
