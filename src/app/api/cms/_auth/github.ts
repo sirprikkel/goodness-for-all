@@ -106,6 +106,7 @@ export function startGitHubAuth(request: Request): Response {
   const token = crypto.randomUUID().replaceAll("-", "");
   const params = new URLSearchParams({
     client_id: clientId,
+    redirect_uri: `${url.origin}/api/cms/callback`,
     scope: "repo,user",
     state: token,
   });
