@@ -1,4 +1,5 @@
 const SECRET = "maak-hier-een-lang-geheim-woord";
+const SPREADSHEET_ID = "1h2XOVKBYFFJdMBiw6ls_pI3uZG-JVIBBFRMKyQtGeC0";
 const SHEET_NAME = "Bestellingen";
 
 function doPost(e) {
@@ -10,7 +11,7 @@ function doPost(e) {
       .setMimeType(ContentService.MimeType.JSON);
   }
 
-  const spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  const spreadsheet = SpreadsheetApp.openById(SPREADSHEET_ID);
   let sheet = spreadsheet.getSheetByName(SHEET_NAME);
 
   if (!sheet) {
