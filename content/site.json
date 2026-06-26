@@ -135,6 +135,7 @@
         "price": "€500",
         "period": "/ jaar",
         "featured": false,
+        "featuredLabel": "",
         "dark": false,
         "features": [
           "100 gezonde maaltijden voor Rotterdamse gezinnen.",
@@ -164,6 +165,7 @@
         "price": "€2.500",
         "period": "/ jaar",
         "featured": false,
+        "featuredLabel": "",
         "dark": true,
         "features": [
           "750 gezonde maaltijden.",
