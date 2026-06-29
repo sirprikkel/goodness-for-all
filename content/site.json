@@ -3,7 +3,7 @@
     "siteName": "Goodness for All",
     "cmsTitle": "Goodness for All CMS",
     "defaultMetaTitle": "Goodness for All | Iedereen een gezonde maaltijd",
-    "defaultMetaDescription": "Samen maken we een einde aan honger in Rotterdam.",
+    "defaultMetaDescription": "Geen honger meer in Nederland. De één betaalt wat meer voor lekker en gemakkelijk, zodat de ander eindelijk óók beter kan eten.",
     "logo": "/images/logo.png",
     "logoAlt": "Goodness for All",
     "email": "info@goodnessforall.nl",
@@ -63,11 +63,11 @@
   },
   "home": {
     "metaTitle": "Goodness for All | Iedereen een gezonde maaltijd",
-    "metaDescription": "Samen maken we een einde aan honger in Rotterdam.",
+    "metaDescription": "Geen honger meer in Nederland. De één betaalt wat meer voor lekker en gemakkelijk, zodat de ander eindelijk óók beter kan eten.",
     "hero": {
       "image": "/images/home/hero.jpg",
       "title": "Iedereen een gezonde maaltijd.",
-      "text": "Samen maken we een einde aan honger in Rotterdam.",
+      "text": "Geen honger meer in Nederland. De één betaalt wat meer voor lekker en gemakkelijk, zodat de ander eindelijk óók beter kan eten.",
       "buttonLabel": "Lees ons verhaal",
       "buttonHref": "/ons-verhaal"
     },
