@@ -51,13 +51,13 @@ export default function HungerCarousel({ slides, interval = 5000 }: Props) {
 
   return (
     <section
-      className="bg-evergreen overflow-hidden"
+      className="bg-evergreen overflow-hidden relative"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
       {/* Slide viewport */}
       <div
-        className="relative h-[400px] md:h-[480px]"
+        className="h-[400px] md:h-[480px] relative"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
@@ -67,8 +67,8 @@ export default function HungerCarousel({ slides, interval = 5000 }: Props) {
             aria-hidden={i !== active}
             className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
               i === active
-                ? "opacity-100 z-10"
-                : "opacity-0 z-0 pointer-events-none"
+                ? "opacity-100"
+                : "opacity-0 pointer-events-none"
             }`}
           >
             {slide.image ? (
@@ -122,26 +122,26 @@ export default function HungerCarousel({ slides, interval = 5000 }: Props) {
           </div>
         ))}
 
-        {/* Subtle dark gradient so dots stay readable over any photo */}
-        <div className="absolute bottom-0 left-0 right-0 h-14 bg-gradient-to-t from-black/30 to-transparent pointer-events-none z-20" />
-
-        {/* Dot indicators – overlaid on the slide */}
-        <div className="absolute bottom-4 left-0 right-0 flex justify-center items-center gap-3 z-30">
-          {slides.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setActive(i)}
-              aria-label={`Ga naar kaart ${i + 1}`}
-              className={`transition-all duration-300 [box-shadow:0_1px_4px_rgba(0,0,0,0.55)] ${
-                i === active
-                  ? "w-5 h-2 bg-harvest-orange"
-                  : "w-2 h-2 bg-sandstone-beige hover:bg-sandstone-beige/80"
-              }`}
-            />
-          ))}
-        </div>
       </div>
 
+      {/* Subtle dark gradient so dots stay readable over any photo */}
+      <div className="absolute bottom-0 left-0 right-0 h-14 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" />
+
+      {/* Dot indicators – overlaid on the slide */}
+      <div className="absolute bottom-4 left-0 right-0 flex justify-center items-center gap-3">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setActive(i)}
+            aria-label={`Ga naar kaart ${i + 1}`}
+            className={`transition-all duration-300 [box-shadow:0_1px_4px_rgba(0,0,0,0.55)] ${
+              i === active
+                ? "w-5 h-2 bg-harvest-orange"
+                : "w-2 h-2 bg-sandstone-beige hover:bg-sandstone-beige/80"
+            }`}
+          />
+        ))}
+      </div>
     </section>
   );
 }
