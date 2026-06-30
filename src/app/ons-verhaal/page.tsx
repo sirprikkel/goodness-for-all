@@ -159,11 +159,11 @@ export default function OnsVerhaalPage() {
               ))}
             </ul>
           </div>
-          <div className="relative h-[400px] md:h-full overflow-hidden">
+          <div className="overflow-hidden border-2 border-evergreen">
             <img
               src={story.meal.image}
               alt={story.meal.imageAlt}
-              className="w-full h-full object-cover"
+              className="w-full h-[500px] object-cover hover:grayscale transition-all duration-500"
             />
           </div>
         </section>
