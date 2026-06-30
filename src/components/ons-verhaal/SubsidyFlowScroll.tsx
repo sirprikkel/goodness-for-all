@@ -29,7 +29,7 @@ export default function SubsidyFlowScroll({ content }: { content: SubsidyFlowCon
               {content.title}
             </h2>
 
-            <div className="flex flex-col md:flex-row justify-around items-start gap-12 relative">
+            <div className="flex flex-col md:flex-row justify-around items-start gap-6 relative">
               <Connector progress={scrollYProgress} reduceMotion={reduceMotion} />
 
               {/* Corporate card — €8 */}
@@ -38,8 +38,8 @@ export default function SubsidyFlowScroll({ content }: { content: SubsidyFlowCon
                 range={SEGMENTS.corporate}
                 reduceMotion={reduceMotion}
               >
-                <div className="z-10 text-center w-full md:w-64">
-                  <div className="relative overflow-hidden border-2 border-evergreen h-48 md:h-56">
+                <div className="z-10 text-center w-full md:w-96">
+                  <div className="relative overflow-hidden border-2 border-evergreen h-64 md:h-80">
                     <img
                       src={content.corporateImage}
                       alt="€8 maaltijd op kantoor"
@@ -73,8 +73,8 @@ export default function SubsidyFlowScroll({ content }: { content: SubsidyFlowCon
                 range={SEGMENTS.community}
                 reduceMotion={reduceMotion}
               >
-                <div className="z-10 text-center w-full md:w-64">
-                  <div className="relative overflow-hidden border-2 border-evergreen h-48 md:h-56">
+                <div className="z-10 text-center w-full md:w-96">
+                  <div className="relative overflow-hidden border-2 border-evergreen h-64 md:h-80">
                     <img
                       src={content.communityImage}
                       alt="€1 maaltijd in de buurt"

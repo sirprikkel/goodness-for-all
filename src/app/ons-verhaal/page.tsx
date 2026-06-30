@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
@@ -128,8 +129,8 @@ export default function OnsVerhaalPage() {
         </section>
 
         {/* 4. De maaltijd — single image, icon bullet points */}
-        <section className="py-section-gap-lg grid grid-cols-1 md:grid-cols-2 gap-base border-2 border-evergreen">
-          <div className="p-12 flex flex-col justify-center bg-pure-mist">
+        <section className="py-section-gap-lg grid grid-cols-1 md:grid-cols-2 gap-base">
+          <div className="flex flex-col justify-center">
             <div className="mb-6">
               <span className="bg-asparagus text-evergreen font-label-sm text-[10px] px-3 py-1 uppercase tracking-tighter inline-block mb-4">
                 {story.meal.eyebrow}
@@ -158,7 +159,7 @@ export default function OnsVerhaalPage() {
               ))}
             </ul>
           </div>
-          <div className="relative h-[400px] md:h-full overflow-hidden border-l-2 border-evergreen">
+          <div className="relative h-[400px] md:h-full overflow-hidden">
             <img
               src={story.meal.image}
               alt={story.meal.imageAlt}
@@ -191,6 +192,27 @@ export default function OnsVerhaalPage() {
                 </div>
               </div>
             ))}
+
+            {/* 7th card — CTA to werken bij */}
+            <div className="team-card group">
+              <div className="border-2 border-evergreen overflow-hidden aspect-square relative">
+                <img
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  alt="Kom jij ons team versterken"
+                  src="/images/ons-verhaal/werken-bij-goodness.jpg"
+                />
+                <div className="absolute inset-0 bg-evergreen/10 group-hover:bg-transparent transition-colors" />
+              </div>
+              <div className="mt-4">
+                <h3 className="font-headline-md text-evergreen">Kom jij ons team versterken</h3>
+                <Link
+                  href="/ik-wil-helpen"
+                  className="font-label-sm text-label-sm text-harvest-orange uppercase hover:underline"
+                >
+                  kom in contact
+                </Link>
+              </div>
+            </div>
           </div>
         </section>
       </main>
