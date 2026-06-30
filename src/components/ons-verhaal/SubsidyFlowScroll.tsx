@@ -21,11 +21,11 @@ export default function SubsidyFlowScroll({ content }: { content: SubsidyFlowCon
   });
 
   return (
-    <section ref={runwayRef} className="relative h-[300vh]">
+    <section ref={runwayRef} className="relative h-[200vh]">
       <div className="sticky top-0 h-screen flex items-center">
         <div className="w-full max-w-[1200px] mx-auto px-container-margin">
           <div className="bg-sandstone-beige p-12 border-2 border-evergreen">
-            <h2 className="font-headline-md text-headline-md text-evergreen mb-12 text-center uppercase tracking-widest">
+            <h2 className="hero-title font-bold text-headline-md text-evergreen mb-12 text-center uppercase tracking-widest">
               {content.title}
             </h2>
 
@@ -109,12 +109,12 @@ export default function SubsidyFlowScroll({ content }: { content: SubsidyFlowCon
   );
 }
 
-// Segments tuned to reveal early — content appears in the first third of scroll
+// Segments tuned to reveal very early — everything visible in the first half of scroll
 const SEGMENTS = {
-  corporate: [0.05, 0.2],
-  arrow:     [0.2,  0.3],
-  community: [0.3,  0.5],
-  closing:   [0.5,  0.65],
+  corporate: [0.02, 0.12],
+  arrow:     [0.12, 0.2],
+  community: [0.2,  0.35],
+  closing:   [0.35, 0.5],
 } as const;
 
 type PieceProps = {

@@ -44,13 +44,13 @@ export default function OnsVerhaalPage() {
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-8">
           <h1
             className="hero-title font-bold text-white text-[48px] md:text-[72px] leading-none mb-4"
-            style={{ WebkitTextStroke: "1px #334e1f" }}
+            style={{ textShadow: "0 2px 12px rgba(0,0,0,0.55), 0 1px 3px rgba(0,0,0,0.4)" }}
           >
             Wij hebben een probleem.
           </h1>
           <p
-            className="hero-title font-bold text-white/80 text-[24px] md:text-[36px] leading-snug"
-            style={{ WebkitTextStroke: "0.5px #334e1f" }}
+            className="hero-title font-bold text-white/90 text-[24px] md:text-[36px] leading-snug"
+            style={{ textShadow: "0 2px 8px rgba(0,0,0,0.5)" }}
           >
             En jij kan helpen het op te lossen.
           </p>
@@ -104,7 +104,7 @@ export default function OnsVerhaalPage() {
               />
             </div>
             <div className="w-full md:w-1/2">
-              <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-evergreen mb-8">
+              <h2 className="hero-title font-bold text-headline-lg-mobile md:text-headline-lg text-evergreen mb-8">
                 {story.distribution.title}
               </h2>
               <p className="font-body-lg text-body-lg text-evergreen/90 mb-6">
@@ -134,7 +134,7 @@ export default function OnsVerhaalPage() {
               <span className="bg-asparagus text-evergreen font-label-sm text-[10px] px-3 py-1 uppercase tracking-tighter inline-block mb-4">
                 {story.meal.eyebrow}
               </span>
-              <h2 className="font-headline-md text-headline-md text-evergreen uppercase">
+              <h2 className="hero-title font-bold text-headline-md text-evergreen uppercase">
                 {story.meal.title}
               </h2>
             </div>
@@ -169,7 +169,7 @@ export default function OnsVerhaalPage() {
 
         {/* 5. Team */}
         <section className="py-section-gap-lg mb-section-gap-lg">
-          <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-evergreen mb-12 text-center">
+          <h2 className="hero-title font-bold text-headline-lg-mobile md:text-headline-lg text-evergreen mb-12 text-center">
             {story.teamTitle}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
