@@ -5,25 +5,25 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "./locations-map.css";
 
-import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
-import markerIcon from "leaflet/dist/images/marker-icon.png";
-import markerShadow from "leaflet/dist/images/marker-shadow.png";
-
 import { IMPACT_LOCATIONS } from "./locations";
 
-// Een afbeeldingsimport levert hier de URL-string op (Turbopack), maar kan in
-// andere setups een StaticImageData-object met `.src` zijn. We ondersteunen
-// beide vormen.
-const assetUrl = (img: string | { src: string }): string =>
-  typeof img === "string" ? img : img.src;
+// Marker-druppel in de huisstijl-oranje (Harvest Orange #ed961d) die ook
+// elders op de site wordt gebruikt. De standaard Leaflet-marker is een vaste
+// blauwe afbeelding; om dezelfde druppelvorm in onze kleur te tonen gebruiken
+// we een divIcon met een inline SVG (geen externe icoon-CDN nodig).
+const markerSvg = `
+<svg xmlns="http://www.w3.org/2000/svg" width="26" height="40" viewBox="0 0 26 40" aria-hidden="true">
+  <path d="M13 .8C6.1.8.5 6.4.5 13.3.5 22.4 13 39.2 13 39.2S25.5 22.4 25.5 13.3C25.5 6.4 19.9.8 13 .8z"
+        fill="#ed961d" stroke="#334e1f" stroke-width="1.5"/>
+  <circle cx="13" cy="13.3" r="4.6" fill="#334e1f"/>
+</svg>`;
 
-// Standaard Leaflet-marker-druppels. De default-iconen verwijzen normaal naar
-// bestanden die de bundler niet meeneemt; daarom koppelen we de meegeleverde
-// afbeeldingen expliciet aan het default-icoon.
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: assetUrl(markerIcon2x),
-  iconUrl: assetUrl(markerIcon),
-  shadowUrl: assetUrl(markerShadow),
+const orangeIcon = L.divIcon({
+  className: "gfa-marker",
+  html: markerSvg,
+  iconSize: [26, 40],
+  iconAnchor: [13, 39],
+  popupAnchor: [0, -34],
 });
 
 // Begrenzing rond alle 14 locaties (Rotterdam + Den Haag), zodat ze allemaal
@@ -43,7 +43,11 @@ export default function LocationsMapView() {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {IMPACT_LOCATIONS.map((loc) => (
-        <Marker key={`${loc.title}-${loc.address}`} position={loc.position}>
+        <Marker
+          key={`${loc.title}-${loc.address}`}
+          position={loc.position}
+          icon={orangeIcon}
+        >
           <Popup>
             <span className="gfa-popup__subtitle">{loc.subtitle}</span>
             <p className="gfa-popup__title">{loc.title}</p>

@@ -14,6 +14,19 @@
   border-radius: 12px;
 }
 
+/* Marker-druppel (divIcon met inline SVG). Het standaard divIcon heeft een
+   witte achtergrond + rand; die zetten we uit en we geven de druppel een
+   subtiele slagschaduw. */
+.gfa-marker {
+  background: transparent;
+  border: none;
+}
+
+.gfa-marker svg {
+  display: block;
+  filter: drop-shadow(0 3px 3px rgba(45, 74, 62, 0.4));
+}
+
 /* Popup-omhulsel: Sandstone Beige met Evergreen rand. */
 .gfa-map .leaflet-popup-content-wrapper {
   background: #f2ead8;
