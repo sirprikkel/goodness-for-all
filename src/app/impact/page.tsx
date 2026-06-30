@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Counter from "@/components/home/Counter";
 import ParticleField from "@/components/impact/ParticleField";
+import LocationsMap from "@/components/impact/LocationsMap";
 import { getSiteContent, mapsUrl } from "@/lib/content";
 
 const site = getSiteContent();
@@ -63,6 +64,17 @@ export default function ImpactPage() {
               </a>
             ))}
           </div>
+        </section>
+
+        <section className="py-section-gap-sm">
+          <h2 className="font-headline-md text-headline-md text-evergreen border-l-4 border-harvest-orange pl-4 mb-section-gap-sm">
+            Waar we actief zijn
+          </h2>
+          <p className="font-body-md text-body-md text-evergreen/80 mb-base max-w-2xl">
+            Onze partnerlocaties in Rotterdam en Den Haag op de kaart. Klik op een
+            marker voor meer informatie en een link naar de locatie.
+          </p>
+          <LocationsMap />
         </section>
 
         <section className="py-section-gap-sm">
