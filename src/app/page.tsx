@@ -60,7 +60,7 @@ export default function HomePage() {
               className="h-full bg-white border-2 border-evergreen p-8 flex flex-col justify-between hover:bg-sandstone-beige transition-colors duration-300"
             >
               <div>
-                <h3 className="font-headline-md text-headline-md mb-4 uppercase tracking-tight">
+                <h3 className="hero-title font-bold text-headline-md mb-4 uppercase tracking-tight">
                   {card.title}
                 </h3>
                 <p className="font-body-md text-lg md:text-body-md text-evergreen/80">
@@ -75,7 +75,7 @@ export default function HomePage() {
 
           <div className="h-full bg-white border-2 border-evergreen p-8 flex flex-col justify-between hover:bg-sandstone-beige transition-colors duration-300">
             <div>
-              <h3 className="font-headline-md text-headline-md mb-4 uppercase tracking-tight">
+              <h3 className="hero-title font-bold text-headline-md mb-4 uppercase tracking-tight">
                 {home.joinCard.title}
               </h3>
               <p className="font-body-md text-lg md:text-body-md text-evergreen/80">
@@ -102,9 +102,9 @@ export default function HomePage() {
           <div className="mb-4">
             <Counter
               end={home.counter.value}
-              className="text-[80px] md:text-[120px] font-headline-lg font-extrabold leading-none text-harvest-orange block"
+              className="text-[80px] md:text-[120px] hero-title font-bold leading-none text-white block"
             />
-            <span className="text-2xl md:text-4xl font-headline-md uppercase tracking-widest block -mt-1">
+            <span className="text-2xl md:text-4xl hero-title font-bold text-white/90 uppercase tracking-widest block -mt-1">
               {home.counter.label}
             </span>
           </div>
