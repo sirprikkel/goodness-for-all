@@ -14,9 +14,8 @@ type Props = {
   interval?: number;
 };
 
-export default function HungerCarousel({ slides, interval = 5000 }: Props) {
+export default function HungerCarousel({ slides, interval = 4000 }: Props) {
   const [active, setActive] = useState(0);
-  const [paused, setPaused] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
   const touchStartX = useRef<number | null>(null);
 
@@ -34,10 +33,10 @@ export default function HungerCarousel({ slides, interval = 5000 }: Props) {
   );
 
   useEffect(() => {
-    if (paused || reduceMotion) return;
+    if (reduceMotion) return;
     const timer = setInterval(() => advance(1), interval);
     return () => clearInterval(timer);
-  }, [paused, reduceMotion, advance, interval]);
+  }, [reduceMotion, advance, interval]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
@@ -52,8 +51,6 @@ export default function HungerCarousel({ slides, interval = 5000 }: Props) {
   return (
     <section
       className="bg-evergreen overflow-hidden relative"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
     >
       {/*
         Slide viewport — isolation:isolate creates an explicit stacking context
@@ -104,7 +101,7 @@ export default function HungerCarousel({ slides, interval = 5000 }: Props) {
                       {slide.lead}
                     </span>
                     {slide.body && (
-                      <p className="font-body-lg text-body-lg text-white/90">
+                      <p className={i === 0 ? "hero-title font-bold text-[28px] md:text-[36px] text-white/90" : "font-body-lg text-body-lg text-white/90"}>
                         {slide.body}
                       </p>
                     )}
