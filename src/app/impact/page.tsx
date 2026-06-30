@@ -60,9 +60,6 @@ export default function ImpactPage() {
           <div className="relative overflow-hidden bg-sandstone-beige p-section-gap-sm border-evergreen border-2 flex flex-col items-center">
             <ParticleField />
             <div className="relative z-10 flex flex-col items-center">
-              <span className="material-symbols-outlined text-[48px] text-harvest-orange mb-4">
-                format_quote
-              </span>
               <blockquote className="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-evergreen text-center max-w-3xl mb-8">
                 &quot;{impact.quote.text}&quot;
               </blockquote>
