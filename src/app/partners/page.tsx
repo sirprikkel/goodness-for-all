@@ -12,8 +12,14 @@ export const metadata: Metadata = {
   title: site.partners.metaTitle,
 };
 
-export default function PartnersPage() {
+export default async function PartnersPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
   const { settings, partners, forms } = getSiteContent();
+  const params = await searchParams;
+  const choice = typeof params.keuze === "string" ? params.keuze : undefined;
 
   return (
     <>
@@ -21,7 +27,10 @@ export default function PartnersPage() {
       <main>
         <PartnerHero content={partners.hero} />
 
-        <section className="py-section-gap-lg px-container-margin max-w-[1200px] mx-auto">
+        <section
+          id="impact-niveau"
+          className="scroll-mt-28 py-section-gap-lg px-container-margin max-w-[1200px] mx-auto"
+        >
           <div className="text-center mb-12">
             <h2 className="font-headline-lg text-headline-lg text-evergreen">
               {partners.pricingTitle}
@@ -147,7 +156,10 @@ export default function PartnersPage() {
           </div>
         </section>
 
-        <section className="py-section-gap-lg bg-evergreen px-container-margin">
+        <section
+          id="partner-formulier"
+          className="scroll-mt-28 py-section-gap-lg bg-evergreen px-container-margin"
+        >
           <div className="max-w-[800px] mx-auto bg-pure-mist p-8 md:p-12 border-2 border-harvest-orange">
             <div className="mb-10">
               <h2 className="font-headline-lg text-headline-lg text-evergreen mb-2">
@@ -157,7 +169,7 @@ export default function PartnersPage() {
                 {partners.formText}
               </p>
             </div>
-            <PartnerForm content={forms.partner} />
+            <PartnerForm content={forms.partner} initialChoice={choice} />
           </div>
         </section>
       </main>

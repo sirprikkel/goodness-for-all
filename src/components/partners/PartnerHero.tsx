@@ -30,34 +30,44 @@ export default function PartnerHero({ content }: { content: PartnerHeroContent }
         onMouseLeave={() => setHover(null)}
         className={`${leftBg} w-full md:w-1/2 transition-colors duration-300 p-container-margin md:p-section-gap-sm flex flex-col justify-center cursor-pointer`}
       >
-        <h1 className="font-headline-lg text-headline-lg text-evergreen max-w-md">
-          {content.leftTitle}
-        </h1>
-        <p className="mt-6 text-body-lg text-body-lg text-on-surface-variant max-w-sm">
-          {content.leftText}
-        </p>
+        <div className="w-full max-w-md mx-auto">
+          <h1 className="hero-title font-bold text-headline-lg text-evergreen">
+            {content.leftTitle}
+          </h1>
+          <p className="mt-6 text-body-lg text-body-lg text-on-surface-variant">
+            {content.leftText}
+          </p>
+        </div>
       </div>
       <div
         onMouseEnter={() => setHover("right")}
         onMouseLeave={() => setHover(null)}
         className={`${rightBg} w-full md:w-1/2 transition-colors duration-300 p-container-margin md:p-section-gap-sm flex flex-col justify-center cursor-pointer`}
       >
-        <h2 className="font-headline-lg text-headline-lg text-harvest-orange">
-          {content.rightTitle}
-        </h2>
-        <div className="mt-8 flex flex-wrap gap-4">
-          {content.badges.map((badge) => (
-            <div
-              key={badge}
-              className="bg-asparagus text-evergreen px-4 py-2 font-label-sm text-label-sm"
-            >
-              {badge}
-            </div>
-          ))}
+        <div className="w-full max-w-md mx-auto">
+          <h2 className="hero-title font-bold text-headline-lg text-harvest-orange">
+            {content.rightTitle}
+          </h2>
+          <div className="mt-8 flex flex-wrap gap-4">
+            {content.badges.map((badge) => (
+              <div
+                key={badge}
+                className="bg-asparagus text-evergreen px-4 py-2 font-label-sm text-label-sm"
+              >
+                {badge}
+              </div>
+            ))}
+          </div>
+          <p className="mt-6 text-body-md text-body-md text-sandstone-beige">
+            {content.rightText}
+          </p>
+          <a
+            href={content.buttonHref}
+            className="mt-8 inline-block bg-harvest-orange text-evergreen px-8 py-4 font-cta text-cta transition-transform active:scale-95 hover:bg-secondary-container"
+          >
+            {content.buttonLabel}
+          </a>
         </div>
-        <p className="mt-6 text-body-md text-body-md text-sandstone-beige max-w-md">
-          {content.rightText}
-        </p>
       </div>
     </section>
   );

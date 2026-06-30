@@ -6,15 +6,60 @@ import type { SiteContent } from "@/lib/content";
 type SubmitState = "idle" | "sending" | "sent" | "error";
 type PartnerFormContent = SiteContent["forms"]["partner"];
 
-export default function PartnerForm({ content }: { content: PartnerFormContent }) {
+// Checkbox 5 ("Algemene informatie") staat altijd standaard aangevinkt.
+const ALWAYS_CHECKED = "algemeen";
+// De waarde van ?keuze=... is gelijk aan de checkbox-id die extra
+// aangevinkt moet worden. Checkbox 4 ("gift") wordt nooit automatisch
+// aangevinkt en staat daarom bewust niet in deze lijst.
+const CHOICE_TO_CHECKBOX: Record<string, string> = {
+  supporter: "supporter",
+  builder: "builder",
+  leider: "leider",
+};
+
+// Startset checkboxes: altijd "Algemene informatie", plus de checkbox die
+// hoort bij ?keuze=... (indien aanwezig). Wordt zowel op de server als op de
+// client met dezelfde prop berekend, dus geen hydration-mismatch en geen flits.
+function initialSelection(choice: string | undefined): Set<string> {
+  const selection = new Set([ALWAYS_CHECKED]);
+  const extra = choice ? CHOICE_TO_CHECKBOX[choice] : undefined;
+  if (extra) {
+    selection.add(extra);
+  }
+  return selection;
+}
+
+export default function PartnerForm({
+  content,
+  initialChoice,
+}: {
+  content: PartnerFormContent;
+  initialChoice?: string;
+}) {
   const [state, setState] = useState<SubmitState>("idle");
   const [message, setMessage] = useState("");
+  const [checked, setChecked] = useState<Set<string>>(() => initialSelection(initialChoice));
   const formRef = useRef<HTMLFormElement | null>(null);
+
+  function toggle(id: string) {
+    setChecked((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+      }
+      return next;
+    });
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
     const formData = new FormData(form);
+    const interesses = content.interests
+      .filter((option) => checked.has(option.id))
+      .map((option) => option.label);
 
     setState("sending");
     setMessage("");
@@ -29,6 +74,7 @@ export default function PartnerForm({ content }: { content: PartnerFormContent }
         rol: formData.get("rol"),
         email: formData.get("email"),
         bericht: formData.get("bericht"),
+        interesses,
       }),
     });
 
@@ -42,6 +88,7 @@ export default function PartnerForm({ content }: { content: PartnerFormContent }
     setState("sent");
     setMessage(content.sentLabel);
     form.reset();
+    setChecked(initialSelection(initialChoice));
     setTimeout(() => {
       setState("idle");
       setMessage("");
@@ -109,6 +156,23 @@ export default function PartnerForm({ content }: { content: PartnerFormContent }
           />
         </div>
       )}
+      <fieldset className="flex flex-col gap-3">
+        <legend className={`${labelCls} mb-1`}>{content.interestsLabel}</legend>
+        {content.interests.map((option) => (
+          <label
+            key={option.id}
+            className="flex items-start gap-3 text-body-md text-evergreen cursor-pointer"
+          >
+            <input
+              type="checkbox"
+              className="mt-1 h-5 w-5 shrink-0 accent-harvest-orange cursor-pointer"
+              checked={checked.has(option.id)}
+              onChange={() => toggle(option.id)}
+            />
+            <span>{option.label}</span>
+          </label>
+        ))}
+      </fieldset>
       <button
         className={`w-full md:w-auto text-evergreen px-12 py-5 font-cta text-cta transition-all cursor-pointer active:scale-95 ${
           state === "sent" ? "bg-asparagus" : "bg-harvest-orange hover:bg-secondary-container"

@@ -148,14 +148,16 @@
   "partners": {
     "metaTitle": "Partners | Goodness for All",
     "hero": {
-      "leftTitle": "Rotterdam is ook jullie stad.",
-      "leftText": "Samen bouwen we aan een stad zonder honger. Uw organisatie kan het verschil maken voor duizenden buurtgenoten.",
-      "rightTitle": "Word Goodness Impact Partner.",
+      "leftTitle": "Het is ook jullie stad.",
+      "leftText": "Samen bouwen we aan een stad zonder honger. Uw organisatie kan het verschil maken voor duizenden buurtgenoten, en zo bijdragen aan een prettiger vestigingsklimaat en fijne werkplek.",
+      "rightTitle": "Wordt Goodness for All Impact Partner",
       "badges": [
         "CSRD PROOF",
         "ESG COMPLIANT"
       ],
-      "rightText": "Voldoe aan uw duurzaamheidsdoelstellingen en rapportageverplichtingen (CSRD/ESG) terwijl u direct bijdraagt aan lokale voedselzekerheid in Rotterdam."
+      "rightText": "Geef concreet invulling aan uw ambities en rapportageverplichtingen (CSRD/ESG) terwijl u direct bijdraagt aan lokale voedselzekerheid in de stad waar jullie actief zijn.",
+      "buttonLabel": "Kies uw impact niveau",
+      "buttonHref": "#impact-niveau"
     },
     "pricingTitle": "Kies uw impact niveau",
     "pricingText": "Transparante bijdragen, meetbaar resultaat.",
@@ -163,47 +165,53 @@
       {
         "name": "Impact Supporter",
         "price": "€500",
-        "period": "/ jaar",
+        "period": "/ maand",
         "featured": false,
         "featuredLabel": "",
         "dark": false,
         "features": [
-          "100 gezonde maaltijden voor Rotterdamse gezinnen.",
-          "Jaarlijks digitaal impact certificaat.",
-          "Logo vermelding op onze website."
+          "Logo vermelding op onze website.",
+          "Elk jaar 2.000 maaltijden namens jouw bedrijf gedistribueerd.",
+          "Uitgebreide CSRD rapportage."
         ],
         "buttonLabel": "Start als Supporter",
-        "buttonHref": "/contact"
+        "buttonHref": "/partners?keuze=supporter#partner-formulier"
       },
       {
         "name": "Impact Builder",
         "price": "€1.250",
-        "period": "/ jaar",
-        "featured": true,
-        "featuredLabel": "POPULAIR",
+        "period": "/ maand",
+        "featured": false,
+        "featuredLabel": "",
         "dark": false,
         "features": [
-          "300 gezonde maaltijden.",
-          "Volledig CSRD-klaar impact rapportage.",
-          "Goodness vrieskast voor op kantoor (optioneel)."
+          "Logo vermelding op onze website.",
+          "Elk jaar 5.000 maaltijden namens jouw bedrijf gedistribueerd.",
+          "Uitgebreide CSRD rapportage.",
+          "1 vriezer op jullie werkplek, gepromoot, bijgevuld en onderhouden door ons. Directe verkoop van maaltijden aan werknemers.",
+          "Elke verkochte maaltijd is +1 maaltijd gedistribueerd."
         ],
         "buttonLabel": "Word Impact Builder",
-        "buttonHref": "/contact"
+        "buttonHref": "/partners?keuze=builder#partner-formulier"
       },
       {
         "name": "Impact Leader",
         "price": "€2.500",
-        "period": "/ jaar",
+        "period": "/ maand",
         "featured": false,
         "featuredLabel": "",
         "dark": true,
         "features": [
-          "750 gezonde maaltijden.",
-          "Gepersonaliseerd CSRD/ESG rapport per kwartaal.",
-          "Impact video voor uw bedrijfscommunicatie."
+          "Logo vermelding op onze website.",
+          "Elk jaar 10.000 maaltijden namens jouw bedrijf gedistribueerd.",
+          "Uitgebreide CSRD rapportage.",
+          "1 vriezer op jullie werkplek, gepromoot, bijgevuld en onderhouden door ons. Directe verkoop van maaltijden aan werknemers.",
+          "Elke verkochte maaltijd is +1 maaltijd gedistribueerd.",
+          "Keynote \"Hoe bouw je in 2 jaar een impactonderneming\".",
+          "Gepersonaliseerde video voor bedrijfscommunicatie."
         ],
         "buttonLabel": "Leid de Impact",
-        "buttonHref": "/contact"
+        "buttonHref": "/partners?keuze=leider#partner-formulier"
       }
     ],
     "freezer": {
@@ -568,6 +576,14 @@
           "placeholder": "Hoe wilt u bijdragen aan de stad?",
           "type": "textarea"
         }
+      ],
+      "interestsLabel": "Stuur mij informatie over:",
+      "interests": [
+        { "id": "supporter", "label": "Impact Supporter worden" },
+        { "id": "builder", "label": "Impact Builder worden" },
+        { "id": "leider", "label": "Impact Leider worden" },
+        { "id": "gift", "label": "Een particuliere gift fiscaal aantrekkelijk realiseren" },
+        { "id": "algemeen", "label": "Algemene informatie" }
       ],
       "submitLabel": "Neem contact op",
       "sendingLabel": "Versturen...",
