@@ -47,6 +47,8 @@ export default function HomePage() {
         </div>
       </section>
 
+      <div className="h-3 bg-sandstone-beige w-full" />
+
       <HungerCarousel slides={home.hungerCarousel.slides} />
 
       <section className="py-section-gap-lg max-w-[1200px] mx-auto px-container-margin">
