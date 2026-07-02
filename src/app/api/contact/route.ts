@@ -16,6 +16,19 @@ function readText(data: Record<string, unknown>, key: string): string {
   return typeof value === "string" ? value.trim().slice(0, MAX_FIELD_LENGTH) : "";
 }
 
+function readList(data: Record<string, unknown>, key: string): string {
+  const value = data[key];
+  if (Array.isArray(value)) {
+    return value
+      .filter((item): item is string => typeof item === "string")
+      .map((item) => item.trim())
+      .filter((item) => item.length > 0)
+      .join(", ")
+      .slice(0, MAX_FIELD_LENGTH);
+  }
+  return readText(data, key);
+}
+
 function validateEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
@@ -108,6 +121,13 @@ export async function POST(request: Request) {
     return Response.json({ message: "Vul een geldig e-mailadres in." }, { status: 400 });
   }
 
+  // De aangevinkte checkboxes ("Stuur mij informatie over:") zijn optioneel en
+  // worden na de verplichte-velden-validatie aan de mail toegevoegd.
+  const mailFields: MailField[] =
+    kind === "partner"
+      ? [...fields, { label: "Interesse", value: readList(data, "interesses") }]
+      : fields;
+
   const resendApiKey = process.env.RESEND_API_KEY;
   const siteEmail = getSiteContent().settings.email;
   const to = process.env.CONTACT_TO ?? siteEmail;
@@ -137,8 +157,8 @@ export async function POST(request: Request) {
         to: [to],
         reply_to: [email],
         subject,
-        text: buildBody(kind, fields),
-        html: buildHtmlBody(kind, fields),
+        text: buildBody(kind, mailFields),
+        html: buildHtmlBody(kind, mailFields),
       }),
     });
 
