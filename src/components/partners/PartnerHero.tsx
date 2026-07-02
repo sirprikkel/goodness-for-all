@@ -30,13 +30,27 @@ export default function PartnerHero({ content }: { content: PartnerHeroContent }
         onMouseLeave={() => setHover(null)}
         className={`${leftBg} w-full md:w-1/2 transition-colors duration-300 p-container-margin md:p-section-gap-sm flex flex-col justify-center cursor-pointer`}
       >
-        <div className="w-full max-w-md mx-auto">
-          <h1 className="hero-title font-bold text-headline-lg text-evergreen">
-            {content.leftTitle}
-          </h1>
-          <p className="mt-6 text-body-lg text-body-lg text-on-surface-variant">
-            {content.leftText}
-          </p>
+        <div className="w-full max-w-md mx-auto space-y-10">
+          <div>
+            <h1 className="hero-title font-bold text-headline-lg text-evergreen">
+              {content.leftTitle}
+            </h1>
+            <p className="mt-6 text-body-lg text-body-lg text-on-surface-variant">
+              {content.leftText}
+            </p>
+          </div>
+          <div className="border-t-2 border-evergreen/15 pt-10">
+            <h2 className="hero-title font-bold text-headline-md text-evergreen">
+              {content.impactTitle}
+            </h2>
+            <p className="mt-4 text-body-md text-body-md text-on-surface-variant">
+              {content.impactParagraph1}
+            </p>
+            <p className="mt-4 text-body-md text-body-md text-on-surface-variant">
+              <strong className="text-evergreen">{content.impactBold}</strong>{" "}
+              {content.impactParagraph2}
+            </p>
+          </div>
         </div>
       </div>
       <div
