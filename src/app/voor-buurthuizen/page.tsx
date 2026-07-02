@@ -54,6 +54,17 @@ export default function VoorBuurthuizenPage() {
               </div>
             </div>
             <div className="w-full md:w-1/2">
+              <div className="bg-evergreen p-gutter mb-gutter">
+                <p className="title-baloo text-white">
+                  {neighborhoods.deliveryTitle}{" "}
+                  <span className="text-harvest-orange">{neighborhoods.deliveryDate}</span>
+                </p>
+                <p className="text-body-md font-body-md text-white/90 mt-base">
+                  {neighborhoods.deliveryLarge}
+                  <br />
+                  {neighborhoods.deliverySmall}
+                </p>
+              </div>
               <OrderFlow content={forms.order} />
             </div>
           </div>

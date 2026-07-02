@@ -487,7 +487,11 @@
     "visualText": "Daarom kiezen we voor vriezen.",
     "visualIcon": "eco",
     "visualIconTitle": "100% plantaardig",
-    "visualIconText": "Super inclusief, past in bijna elk dieet of levensovertuiging."
+    "visualIconText": "Super inclusief, past in bijna elk dieet of levensovertuiging.",
+    "deliveryTitle": "De volgende levering is",
+    "deliveryDate": "dinsdag 21 juli.",
+    "deliveryLarge": "Meer dan 30 dozen? Ophalen tussen 10.00 en 12.00",
+    "deliverySmall": "Minder dan 30 dozen? bezorgd tussen 12.00 en 16.00."
   },
   "anbi": {
     "metaTitle": "ANBI-informatie | Goodness for All",

@@ -275,6 +275,10 @@ collections:
               - { label: Visual tekst, name: visualText, widget: string }
               - { label: Visual icon, name: visualIcon, widget: string }
               - { label: Visual icon tekst, name: visualIconText, widget: string }
+              - { label: Levering titel, name: deliveryTitle, widget: string }
+              - { label: Levering datum, name: deliveryDate, widget: string }
+              - { label: Levering groot (30+ dozen), name: deliveryLarge, widget: text }
+              - { label: Levering klein (<30 dozen), name: deliverySmall, widget: text }
 
           - label: ANBI pagina
             name: anbi
