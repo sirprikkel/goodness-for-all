@@ -1,0 +1,107 @@
+/* Styling voor de interactieve Leaflet-kaart, afgestemd op de huisstijl.
+   Evergreen #2D4A3E · Harvest Orange #E8732A · Sandstone Beige #F2EAD8 */
+
+.gfa-map {
+  height: 100%;
+  width: 100%;
+  /* Border-radius van 12px voor de kaartcontainer. */
+  border-radius: 12px;
+}
+
+/* De kaarttegels mee laten ronden met de container. */
+.gfa-map .leaflet-container,
+.gfa-map .leaflet-tile-pane {
+  border-radius: 12px;
+}
+
+/* Marker-druppel (divIcon met inline SVG). Het standaard divIcon heeft een
+   witte achtergrond + rand; die zetten we uit en we geven de druppel een
+   subtiele slagschaduw. */
+.gfa-marker {
+  background: transparent;
+  border: none;
+}
+
+.gfa-marker svg {
+  display: block;
+  filter: drop-shadow(0 3px 3px rgba(45, 74, 62, 0.4));
+}
+
+/* Popup-omhulsel: Sandstone Beige met Evergreen rand. */
+.gfa-map .leaflet-popup-content-wrapper {
+  background: #f2ead8;
+  color: #2d4a3e;
+  border: 2px solid #2d4a3e;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(45, 74, 62, 0.25);
+}
+
+/* Pijltje onder de popup in dezelfde stijl. */
+.gfa-map .leaflet-popup-tip {
+  background: #f2ead8;
+  border: 2px solid #2d4a3e;
+}
+
+.gfa-map .leaflet-popup-content {
+  margin: 14px 16px;
+  line-height: 1.4;
+}
+
+.gfa-map .gfa-popup__subtitle {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #e8732a;
+  margin: 0 0 4px;
+}
+
+.gfa-map .gfa-popup__title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #2d4a3e;
+  margin: 0 0 2px;
+}
+
+.gfa-map .gfa-popup__city {
+  font-size: 12px;
+  font-weight: 600;
+  color: #2d4a3e;
+  opacity: 0.7;
+  margin: 0 0 6px;
+}
+
+.gfa-map .gfa-popup__address {
+  font-size: 13px;
+  color: #2d4a3e;
+  margin: 0 0 10px;
+}
+
+.gfa-map .gfa-popup__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #e8732a;
+  color: #2d4a3e;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  padding: 7px 12px;
+  border-radius: 8px;
+}
+
+.gfa-map .gfa-popup__link:hover {
+  background: #2d4a3e;
+  color: #f2ead8;
+}
+
+/* Sluitknop van de popup in huisstijlkleur. */
+.gfa-map .leaflet-popup-close-button {
+  color: #2d4a3e;
+}
+.gfa-map .leaflet-popup-close-button:hover {
+  color: #e8732a;
+}

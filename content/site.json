@@ -285,8 +285,8 @@
   "impact": {
     "metaTitle": "Impact | Goodness for All",
     "counterValue": 6240,
-    "counterLabel": "maaltijden uitgedeeld",
-    "counterText": "op weg naar 100.000.",
+    "counterLabel": "maaltijden in totaal uitgedeeld",
+    "counterText": "via de buurthuizen. Op naar de 100.000!",
     "locationsTitle": "Impact Locaties",
     "locations": [
       {
@@ -377,10 +377,13 @@
       "text": "Ons laatste onafhankelijke onderzoek toont aan dat de impact van een gezamenlijke maaltijd verder gaat dan alleen voeding. Het verlaagt de drempel naar verdere hulpverlening en versterkt de sociale cohesie in de wijk.",
       "buttonLabel": "Rapport downloaden",
       "buttonHref": "#",
+      "reportModalTitle": "Geen beledigende broccoli!",
+      "reportModalText": "We willen graag iedereen in Rotterdam, en Nederland voorzien in een goede maaltijd.\nWat we niet willen is vertellen hoe de wereld in elkaar zit, of wie wat zou moeten doen. Of onze oplossingen opdringen.\nDaarom zijn we nu een onderzoek aan het doen naar de behoeften van alle medewerkers van de buurthuizen, én natuurlijk die van de mensen die onze maaltijden eten. Wat gaat goed? Wat niet? Is het lekker, wat kan beter? Hoe ben je het beste geholpen?\n\nEind augustus, begin september hopen we hier de resultaten te delen én deze mee te nemen in hoe we werken.",
       "sroiEyebrow": "SROI Analyse",
       "sroiTitle": "9-33x Rendement",
       "sroiText": "Voor elke euro geïnvesteerd in onze programma's, genereert de maatschappij een waarde tussen de 9 en 33 euro door vermindering van eenzaamheid en verbeterde gezondheid.",
-      "sroiNote": "* Gebaseerd op externe Social Return on Investment berekeningen 2023-2024."
+      "sroiNote": "* Gebaseerd op externe Social Return on Investment berekeningen 2023-2024.",
+      "sroiHref": "https://openresearch.amsterdam/nl/page/132143/voedselinitiatieven-maatschappelijke-kosten%E2%80%91baten-analyse-mkba"
     }
   },
   "contact": {
