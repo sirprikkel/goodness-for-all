@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import OrderFlow from "@/components/forms/OrderFlow";
@@ -22,12 +23,27 @@ export default function VoorBuurthuizenPage() {
         <section className="max-w-[1200px] mx-auto px-container-margin py-section-gap-sm md:py-section-gap-lg">
           <div className="flex flex-col md:flex-row gap-section-gap-sm items-start">
             <div className="w-full md:w-1/2">
-              <h1 className="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-evergreen mb-base">
+              <h1 className="hero-title font-bold text-headline-lg-mobile md:text-headline-lg text-evergreen mb-base">
                 {neighborhoods.title}
               </h1>
               <p className="text-body-lg font-body-lg text-on-surface-variant max-w-xl">
                 {neighborhoods.text}
               </p>
+              <p className="text-body-lg font-body-lg text-on-surface-variant max-w-xl mt-4">
+                {neighborhoods.textSecondary}
+              </p>
+              <p className="text-body-md font-body-md text-on-surface-variant max-w-xl mt-6">
+                {neighborhoods.howItWorksText}
+              </p>
+              <p className="text-body-md font-body-md text-on-surface-variant max-w-xl mt-6">
+                {neighborhoods.accessText}
+              </p>
+              <Link
+                href={neighborhoods.accessButtonHref}
+                className="inline-block mt-4 bg-harvest-orange text-evergreen font-cta text-cta px-8 py-4 uppercase tracking-widest hover:bg-evergreen hover:text-sandstone-beige transition-all active:scale-95"
+              >
+                {neighborhoods.accessButtonLabel}
+              </Link>
             </div>
             <div className="w-full md:w-1/2">
               <OrderFlow content={forms.order} />

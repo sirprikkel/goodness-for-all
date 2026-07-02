@@ -334,10 +334,11 @@ export default function OrderFlow({ content }: { content: OrderFlowContent }) {
 
           {/* Q6: SMAKENSELECTIE */}
           <Screen>
-            <h2 className="font-headline-md text-headline-md text-evergreen mb-4">
+            <h2 className="font-headline-md text-headline-md text-evergreen mb-2">
               {content.screens.flavorsQuestion}
             </h2>
-            <div className="grid grid-cols-2 gap-3 overflow-y-auto max-h-[250px] pr-2 custom-scrollbar">
+            <p className="text-evergreen/60 mb-4 text-sm">{content.screens.flavorsHint}</p>
+            <div className="grid grid-cols-2 gap-3 overflow-y-auto max-h-[320px] pr-2 custom-scrollbar">
               {content.flavors.map((flavor) => {
                 const selected = data.smaken.includes(flavor);
                 return (
@@ -345,10 +346,14 @@ export default function OrderFlow({ content }: { content: OrderFlowContent }) {
                     type="button"
                     key={flavor}
                     onClick={() => toggleFlavor(flavor)}
-                    className={`border-2 border-evergreen p-2 cursor-pointer font-bold text-center flex items-center justify-center h-16 transition-colors ${
-                      selected ? "bg-evergreen text-white" : ""
+                    aria-pressed={selected}
+                    className={`border-2 border-evergreen p-3 cursor-pointer font-bold text-center flex items-center justify-center gap-2 min-h-16 transition-colors ${
+                      selected ? "bg-evergreen text-white" : "hover:bg-sandstone-beige"
                     }`}
                   >
+                    <span className="material-symbols-outlined text-xl">
+                      {selected ? "check_box" : "check_box_outline_blank"}
+                    </span>
                     {flavor}
                   </button>
                 );
@@ -386,9 +391,10 @@ export default function OrderFlow({ content }: { content: OrderFlowContent }) {
 
           {/* Q8: CONTACTGEGEVENS */}
           <Screen>
-            <h2 className="font-headline-md text-headline-md text-evergreen mb-6">
+            <h2 className="font-headline-md text-headline-md text-evergreen mb-2">
               {content.screens.contactQuestion}
             </h2>
+            <p className="text-evergreen/60 mb-6 text-sm">{content.screens.contactSubtitle}</p>
             <div className="space-y-3">
               <input
                 className="w-full border-2 border-evergreen p-3 text-lg focus:outline-none"
