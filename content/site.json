@@ -37,7 +37,7 @@
       },
       {
         "href": "/ik-wil-helpen",
-        "label": "Werken bij",
+        "label": "Doe mee",
         "icon": "work"
       },
       {
@@ -410,14 +410,14 @@
     "newsletterButton": "OK"
   },
   "help": {
-    "metaTitle": "Werken bij | Goodness for All",
+    "metaTitle": "Doe mee | Goodness for All",
     "eyebrow": "CARRIÈRE",
     "title": "Ik wil helpen",
     "text": "We bouwen aan iets wat werkt. Geen ingewikkelde structuren, maar direct resultaat voor de gemeenschap. Sluit je aan bij een team dat gelooft in radicale toegankelijkheid en eerlijke impact.",
     "image": "/images/ik-wil-helpen/hero.jpg",
     "imageAlt": "A focused group of diverse professionals working together in a bright, minimalist office space.",
     "donationStrip": {
-      "donateText": "Elke €3 maakt een extra maaltijd mogelijk. Met €30 voed je 10 mensen.",
+      "donateText": "Elke €3 maakt een extra maaltijd mogelijk. Met €30 geef je 10 mensen deze week beter eten.",
       "donateButton": "Doneer direct",
       "donateHref": "https://betaalverzoek.rabobank.nl/betaalverzoek/?id=xuUs0QeyQbio6T_XijKyfg",
       "contactText": "Heb je een ander idee om samen te werken, of wil je een grotere particuliere schenking doen? Neem dan contact op.",
@@ -427,9 +427,23 @@
     "vacanciesText": "Vind jouw plek in ons groeiende ecosysteem.",
     "openApplicationLabel": "OPEN SOLLICITATIE",
     "openApplicationHref": "mailto:info@goodnessforall.nl",
-    "emptyIcon": "search_off",
-    "emptyTitle": "We zoeken mensen die kunnen helpen met promotie, logistiek en een co-founder.",
-    "emptyText": "Van een unieke bijbaan voor een paar uur in de week waar je écht verschil maakt, en ca. €20 per uur verdient, tot mede founder worden. Kom met een goed verhaal en we zijn in gesprek!",
+    "jobs": [
+      {
+        "icon": "handshake",
+        "title": "Co-owner (20 uur/week)",
+        "text": "Word mede-eigenaar en bouw mee aan de koers, de organisatie en de groei van Goodness for All."
+      },
+      {
+        "icon": "campaign",
+        "title": "Hulp bij verkoop bij corporates, promotie",
+        "text": "Help ons meer bedrijven te overtuigen om Impact Partner te worden en vergroot onze naamsbekendheid."
+      },
+      {
+        "icon": "local_shipping",
+        "title": "Logistieke hulp",
+        "text": "Ondersteun bij het inplannen en vervoeren van maaltijden naar buurthuizen."
+      }
+    ],
     "emailButton": "STUUR EEN E-MAIL",
     "culture": [
       {
