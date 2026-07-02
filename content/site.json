@@ -626,8 +626,6 @@
       "submittingLabel": "BEZIG...",
       "submitLabel": "Versturen",
       "newOrderLabel": "Nieuwe bestelling",
-      "registrationHref": "#",
-      "registrationLabel": "Registreer je hier",
       "flavors": [
         "Gnocchi Al Pesto",
         "Korean Noodles",
@@ -655,8 +653,7 @@
       ],
       "screens": {
         "welcomeTitle": "Goed eten voor iedereen bereikbaar maken.",
-        "welcomeTextBeforeLink": "Dit bestelportaal is exclusief voor maatschappelijke organisaties. Nog geen account?",
-        "welcomeTextAfterLink": ".",
+        "welcomeText": "Dit bestelportaal is alleen voor aangesloten maatschappelijke organisaties.",
         "organizationQuestion": "Voor welke organisatie bestel je?",
         "organizationPlaceholder": "Kies een locatie...",
         "amountQuestion": "Hoeveel doosjes wil je bestellen?",
