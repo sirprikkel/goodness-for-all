@@ -348,8 +348,6 @@ collections:
                   - { label: Bezig label, name: submittingLabel, widget: string }
                   - { label: Verzend label, name: submitLabel, widget: string }
                   - { label: Nieuwe bestelling label, name: newOrderLabel, widget: string }
-                  - { label: Registratie URL, name: registrationHref, widget: string }
-                  - { label: Registratie label, name: registrationLabel, widget: string }
                   - { label: Smaken, name: flavors, widget: list, field: { label: Smaak, name: flavor, widget: string } }
                   - { label: Organisaties, name: organizations, widget: list, field: { label: Organisatie, name: organization, widget: string } }
                   - label: Schermen
@@ -357,8 +355,7 @@ collections:
                     widget: object
                     fields:
                       - { label: Welkom titel, name: welcomeTitle, widget: string }
-                      - { label: Welkom tekst voor link, name: welcomeTextBeforeLink, widget: text }
-                      - { label: Welkom tekst na link, name: welcomeTextAfterLink, widget: string }
+                      - { label: Welkom tekst, name: welcomeText, widget: text }
                       - { label: Organisatievraag, name: organizationQuestion, widget: string }
                       - { label: Organisatie placeholder, name: organizationPlaceholder, widget: string }
                       - { label: Aantal vraag, name: amountQuestion, widget: string }

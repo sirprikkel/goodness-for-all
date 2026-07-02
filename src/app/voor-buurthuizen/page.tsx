@@ -64,12 +64,12 @@ export default function VoorBuurthuizenPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
               <div className="aspect-square bg-sandstone-beige overflow-hidden">
                 <img
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                  className="w-full h-full object-cover hover:grayscale transition-all duration-500"
                   alt={neighborhoods.visualAlt}
                   src={neighborhoods.visualImage}
                 />
               </div>
-              <div className="aspect-square bg-harvest-orange flex flex-col justify-end p-gutter">
+              <div className="aspect-square bg-harvest-orange flex flex-col items-center justify-center text-center p-gutter">
                 <h2 className="title-baloo text-white">
                   {neighborhoods.visualTitle}
                 </h2>
