@@ -118,8 +118,11 @@ export default function IkWilHelpenPage() {
                 <h3 className="font-headline-md text-headline-md text-evergreen mb-base">
                   {job.title}
                 </h3>
-                <p className="font-body-md text-body-md text-on-surface-variant mb-gutter flex-1">
+                <p className="font-body-md text-body-md text-on-surface-variant mb-base">
                   {job.text}
+                </p>
+                <p className="font-body-md text-body-md text-harvest-orange mb-gutter flex-1">
+                  {job.note}
                 </p>
                 <a
                   href={`mailto:${settings.email}`}
