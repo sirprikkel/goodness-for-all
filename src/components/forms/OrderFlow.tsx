@@ -227,11 +227,7 @@ export default function OrderFlow({ content }: { content: OrderFlowContent }) {
               {content.screens.welcomeTitle}
             </h2>
             <p className="text-body-md text-evergreen/80 mb-6">
-              {content.screens.welcomeTextBeforeLink}{" "}
-              <a className="text-harvest-orange underline font-bold" href={content.registrationHref}>
-                {content.registrationLabel}
-              </a>
-              {content.screens.welcomeTextAfterLink}
+              {content.screens.welcomeText}
             </p>
             <button
               type="button"
