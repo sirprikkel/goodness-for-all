@@ -35,7 +35,7 @@ export default async function PartnersPage({
           className="scroll-mt-28 py-section-gap-lg px-container-margin max-w-[1200px] mx-auto"
         >
           <div className="text-center mb-12">
-            <h2 className="font-headline-lg text-headline-lg text-evergreen">
+            <h2 className="hero-title font-bold text-headline-lg text-evergreen">
               {partners.pricingTitle}
             </h2>
             <p className="text-body-lg text-body-lg mt-4">{partners.pricingText}</p>
@@ -85,8 +85,8 @@ export default async function PartnersPage({
           </div>
         </section>
 
-        <section className="py-section-gap-lg text-center overflow-hidden">
-          <h2 className="font-headline-md text-headline-md text-evergreen mb-12 px-container-margin">
+        <section className="py-section-gap-lg text-center overflow-hidden bg-white">
+          <h2 className="hero-title font-bold text-headline-md text-evergreen mb-12 px-container-margin">
             {partners.logoGridTitle}
           </h2>
           <PartnerStrip />
